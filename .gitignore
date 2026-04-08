@@ -1,0 +1,10 @@
+# HOPE run outputs — written at runtime, not part of the case definition
+*/output/
+*/output*/
+
+# Large generated files excluded from tracking
+**/load_timeseries_nodal.csv
+**/load_timeseries_nodal.*
+**/load_btmpv_diagnostics.csv
+**/load_sector_weight_diagnostics.csv
+**/gen_availability_timeseries.csv
