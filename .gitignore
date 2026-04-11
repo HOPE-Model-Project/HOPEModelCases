@@ -8,3 +8,8 @@
 **/load_btmpv_diagnostics.csv
 **/load_sector_weight_diagnostics.csv
 **/gen_availability_timeseries.csv
+
+# Large raw source files — re-download from source if needed (see raw_sources/README.md)
+tools/**/raw_sources/egon_data/egon_etrago_electricity_cts.csv
+tools/**/raw_sources/egon_data/egon_etrago_electricity_households.csv
+tools/**/raw_sources/EBA.zip
