@@ -1,6 +1,8 @@
 # HOPE run outputs - written at runtime, not part of the case definition
 */output/
 */output*/
+*/debug_report/
+desktop.ini
 
 # Case input data belongs in this repo; large files are tracked with Git LFS
 !**/load_timeseries_nodal.csv
