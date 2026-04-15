@@ -1,0 +1,5 @@
+# Large case input datasets are versioned in Git LFS.
+**/load_timeseries_nodal.csv filter=lfs diff=lfs merge=lfs -text
+**/load_btmpv_diagnostics.csv filter=lfs diff=lfs merge=lfs -text
+**/load_sector_weight_diagnostics.csv filter=lfs diff=lfs merge=lfs -text
+**/gen_availability_timeseries.csv filter=lfs diff=lfs merge=lfs -text

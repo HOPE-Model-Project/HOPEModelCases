@@ -1,15 +1,14 @@
-# HOPE run outputs — written at runtime, not part of the case definition
+# HOPE run outputs - written at runtime, not part of the case definition
 */output/
 */output*/
 
-# Large generated files excluded from tracking
-**/load_timeseries_nodal.csv
-**/load_timeseries_nodal.*
-**/load_btmpv_diagnostics.csv
-**/load_sector_weight_diagnostics.csv
-**/gen_availability_timeseries.csv
+# Case input data belongs in this repo; large files are tracked with Git LFS
+!**/load_timeseries_nodal.csv
+!**/load_btmpv_diagnostics.csv
+!**/load_sector_weight_diagnostics.csv
+!**/gen_availability_timeseries.csv
 
-# Large raw source files — re-download from source if needed (see raw_sources/README.md)
+# Large raw source files - re-download from source if needed (see raw_sources/README.md)
 tools/**/raw_sources/egon_data/egon_etrago_electricity_cts.csv
 tools/**/raw_sources/egon_data/egon_etrago_electricity_households.csv
 tools/**/raw_sources/EBA.zip
