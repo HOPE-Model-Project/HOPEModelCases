@@ -43,6 +43,8 @@ The cleaned outputs are:
 - national chronology: `references/germany_hourly_chronology_clean.csv`
 - TSO-area load reference: `references/germany_zone_hourly_load_reference.csv`
 
+When a direct hourly `NetImports_MW` field is not available in the staged national chronology, the builder reconstructs net imports from the same hourly national load and generation stack so the active case still carries a consistent hourly import signal.
+
 Implemented chronology builder:
 
 - [build_germany_chronology.py](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/build_germany_chronology.py)
@@ -154,12 +156,19 @@ In implementation terms, the offshore rule is triggered only for generators iden
 
 ### 5.4 Generator and storage typing
 
-Fuel and technology labels are mapped into HOPE technology classes, including:
+Fuel and technology labels are mapped into HOPE technology classes. The active 2025 Germany build uses classes including:
 
-- `NuC`
-- `Coal`
-- `NGCC`
-- `NGCT`
+- `HardCoal_CHP`
+- `HardCoal_PP`
+- `Lignite_CHP`
+- `NGCC_CHP`
+- `NGCC_PP`
+- `NGCT_CHP`
+- `NGCT_PP`
+- `NGEngine_CHP`
+- `NGEngine_PP`
+- `NGSteam_CHP`
+- `NGSteam_PP`
 - `Oil`
 - `Hydro`
 - `WindOn`
@@ -167,8 +176,9 @@ Fuel and technology labels are mapped into HOPE technology classes, including:
 - `SolarPV`
 - `Bio`
 - `MSW`
-- `Landfill_NG`
 - `Other`
+
+The technology map still has a `NuC` branch for generality, but the active Germany 2025 build contains no nuclear rows.
 
 Storage technologies are separated into:
 
@@ -423,7 +433,7 @@ This means the current Germany PCM fleet is parameterized primarily at the model
 - reserve contribution parameters
 - startup and minimum up/down parameters
 
-For example, the current defaults distinguish among technologies such as `SolarPV`, `WindOn`, `WindOff`, `Hydro`, `NuC`, `Coal`, `NGCC`, `NGCT`, `Bio`, and `Oil`, but they do not yet assign plant-specific marginal-cost parameters within the same HOPE technology class.
+For example, the current defaults distinguish among technologies such as `SolarPV`, `WindOn`, `WindOff`, `Hydro`, `HardCoal_CHP`, `HardCoal_PP`, `Lignite_CHP`, `NGCC_CHP`, `NGCC_PP`, `NGCT_CHP`, `NGCT_PP`, `Bio`, and `Oil`, but they do not yet assign plant-specific marginal-cost parameters within the same HOPE technology class.
 
 ### 8.2 Storage table
 
@@ -461,9 +471,11 @@ For raw lines with available electrical reactance, the HOPE branch coefficient i
 
 ## 9. Renewable Availability Representation
 
-The current renewable representation is chronology-consistent but simplified spatially. Wind and solar availability are derived from the national chronology and normalized by the national annual maximum. The resulting hourly profiles are then copied across all German zones. Thus, the present implementation preserves the national renewable time pattern but does not yet introduce spatially differentiated weather-driven renewable profiles by zone or bus.
+The current renewable representation is chronology-consistent and hourly, but still simplified spatially. Wind and solar availability are derived from the national chronology and translated into hourly availability factors that are copied across the relevant German zones and resource rows. Hydro is also represented with an hourly availability signal rather than a single annual scalar, but that signal is still derived from national chronology rather than basin-level hydro conditions.
 
-This simplification should be kept in mind when interpreting renewable curtailment and congestion.
+Thus, the present implementation preserves the national renewable and hydro time pattern while avoiding flat annual availability assumptions, but it does not yet introduce weather-resolved zonal or nodal renewable fields.
+
+This simplification should still be kept in mind when interpreting renewable curtailment and congestion.
 
 ## 10. Zonal Case Derivation
 
@@ -557,7 +569,7 @@ Key validation notes are stored in:
 The present workflow still has several important limitations.
 
 1. Industry demand is still proxy-based because the direct eGon industry demand table is missing.
-2. Renewable availability is not yet weather-resolved spatially by zone or bus.
+2. Wind and solar availability are still not weather-resolved spatially by zone or bus, and hydro availability is not yet basin-resolved.
 3. Validation is strong at the directional level but not yet calibrated against corridor-level historical redispatch data.
 4. Broader prosumer effects such as electric vehicles and heat pumps are not yet included.
 

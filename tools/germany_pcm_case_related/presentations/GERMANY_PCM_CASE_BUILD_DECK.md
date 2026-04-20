@@ -27,8 +27,8 @@
 - 6. Dashboard geometry
 
 ## Slide 6. Case Snapshot
-- Nodal master case: 783 buses, 1174 lines, 4135 generators.
-- Zonal derivative case: 4 zones, 5 interfaces, 46 generators.
+- Nodal master case: 783 buses, 1174 lines, 4267 generators.
+- Zonal derivative case: 4 zones, 5 interfaces, 70 generators.
 
 ## Slide 7. Assumptions And Caveats
 - The 4-zone Germany setup is a research zoning, not the real DE-LU bidding zone.
@@ -41,9 +41,9 @@
 - Result: stable 1-day and 2-day full-nodal debug runs.
 
 ## Slide 9. Solved Demo Outcome
-- 2-day January nodal demo total cost: $10.00M.
+- 2-day January 15 nodal `v8` demo total cost: $226.37M.
 - Load shedding: 0.0.
-- The 2-day nodal case is now the dashboard default.
+- The January 15 `v8` case is now the dashboard default.
 
 ## Slide 10. Next Steps
 - Deepen validation and benchmarking.
@@ -52,59 +52,7 @@
 - Strengthen nodal-vs-zonal storytelling in the dashboard.
 
 ## Slide 11. Key Files In The Repo
-- E:/MIT Dropbox/Shen Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related
+- E:/MIT Dropbox/Shen Wang/MIT/RA/HOPE_project/ModelCases/tools/germany_pcm_case_related
 - E:/MIT Dropbox/Shen Wang/MIT/RA/HOPE_project/tools/hope_dashboard/data/germany_tso_zones.geojson
 - E:/MIT Dropbox/Shen Wang/MIT/RA/HOPE_project/ModelCases/GERMANY_PCM_nodal_case
 - E:/MIT Dropbox/Shen Wang/MIT/RA/HOPE_project/ModelCases/GERMANY_PCM_zonal4_case
-
-## Slide 12. Raw Input Snapshot
-- Raw network files: 12,936 buses, 16,050 line rows, 1,949 transformers, and 35 links.
-- Raw fleet file: 165,064 Germany plant rows from powerplantmatching.
-- Raw SMARD inputs: 8,766 rows in the national generation file and 8,766 rows in each TSO load helper file before normalization.
-- Clean staging outputs: 791 buses, 1,019 lines, 155 transformers, 141,420 cleaned generator rows, and 8,760 canonical chronology rows.
-
-## Slide 13. Processing To The Current Case
-- Ingest raw network, fleet, chronology, and reference geometry files.
-- Normalize schemas and filter to Germany-relevant records.
-- Repair topology and electrical scaling for HOPE compatibility.
-- Freeze bus-zone and generator-bus mapping tables.
-- Normalize chronology and zonal helper shares.
-- Build the nodal master case first and derive the zonal case from it.
-
-## Slide 14. Open-Source Case Comparison
-- HOPE Germany case: focused on matched nodal-vs-zonal PCM comparison.
-- PyPSA-Eur: strong Europe-wide workflow and clustering reference.
-- eTraGo/open_eGo: strong Germany-specific nodal and planning context.
-- POMATO DE example: strong market-coupling and redispatch framing.
-
-## Slide 15. Comparison: Pros And Trade-Offs
-- HOPE Germany case: best for direct comparison under consistent assumptions, but still being scaled to longer nodal horizons.
-- PyPSA-Eur: best open workflow backbone, but not a drop-in HOPE PCM case.
-- eTraGo/open_eGo: rich German system detail, but heavier and broader than the focused HOPE comparison build.
-- POMATO DE example: very strong for zonal market design, but a different modeling stack and study objective.
-
-## Extra Slide. Raw Input Snapshot
-- Raw network files: 12,936 buses, 16,050 line rows, 1,949 transformers, 35 links.
-- Raw fleet file: 165,064 Germany plant rows from powerplantmatching.
-- Raw SMARD inputs: 8,766 rows in the national generation file and 8,766 rows in each TSO load helper file before normalization.
-- Clean staging outputs: 791 buses, 1,019 lines, 155 transformers, 141,420 cleaned generator rows, and 8,760 canonical chronology rows.
-
-## Extra Slide. Processing To The Current Case
-- Ingest raw network, fleet, chronology, and reference geometry files.
-- Normalize schemas and filter to Germany-relevant records.
-- Repair topology and electrical scaling for HOPE compatibility.
-- Freeze bus-zone and generator-bus mapping tables.
-- Normalize chronology and zonal helper shares.
-- Build the nodal master case first and derive the zonal case from it.
-
-## Extra Slide. Open-Source Case Comparison
-- HOPE Germany case: focused on matched nodal-vs-zonal PCM comparison.
-- PyPSA-Eur: strong Europe-wide workflow and clustering reference.
-- eTraGo/open_eGo: strong Germany-specific nodal and planning context.
-- POMATO DE example: strong market-coupling and redispatch framing.
-
-## Extra Slide. Comparison: Pros And Trade-Offs
-- HOPE Germany case: best for direct comparison under consistent assumptions, but still being scaled to longer nodal horizons.
-- PyPSA-Eur: best open workflow backbone, but not a drop-in HOPE PCM case.
-- eTraGo/open_eGo: rich German system detail, but heavier and broader than the focused HOPE comparison build.
-- POMATO DE example: very strong for zonal market design, but a different modeling stack and study objective.

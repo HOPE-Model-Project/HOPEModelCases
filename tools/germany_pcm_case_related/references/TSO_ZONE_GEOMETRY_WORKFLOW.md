@@ -18,13 +18,13 @@ The overlay should:
 ## Inputs
 
 Reference geography:
-- `tools/germany_pcm_case_related/raw_sources/reference_geo/germany_states_simplify200.geojson`
+- `ModelCases/tools/germany_pcm_case_related/raw_sources/reference_geo/germany_states_simplify200.geojson`
 
 Case geography:
-- `ModelCases/GERMANY_PCM_nodal_jan_2day_rescaled_case/Data_GERMANY_PCM_nodal/busdata.csv`
+- `ModelCases/GERMANY_PCM_nodal_case/Data_GERMANY_PCM_nodal/busdata.csv`
 
 Builder:
-- `tools/germany_pcm_case_related/build_germany_tso_geojson.py`
+- `ModelCases/tools/germany_pcm_case_related/build_germany_tso_geojson.py`
 
 Output:
 - `tools/hope_dashboard/data/germany_tso_zones.geojson`

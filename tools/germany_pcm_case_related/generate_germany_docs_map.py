@@ -11,11 +11,12 @@ import numpy as np
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parents[2]
-BUS_PATH = ROOT / "ModelCases" / "GERMANY_PCM_nodal_jan_2day_rescaled_case" / "Data_GERMANY_PCM_nodal" / "busdata.csv"
-LINE_PATH = ROOT / "ModelCases" / "GERMANY_PCM_nodal_jan_2day_rescaled_case" / "Data_GERMANY_PCM_nodal" / "linedata.csv"
-ZONE_GEOJSON_PATH = ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
-OUT_MAP = ROOT / "docs" / "src" / "assets" / "modelcases_germany_pcm_nodal_map.svg"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+MODELCASES_ROOT = REPO_ROOT / "ModelCases"
+BUS_PATH = MODELCASES_ROOT / "GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8" / "Data_GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8" / "busdata.csv"
+LINE_PATH = MODELCASES_ROOT / "GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8" / "Data_GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8" / "linedata.csv"
+ZONE_GEOJSON_PATH = REPO_ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
+OUT_MAP = REPO_ROOT / "docs" / "src" / "assets" / "modelcases_germany_pcm_nodal_map.svg"
 
 ZONE_COLORS = {
     "50Hertz": "#8ecae6",

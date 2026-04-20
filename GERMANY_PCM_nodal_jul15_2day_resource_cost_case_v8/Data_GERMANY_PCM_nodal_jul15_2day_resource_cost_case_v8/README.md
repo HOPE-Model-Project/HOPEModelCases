@@ -1,13 +1,5 @@
-# Data_GERMANY_PCM_nodal
+# Data_GERMANY_PCM_nodal_jul15_2day_resource_cost_case_v8
 
-Placeholder direct-input folder for the Germany nodal HOPE PCM case.
+Direct-input data folder for the July 15-17 2025 Germany nodal `v8` validation case.
 
-This folder will eventually hold files such as:
-- `busdata.csv`
-- `linedata.csv`
-- `gendata.csv`
-- `zonedata.csv`
-- `load_timeseries.csv`
-- `load_timeseries_nodal.csv`
-- `gen_availability_timeseries.csv`
-- `ni_timeseries.csv`
+This folder is a time-window derivative of `ModelCases/GERMANY_PCM_nodal_case` and keeps the same static network, fleet, storage, and policy tables. Only the hourly load, net-import, and generator-availability files are sliced to the 2-day study window.

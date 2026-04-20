@@ -2,107 +2,61 @@
 
 ## Purpose
 
-This memo freezes the current Germany nodal modeling baseline after the latest load, generator-mapping, BTM-PV, and seasonal-validation updates.
+This memo freezes the currently preferred Germany PCM baseline after the latest dispatch-improvement pass, seasonal `v8` short-window checks, and dashboard update.
 
-The goal is to give us one stable research baseline before any new modeling branch starts.
+## Current promoted baseline
 
-## Current baseline
-
-The promoted Germany nodal baseline now includes:
-
-- spatial nodal load allocation built from eGon households and CTS demand, plus the current industry proxy
+The current Germany baseline now includes:
+- spatial nodal load allocation built from eGon-informed households and CTS structure plus the current industry proxy
 - sector-differentiated nodal hourly load construction
 - calibrated base BTM-PV net-load correction
-- offshore generator remapping that avoids weak radial coastal buses and prefers stronger inland injection points
+- offshore generator remapping that avoids weak radial coastal buses
+- hourly hydro, wind, and solar availability through `gen_availability_timeseries.csv`
+- no active nuclear rows in the 2025 fleet
 
-The active benchmark cases are:
-
-- `GERMANY_PCM_nodal_jan_2day_rescaled_case`
-- `GERMANY_PCM_nodal_jan_week1_connected_case`
-- `GERMANY_PCM_nodal_jan_week3_baseline_case`
-- `GERMANY_PCM_nodal_apr_week3_baseline_case`
-- `GERMANY_PCM_nodal_jul_week3_baseline_case`
-- `GERMANY_PCM_nodal_oct_week3_baseline_case`
-
-## What changed materially
-
-The biggest changes relative to the older Germany setup are:
-
-- nodal demand is no longer allocated mainly with coarse heuristic shares
-- offshore wind is no longer trapped behind weak radial `155 kV` coastal buses
-- the preferred baseline now represents net load more realistically through calibrated base BTM-PV rather than gross load alone
+The active benchmark cases are now:
+- `GERMANY_PCM_nodal_case`
+- `GERMANY_PCM_zonal4_case`
+- `GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8`
+- `GERMANY_PCM_nodal_apr15_2day_resource_cost_case_v8`
+- `GERMANY_PCM_nodal_jul15_2day_resource_cost_case_v8`
+- `GERMANY_PCM_nodal_oct15_2day_resource_cost_case_v8`
 
 ## Validation status
 
-The strongest current benchmark is the four-season validation pack:
-
-- [germany_seasonal_week_validation_report.md](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_seasonal_week_validation_report.md)
-- [germany_seasonal_week_cost_summary.csv](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_seasonal_week_cost_summary.csv)
-- [germany_seasonal_week_topline_recurrence.csv](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_seasonal_week_topline_recurrence.csv)
-
 Current readout:
+- all four retained `v8` 2-day windows solve with zero load shedding
+- the January `v8` case is the dashboard default
+- dispatch behavior is materially improved relative to the older January rescaled case
+- the broad congestion geography remains directionally credible
 
-- all four seasonal cases solve `OPTIMAL`
-- all four have zero load shedding
-- hotspot geography remains directionally credible across seasons
-- recurring lines remain concentrated in `TransnetBW`, `Amprion`, plus persistent northern or northwestern `TenneT` / `50Hertz` stress
-
-The broad empirical benchmark is captured at a directional level:
-
-- north or northwest export-side stress exists
-- west-central `Amprion` corridor stress exists
-- southwest `TransnetBW` receiving-area stress exists
-- the old fake offshore coastal bottleneck artifact is gone
-
-Supporting notes:
-
-- [germany_empirical_validation_scorecard.md](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_empirical_validation_scorecard.md)
-- [germany_external_empirical_validation_note.md](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_external_empirical_validation_note.md)
+The directional empirical benchmark still looks like:
+- northern or northwestern export-side stress
+- west-central `Amprion` corridor stress
+- southwest `TransnetBW` receiving-area stress
 
 ## BTM-PV decision
 
-The calibrated base BTM-PV layer is now the preferred Germany baseline treatment.
+The calibrated base BTM-PV layer remains the preferred Germany operating baseline.
 
 Why:
-
-- winter response is modest and conservative
-- summer response is materially meaningful but smooth
-- low/base/high sensitivity is monotonic rather than erratic
-- congestion geography shifts in intensity more than in location
-
-Supporting files:
-
-- [germany_btmpv_promotion_recommendation.md](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_btmpv_promotion_recommendation.md)
-- [germany_btmpv_sensitivity_comparison.csv](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_btmpv_sensitivity_comparison.csv)
-- [germany_btmpv_winter_summer_validation_note.md](e:/MIT%20Dropbox/Shen%20Wang/MIT/RA/HOPE_project/tools/germany_pcm_case_related/outputs/germany_btmpv_winter_summer_validation_note.md)
-
-Keep:
-
-- `no-BTM` as a reference benchmark
-- `low` and `high` BTM-PV as sensitivity bounds
-- `base` BTM-PV as the preferred operating baseline
+- winter response stays modest
+- summer response is meaningful but smooth
+- congestion geography changes more in intensity than in location
 
 ## Remaining caveats
 
-This version is strong for research use, but not fully frozen as a corridor-calibrated benchmark.
-
 Main caveats:
-
-- industry demand is still proxy-based because direct industry load data is missing
-- empirical validation is still directional rather than corridor-by-corridor
-- the seasonal benchmark is four representative weeks, not a full-year run
+- industry demand is still partly proxy-based
+- validation is still directional rather than corridor-by-corridor
+- wind and solar availability are still nationally shaped rather than weather-resolved by zone or bus
+- hydro availability is hourly but still national-history based rather than basin-resolved
 - broader prosumer effects like EV charging and heat pumps are not yet modeled
 
 ## Recommended use
 
 Use this baseline for:
-
 - exploratory Germany nodal research
-- internal figures and draft analysis
-- sensitivity studies and further validation work
-
-If we continue improving the model, the next highest-value steps are:
-
-1. stronger empirical validation against redispatch or corridor evidence
-2. better industry data or a more targeted industry proxy
-3. only after that, new demand-side refinements beyond BTM-PV
+- dashboard and documentation examples
+- zonal-versus-nodal comparison under consistent assumptions
+- future empirical validation and cost-refinement work

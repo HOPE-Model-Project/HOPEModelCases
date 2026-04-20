@@ -10,10 +10,11 @@ from matplotlib.path import Path as MplPath
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[2]
-STATE_GEOJSON = ROOT / "tools" / "germany_pcm_case_related" / "raw_sources" / "reference_geo" / "germany_states_simplify200.geojson"
-CASE_BUSDATA = ROOT / "ModelCases" / "GERMANY_PCM_nodal_jan_2day_rescaled_case" / "Data_GERMANY_PCM_nodal" / "busdata.csv"
-OUTPUT_GEOJSON = ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+MODELCASES_ROOT = REPO_ROOT / "ModelCases"
+STATE_GEOJSON = MODELCASES_ROOT / "tools" / "germany_pcm_case_related" / "raw_sources" / "reference_geo" / "germany_states_simplify200.geojson"
+CASE_BUSDATA = MODELCASES_ROOT / "GERMANY_PCM_nodal_case" / "Data_GERMANY_PCM_nodal" / "busdata.csv"
+OUTPUT_GEOJSON = REPO_ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
 
 WHOLE_STATE_ASSIGNMENTS = {
     "Schleswig-Holstein": "TenneT",

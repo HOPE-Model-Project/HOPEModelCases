@@ -12,16 +12,17 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
 
-ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[4]
+MODELCASES_ROOT = REPO_ROOT / "ModelCases"
 PRESENTATION_DIR = Path(__file__).resolve().parent
 OUTPUT_PPTX = PRESENTATION_DIR / "GERMANY_PCM_CASE_BUILD_DECK.pptx"
 OUTPUT_MD = PRESENTATION_DIR / "GERMANY_PCM_CASE_BUILD_DECK.md"
 
-NODAL_CASE = ROOT / "ModelCases" / "GERMANY_PCM_nodal_case" / "Data_GERMANY_PCM_nodal"
-ZONAL_CASE = ROOT / "ModelCases" / "GERMANY_PCM_zonal4_case" / "Data_GERMANY_PCM_zonal4"
-DEMO_SYSTEM_COST = ROOT / "ModelCases" / "GERMANY_PCM_nodal_jan_2day_rescaled_case" / "output" / "system_cost.csv"
-GERMANY_TOOLS = ROOT / "tools" / "germany_pcm_case_related"
-GERMANY_DASHBOARD_GEOJSON = ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
+NODAL_CASE = MODELCASES_ROOT / "GERMANY_PCM_nodal_case" / "Data_GERMANY_PCM_nodal"
+ZONAL_CASE = MODELCASES_ROOT / "GERMANY_PCM_zonal4_case" / "Data_GERMANY_PCM_zonal4"
+DEMO_SYSTEM_COST = MODELCASES_ROOT / "GERMANY_PCM_nodal_jan15_2day_resource_cost_case_v8" / "output" / "system_cost.csv"
+GERMANY_TOOLS = MODELCASES_ROOT / "tools" / "germany_pcm_case_related"
+GERMANY_DASHBOARD_GEOJSON = REPO_ROOT / "tools" / "hope_dashboard" / "data" / "germany_tso_zones.geojson"
 
 COLOR_BG = RGBColor(246, 248, 251)
 COLOR_PANEL = RGBColor(255, 255, 255)
@@ -477,8 +478,8 @@ def _add_repo_slide(prs: Presentation) -> None:
     rows = [
         ("Build workspace", GERMANY_TOOLS.as_posix()),
         ("Dashboard geometry", GERMANY_DASHBOARD_GEOJSON.as_posix()),
-        ("Nodal master case", (ROOT / "ModelCases" / "GERMANY_PCM_nodal_case").as_posix()),
-        ("Zonal derivative case", (ROOT / "ModelCases" / "GERMANY_PCM_zonal4_case").as_posix()),
+        ("Nodal master case", (MODELCASES_ROOT / "GERMANY_PCM_nodal_case").as_posix()),
+        ("Zonal derivative case", (MODELCASES_ROOT / "GERMANY_PCM_zonal4_case").as_posix()),
     ]
     top = 1.7
     for label, value in rows:
@@ -531,9 +532,9 @@ def _markdown_lines(metrics: dict[str, object]) -> list[str]:
             "Result: stable 1-day and 2-day full-nodal debug runs.",
         ]),
         ("Solved Demo Outcome", [
-            f"2-day January nodal demo total cost: ${metrics['demo_cost_m']:.2f}M.",
+            f"2-day January 15 nodal `v8` demo total cost: ${metrics['demo_cost_m']:.2f}M.",
             f"Load shedding: {metrics['demo_lol']:.1f}.",
-            "The 2-day nodal case is now the dashboard default.",
+            "The January 15 `v8` case is now the dashboard default.",
         ]),
         ("Next Steps", [
             "Deepen validation and benchmarking.",
@@ -544,8 +545,8 @@ def _markdown_lines(metrics: dict[str, object]) -> list[str]:
         ("Key Files In The Repo", [
             GERMANY_TOOLS.as_posix(),
             GERMANY_DASHBOARD_GEOJSON.as_posix(),
-            (ROOT / "ModelCases" / "GERMANY_PCM_nodal_case").as_posix(),
-            (ROOT / "ModelCases" / "GERMANY_PCM_zonal4_case").as_posix(),
+            (MODELCASES_ROOT / "GERMANY_PCM_nodal_case").as_posix(),
+            (MODELCASES_ROOT / "GERMANY_PCM_zonal4_case").as_posix(),
         ]),
     ]
     lines = ["# Germany PCM Case Build Deck", ""]
