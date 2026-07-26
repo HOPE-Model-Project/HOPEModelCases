@@ -74,7 +74,12 @@ def main() -> None:
         for row in bus.itertuples(index=False)
     }
 
-    capacities = pd.to_numeric(line["Capacity (MW)"], errors="coerce").fillna(0.0)
+    capacities = (
+        line[["Forward Capacity (MW)", "Reverse Capacity (MW)"]]
+        .apply(pd.to_numeric, errors="coerce")
+        .fillna(0.0)
+        .max(axis=1)
+    )
     max_cap = max(float(capacities.max()), 1.0)
 
     fig, ax = plt.subplots(figsize=(7.2, 7.8))
@@ -95,16 +100,17 @@ def main() -> None:
             )
             ax.add_patch(patch)
 
-    for row in line.itertuples(index=False):
-        from_bus = str(getattr(row, "from_bus"))
-        to_bus = str(getattr(row, "to_bus"))
+    for _, row in line.iterrows():
+        from_bus = str(row["from_bus"])
+        to_bus = str(row["to_bus"])
         if from_bus not in bus_lookup or to_bus not in bus_lookup:
             continue
         x0, y0 = bus_lookup[from_bus]
         x1, y1 = bus_lookup[to_bus]
-        cap = float(getattr(row, "_5", 0.0)) if not hasattr(row, "_asdict") else 0.0
-        # Safer direct lookup from tuple order by column name.
-        cap = float(getattr(row, "_asdict")().get("Capacity (MW)", 0.0))
+        cap = max(
+            float(row["Forward Capacity (MW)"]),
+            float(row["Reverse Capacity (MW)"]),
+        )
         width = 0.25 + 1.55 * (cap / max_cap) ** 0.6
         ax.plot([x0, x1], [y0, y1], color="#5f6f85", linewidth=width, alpha=0.52, solid_capstyle="round", zorder=2)
 

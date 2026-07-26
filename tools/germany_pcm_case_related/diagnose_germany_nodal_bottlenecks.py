@@ -19,7 +19,9 @@ def _line_angle_limits(line_rows: list[dict[str, str]], theta_max: float) -> lis
     results: list[dict[str, object]] = []
     for idx, row in enumerate(line_rows, start=1):
         x_value = float(row["X"])
-        capacity = float(row["Capacity (MW)"])
+        forward_capacity = float(row["Forward Capacity (MW)"])
+        reverse_capacity = float(row["Reverse Capacity (MW)"])
+        capacity = max(forward_capacity, reverse_capacity)
         angle_cap_single = float("inf") if x_value == 0 else theta_max / x_value
         angle_cap_two_sided = float("inf") if x_value == 0 else (2.0 * theta_max) / x_value
         results.append(
@@ -30,7 +32,9 @@ def _line_angle_limits(line_rows: list[dict[str, str]], theta_max: float) -> lis
                 "from_zone": row["From_zone"],
                 "to_zone": row["To_zone"],
                 "x": x_value,
-                "capacity": capacity,
+                "forward_capacity": forward_capacity,
+                "reverse_capacity": reverse_capacity,
+                "max_directional_capacity": capacity,
                 "angle_cap_single": angle_cap_single,
                 "angle_cap_two_sided": angle_cap_two_sided,
                 "cap_to_angle_ratio": float("inf") if angle_cap_two_sided == 0 else capacity / angle_cap_two_sided,

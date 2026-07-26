@@ -300,13 +300,25 @@ def _build_line_table(network_edges: pd.DataFrame, bus_zone_map: pd.DataFrame) -
     positive_x = work.loc[work['X'] > 0, 'X']
     fallback_x = float(positive_x.median()) if not positive_x.empty else 1.0e-4
     work['X'] = work['X'].fillna(fallback_x).replace(0, fallback_x)
-    work['Capacity (MW)'] = pd.to_numeric(work['Capacity_MVA'], errors='coerce')
-    positive_cap = work.loc[work['Capacity (MW)'] > 0, 'Capacity (MW)']
+    work['Forward Capacity (MW)'] = pd.to_numeric(work['Capacity_MVA'], errors='coerce')
+    positive_cap = work.loc[
+        work['Forward Capacity (MW)'] > 0, 'Forward Capacity (MW)'
+    ]
     fallback_cap = float(positive_cap.median()) if not positive_cap.empty else 1000.0
-    work['Capacity (MW)'] = work['Capacity (MW)'].fillna(fallback_cap)
+    work['Forward Capacity (MW)'] = work['Forward Capacity (MW)'].fillna(fallback_cap)
+    work['Reverse Capacity (MW)'] = work['Forward Capacity (MW)']
     work['Loss (%)'] = 0.0
     work = work.loc[work['from_bus'] != work['to_bus']].copy()
-    return work[['From_zone', 'To_zone', 'from_bus', 'to_bus', 'X', 'Capacity (MW)', 'Loss (%)']].reset_index(drop=True)
+    return work[[
+        'From_zone',
+        'To_zone',
+        'from_bus',
+        'to_bus',
+        'X',
+        'Forward Capacity (MW)',
+        'Reverse Capacity (MW)',
+        'Loss (%)',
+    ]].reset_index(drop=True)
 
 
 def _aggregate_generators_and_storage(generator_map: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:

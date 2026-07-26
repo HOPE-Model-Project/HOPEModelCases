@@ -182,7 +182,9 @@ function read_edges(path::AbstractString; build_only::Bool = false)
     for r in eachrow(df)
         a = String(r.From_zone)
         b = String(r.To_zone)
-        c = parse_num(r[Symbol("Capacity (MW)")], 0.0)
+        forward = parse_num(r[Symbol("Forward Capacity (MW)")], 0.0)
+        reverse = parse_num(r[Symbol("Reverse Capacity (MW)")], 0.0)
+        c = max(forward, reverse)
         build_only && c <= 1e-6 && continue
         !build_only && c <= 0.0 && continue
         p = zone_pair(a, b)

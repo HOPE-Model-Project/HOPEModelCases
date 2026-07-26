@@ -524,20 +524,32 @@ function main()
     CSV.write(joinpath(DST_DATA, "storagedata_candidate.csv"), candidate_sto)
 
     zcols = [Symbol("z$(i)") for i in 1:64]
-    line_exist = DataFrame("From_zone" => String[], "To_zone" => String[], "Capacity (MW)" => Float64[])
-    line_cand = DataFrame("From_zone" => String[], "To_zone" => String[], "X" => Float64[], "Capacity (MW)" => Float64[], "Cost (M\$)" => Float64[])
+    line_exist = DataFrame(
+        "From_zone" => String[],
+        "To_zone" => String[],
+        "Forward Capacity (MW)" => Float64[],
+        "Reverse Capacity (MW)" => Float64[],
+    )
+    line_cand = DataFrame(
+        "From_zone" => String[],
+        "To_zone" => String[],
+        "X" => Float64[],
+        "Forward Capacity (MW)" => Float64[],
+        "Reverse Capacity (MW)" => Float64[],
+        "Cost (M\$)" => Float64[],
+    )
     for r in eachrow(net)
         from_zone, to_zone = parse_line_endpoints(r, zcols)
         cap_exist = max(tofloat(r[:Line_Max_Flow_MW], 0.0), 0.0)
         cap_new = max(tofloat(r[:Line_Max_Reinforcement_MW], 0.0), 0.0)
         if cap_exist > 0
-            push!(line_exist, (from_zone, to_zone, cap_exist))
+            push!(line_exist, (from_zone, to_zone, cap_exist, cap_exist))
         end
         if cap_new > 0
             inv = tofloat(r[:Line_Reinforcement_Cost_per_MWyr], 0.0) * cap_new / 1e6
             dist = tofloat(r[:distance_mile], 0.0)
             x = dist > 0 ? max(dist / 10000.0, 1e-4) : 0.01
-            push!(line_cand, (from_zone, to_zone, x, cap_new, inv))
+            push!(line_cand, (from_zone, to_zone, x, cap_new, cap_new, inv))
         end
     end
     CSV.write(joinpath(DST_DATA, "linedata.csv"), line_exist)

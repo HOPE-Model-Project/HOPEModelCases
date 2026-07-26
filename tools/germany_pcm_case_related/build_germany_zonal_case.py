@@ -59,7 +59,8 @@ def _load_zone_centroids() -> pd.DataFrame:
 
 def _build_interzonal_lines(nodal_lines: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     line_df = nodal_lines.copy()
-    line_df['Capacity (MW)'] = pd.to_numeric(line_df['Capacity (MW)'], errors='coerce').fillna(0.0)
+    for column in ['Forward Capacity (MW)', 'Reverse Capacity (MW)']:
+        line_df[column] = pd.to_numeric(line_df[column], errors='coerce').fillna(0.0)
     line_df['Loss (%)'] = pd.to_numeric(line_df['Loss (%)'], errors='coerce').fillna(0.0)
     line_df = line_df.loc[line_df['From_zone'] != line_df['To_zone']].copy()
     if line_df.empty:
@@ -73,11 +74,22 @@ def _build_interzonal_lines(nodal_lines: pd.DataFrame) -> tuple[pd.DataFrame, pd
     summary_rows: list[dict[str, object]] = []
 
     for pair_key, group in line_df.groupby('PairKey', sort=True):
-        ordered_group = group.sort_values('Capacity (MW)', ascending=False)
+        ordered_group = group.sort_values('Forward Capacity (MW)', ascending=False)
         representative = ordered_group.iloc[0]
         zone_a = representative['Zone_a']
         zone_b = representative['Zone_b']
-        total_capacity = float(group['Capacity (MW)'].sum())
+        aligned_forward = np.where(
+            group['From_zone'].eq(zone_a),
+            group['Forward Capacity (MW)'],
+            group['Reverse Capacity (MW)'],
+        )
+        aligned_reverse = np.where(
+            group['From_zone'].eq(zone_a),
+            group['Reverse Capacity (MW)'],
+            group['Forward Capacity (MW)'],
+        )
+        total_forward_capacity = float(aligned_forward.sum())
+        total_reverse_capacity = float(aligned_reverse.sum())
         interface_rows.append(
             {
                 'From_zone': zone_a,
@@ -85,7 +97,8 @@ def _build_interzonal_lines(nodal_lines: pd.DataFrame) -> tuple[pd.DataFrame, pd
                 'from_bus': representative['from_bus'],
                 'to_bus': representative['to_bus'],
                 'KV': 380,
-                'Capacity (MW)': round(total_capacity, 3),
+                'Forward Capacity (MW)': round(total_forward_capacity, 3),
+                'Reverse Capacity (MW)': round(total_reverse_capacity, 3),
                 'Loss (%)': round(float(group['Loss (%)'].mean()), 4),
             }
         )
@@ -95,7 +108,8 @@ def _build_interzonal_lines(nodal_lines: pd.DataFrame) -> tuple[pd.DataFrame, pd
                 'From_zone': zone_a,
                 'To_zone': zone_b,
                 'CrossBorderLineCount': int(len(group)),
-                'CutsetCapacity_MW': round(total_capacity, 3),
+                'ForwardCutsetCapacity_MW': round(total_forward_capacity, 3),
+                'ReverseCutsetCapacity_MW': round(total_reverse_capacity, 3),
                 'RepresentativeFromBus': representative['from_bus'],
                 'RepresentativeToBus': representative['to_bus'],
             }

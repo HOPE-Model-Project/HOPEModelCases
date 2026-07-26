@@ -2895,18 +2895,39 @@ def build_generator_availability(
 def aggregate_interzonal_linedata(branch_out: pd.DataFrame) -> pd.DataFrame:
     inter = branch_out[branch_out["From_zone"] != branch_out["To_zone"]].copy()
     if inter.empty:
-        return pd.DataFrame(columns=["From_zone", "To_zone", "X", "Capacity (MW)", "Loss (%)"])
+        return pd.DataFrame(
+            columns=[
+                "From_zone",
+                "To_zone",
+                "X",
+                "Forward Capacity (MW)",
+                "Reverse Capacity (MW)",
+                "Loss (%)",
+            ]
+        )
     key_df = inter.assign(
         key=inter.apply(lambda r: tuple(sorted((r["From_zone"], r["To_zone"]))), axis=1)
     )
     rows = []
     for key, grp in key_df.groupby("key"):
+        from_zone, to_zone = key
+        aligned_forward = np.where(
+            grp["From_zone"].eq(from_zone),
+            grp["Forward Capacity (MW)"],
+            grp["Reverse Capacity (MW)"],
+        )
+        aligned_reverse = np.where(
+            grp["From_zone"].eq(from_zone),
+            grp["Reverse Capacity (MW)"],
+            grp["Forward Capacity (MW)"],
+        )
         rows.append(
             {
-                "From_zone": key[0],
-                "To_zone": key[1],
+                "From_zone": from_zone,
+                "To_zone": to_zone,
                 "X": round(float(grp["X"].abs().mean()), 5),
-                "Capacity (MW)": round(float(grp["Capacity (MW)"].sum()), 2),
+                "Forward Capacity (MW)": round(float(aligned_forward.sum()), 2),
+                "Reverse Capacity (MW)": round(float(aligned_reverse.sum()), 2),
                 "Loss (%)": 0.0,
             }
         )
@@ -3000,6 +3021,20 @@ def write_case_files() -> None:
     branch_out = branch_active[
         ["From_zone", "To_zone", "from_bus", "to_bus", "X", "Capacity (MW)", "Loss (%)"]
     ].copy()
+    branch_out.rename(columns={"Capacity (MW)": "Forward Capacity (MW)"}, inplace=True)
+    branch_out["Reverse Capacity (MW)"] = branch_out["Forward Capacity (MW)"]
+    branch_out = branch_out[
+        [
+            "From_zone",
+            "To_zone",
+            "from_bus",
+            "to_bus",
+            "X",
+            "Forward Capacity (MW)",
+            "Reverse Capacity (MW)",
+            "Loss (%)",
+        ]
+    ]
     branch_out.sort_values(["from_bus", "to_bus"], inplace=True)
 
     linedata_out = aggregate_interzonal_linedata(branch_out)

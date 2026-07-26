@@ -284,9 +284,12 @@ def summarize_seam_capacity(case_data_dir: Path) -> pd.DataFrame:
     if cross.empty:
         return pd.DataFrame(columns=["Seam", "TotalCapacityMW", "LineCount"])
     cross["Seam"] = cross.apply(lambda r: " <-> ".join(sorted([str(r["From_zone"]), str(r["To_zone"])])), axis=1)
+    cross["TotalCapacityMW"] = cross[
+        ["Forward Capacity (MW)", "Reverse Capacity (MW)"]
+    ].max(axis=1)
     seam = (
         cross.groupby("Seam", as_index=False)
-        .agg(TotalCapacityMW=("Capacity (MW)", "sum"), LineCount=("Capacity (MW)", "size"))
+        .agg(TotalCapacityMW=("TotalCapacityMW", "sum"), LineCount=("TotalCapacityMW", "size"))
         .sort_values("TotalCapacityMW", ascending=False)
         .reset_index(drop=True)
     )

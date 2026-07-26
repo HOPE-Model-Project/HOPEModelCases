@@ -65,7 +65,8 @@ Input source:
 
 Needed outputs:
 - bus list with stable HOPE `Bus_id`
-- branch table with `from_bus`, `to_bus`, `X`, `Capacity (MW)`
+- branch table with `from_bus`, `to_bus`, `X`, `Forward Capacity (MW)`, and
+  `Reverse Capacity (MW)`
 - bus coordinates for plotting / dashboard map support if available
 
 ### Step 2. Geography mapping

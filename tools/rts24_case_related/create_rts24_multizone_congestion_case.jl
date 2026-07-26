@@ -124,8 +124,12 @@ function main()
         df[!, :To_zone] = [bus_id_to_new[Int(b)] for b in df[!, :to_bus]]
         for r in 1:nrow(df)
             if df[r, :From_zone] != df[r, :To_zone]
-                base_cap = Float64(df[r, Symbol("Capacity (MW)")])
-                df[r, Symbol("Capacity (MW)")] = max(INTERZONE_CAP_MIN, INTERZONE_CAP_FACTOR * base_cap)
+                for cap_col in
+                    [Symbol("Forward Capacity (MW)"), Symbol("Reverse Capacity (MW)")]
+                    base_cap = Float64(df[r, cap_col])
+                    df[r, cap_col] =
+                        max(INTERZONE_CAP_MIN, INTERZONE_CAP_FACTOR * base_cap)
+                end
             end
         end
     end
