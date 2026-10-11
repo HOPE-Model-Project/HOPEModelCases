@@ -1,0 +1,38 @@
+schema_version: 2
+case_name: RTS24_DART_case
+source_case: .
+source_data_subdir: Data_RTS24_DART/
+calendar_year: 2021
+source_hashes:
+  branchdata.csv: 9ec5fb577813f527a00388bebb5ef0477a5b5914061c0c57d99cb363ed7b98f8
+  busdata.csv: 7f5c67748d7aa71cad7e59716f624535111d0c1666f4d68389b51ca70d865554
+  gendata.csv: 4c6820e52b05f318e4d5ecc72192b3e35b79d894f9038ca33210c10306928be7
+  initial_generator_state.csv: b3bf905cfbc40336b879c761739254d0790fe19fcad1119cf73a728c991b6e81
+  initial_storage_state.csv: a8ccd8116e9dbde911fea67223073c30ea3dbefd6a5d0aba4839bb2516cddf7d
+  load_timeseries_regional.csv: a454dfca53c626882c9bd61c5754016efc3184acaf36f1dc3388000a26707170
+  load_timeseries_realtime_regional.csv: 9919247a06e2e31067210f8afcb151e2d6ebf3dbf4adbe0b459e727406666345
+  single_parameter.csv: faa5f6c3536afffa3491d0ecca45ee1d20653625a6dd4ada4cf105ce4ee0e416
+  solar_timeseries_regional.csv: 540c4c4357fe395ab80313a3fb22e6bee37bae02f6d034d08c80b24bb3ad7b18
+  solar_timeseries_realtime_regional.csv: f6b643003bb126b51e133bce78ac6e653ab678b492e23f087a0d97c12e3d2e00
+  storagedata.csv: e0345ed3c7f25a8834bc289920ce23567b48f001b9583a552027c256f340b5c6
+  wind_timeseries_regional.csv: 3c5d59d0efa12edc1295d2889d1e11edda63ea05fad6ee6c4a5f7c5ef1efb1f8
+  wind_timeseries_realtime_regional.csv: 0eb7003c2c5cfab80a1dba30a67db98385197104062871c5bd290da38718765e
+provenance:
+  physical_source: Copied from RTS24_PCM_fullfunc_case/Data_RTS24_PCM_full
+  physical_source_description: Modified RTS24 benchmark with synthetic annual profiles
+  case_boundary: No PCM output or external PCM case path is read at runtime
+  evaluation_window: Source hour 4235, selected for available-generation margin
+  initial_state_source: Explicit warmed DART state; two quick-start units are offline
+  load_derivation: Each bus peak MW is multiplied by its regional factor
+  real_time_derivation: Three native 288-row five-minute files cover the 24-hour evaluation horizon
+  quick_start_assumption: RTS24-G025 through RTS24-G030 are 30-minute quick-start hydro units with Flag_UC set to 1
+  generator_dart_attributes: Quick-start, transition, no-load, shutdown, capability, and offer fields are merged into gendata.csv
+  storage_reserve_assumption: Explicit reserve capabilities and offers are merged into storagedata.csv
+  no_load_cost_assumption: Zero because the physical source has no no-load-cost column
+  shutdown_cost_assumption: Zero because the physical source has no shutdown-cost column
+  startup_shutdown_limit_assumption: Nameplate Pmax where source transition limits are absent
+  emergency_rating_assumption: Normal branch ratings are reused as emergency ratings
+  availability_treatment: Explicit physical outage; generic FOR derating is disabled
+  contingency_scope: Strict generator N-1 for RTS24-G009 on the intact network
+  interchange_assumption: Balanced 5 MW injection at RTS24-B001 and withdrawal at RTS24-B024
+  terminal_storage_policy: End-of-lookahead SOC equals explicit initial SOC

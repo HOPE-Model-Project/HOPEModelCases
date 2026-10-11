@@ -1,0 +1,22 @@
+verification_date: 2026-10-10
+julia_version: 1.13.1
+solver:
+  package: HiGHS.jl
+  package_version: 1.22.2
+  library_version: 1.13.1
+reference_run:
+  constraint_families_enabled: 19
+  day_ahead_solves: 2
+  real_time_solves: 24
+  all_termination_statuses: OPTIMAL
+  maximum_load_shed_mw: 0.0
+  maximum_emergency_load_shed_mw: 0.0
+  maximum_line_limit_excess_mw: 0.0
+  maximum_simultaneous_storage_mw: 0.0
+  maximum_outage_generator_output_mw: 0.0
+  minimum_nspin_award_mw: 38.855378520600986
+  settlement_balance: -3.637978807091713e-12
+notes:
+  - Solver time is machine dependent and is not an acceptance criterion.
+  - Line-limit excess is reported as zero when every monitored flow is below its rating.
+  - Executable tolerances live in Settings/HOPE_model_settings.yml.

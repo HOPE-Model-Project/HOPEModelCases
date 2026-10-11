@@ -1,0 +1,128 @@
+DataCase: Data_RTS24_DART/       # Input data folder under the case directory
+model_mode: DART                 # Select the day-ahead/real-time operations model
+
+# Common HOPE features. These planning features are unavailable in DART and
+# must remain disabled. Validation warns and stops if one is enabled.
+resource_aggregation: 0
+representative_day!: 0
+flexible_demand: 0
+clean_energy_policy: 0
+carbon_policy: 0
+planning_reserve_mode: 0
+inv_dcs_bin: 0
+transmission_expansion: 0
+save_postprocess_snapshot: 0
+
+# Operational formulation shared conceptually with PCM.
+operation_reserve_mode: 2        # 0: none; 1: REG+SPIN; 2: REG+SPIN+NSPIN
+network_model: 3                 # DART currently requires a nodal PTDF network
+transmission_loss: 0             # DART currently uses a lossless DC network
+reference_bus: 1                 # 1-based reference-bus position in stable bus order
+unit_commitment: 1               # 0: continuous dispatch; 1: binary day-ahead SCUC
+write_shadow_prices: 1           # Retained for common workflow; DART computes LMPs for settlement
+summary_table: 1                 # Retained for common workflow; DART writes standard CSV summaries
+solver: highs                    # Reads Settings/highs_settings.yml
+debug: 0                         # DART currently requires normal execution (debug mode off)
+
+dart_settings:
+    # How installed generator availability is interpreted:
+    # - physical_outages: do not derate capacity by FOR; model explicit outages.
+    # - deterministic_for_derating: apply (1-FOR) deterministic derating.
+    availability_mode: physical_outages
+
+    enforce_ramps: true          # Enforce DA hourly and RT subhourly ramp limits
+    include_storage: true        # Include existing storage assets and chronology
+    real_time_reserve_requirements: true  # Enforce reserve requirements in RT as well as DA
+    silent: true                 # Suppress detailed solver logs, not HOPE warnings/errors
+
+    files:
+        # Initial operational state remains separate from static asset data.
+        initial_generator_state: initial_generator_state.csv
+        initial_storage_state: initial_storage_state.csv
+
+        # Native five-minute RT series. Each file must contain Minute plus the
+        # existing Month/Day/Hours fields and regional B1-B24 columns.
+        real_time_load: load_timeseries_realtime_regional.csv
+        real_time_wind: wind_timeseries_realtime_regional.csv
+        real_time_solar: solar_timeseries_realtime_regional.csv
+
+    time:
+        # Number of consecutive hourly operating decisions retained as binding.
+        binding_hours: 2
+
+        # Hourly horizon solved by each rolling day-ahead SCUC.
+        day_ahead_lookahead_hours: 24
+
+        # Number of RT intervals per hour; must divide 60. 12 means 5-minute RT.
+        real_time_intervals_per_hour: 12
+
+        # Number of intervals in each rolling RT SCED look-ahead. 12 means 1 hour.
+        real_time_lookahead_intervals: 12
+
+        # 1-based hourly row in the annual source series where this study starts.
+        source_start_hour: 4235
+
+    security:
+        # Generator IDs whose loss is tested as strict N-1 corrective scenarios.
+        contingency_generator_ids:
+            - RTS24-G009
+
+        # Line contingencies are not implemented in the current DART formulation.
+        line_contingencies: false
+
+        # false: N-1 must be feasible without emergency shedding.
+        # true: allow penalized emergency shedding in contingency states.
+        allow_emergency_contingency_shed: false
+
+        # Memory guard: stop before building an excessively large security block.
+        maximum_security_variables: 2000000
+
+    realized_outage:
+        # Exogenous RT equipment state, distinct from the hypothetical N-1 test.
+        enabled: true
+        generator_id: RTS24-G001
+        binding_hour: 2          # 1-based binding hour in the simulated window
+        first_interval: 1        # First affected 5-minute interval in that hour
+        last_interval: 12        # Last affected interval; 1-12 means the full hour
+
+    interchange:
+        # Fixed balanced schedule: +transfer at injection and -transfer at withdrawal.
+        enabled: true
+        injection_bus_id: RTS24-B001
+        withdrawal_bus_id: RTS24-B024
+        transfer_mw: 5.0
+
+    terminal_storage:
+        # none: no terminal SOC target.
+        # initial: end-of-full-forecast SOC must equal the supplied initial SOC.
+        mode: initial
+
+    # Per-solve result policy, not solver algorithm configuration. Solver options
+    # such as TimeLimit and feasibility tolerances remain in the solver YAML.
+    solve_acceptance:
+        # If true, a TIME_LIMIT result may continue only with a feasible incumbent
+        # and a reported relative MIP gap no larger than maximum_relative_gap.
+        accept_feasible_time_limit: false
+        maximum_relative_gap: 1.0e-6
+
+    settlement:
+        enabled: true            # Calculate DA/RT energy, reserve, and uplift settlement
+        reserve_rule: pay_as_bid # Currently the only supported reserve-payment rule
+
+    # Post-solve case-quality gates. These do not alter the mathematical model or
+    # objective; they verify the result and stop the workflow when a threshold fails.
+    acceptance:
+        require_all_constraint_families: true   # Check all 19 reference families are active
+        require_optimal: true                   # Require every DA and RT solve to be OPTIMAL
+        maximum_load_shed_mw: 1.0e-6
+        maximum_emergency_load_shed_mw: 1.0e-6
+        maximum_line_limit_excess_mw: 1.0e-5
+        maximum_simultaneous_storage_mw: 1.0e-6 # Charge/discharge overlap tolerance
+        maximum_outage_generator_output_mw: 1.0e-6
+        require_positive_nspin_award: true
+        settlement_balance_tolerance: 1.0e-5
+
+    # Optional cost overrides (not needed here):
+    # costs:
+    #     value_of_lost_load_per_mwh: 10000.0   # Otherwise read from single_parameter.csv
+    #     emergency_load_shed_cost_per_mwh: 50000.0
