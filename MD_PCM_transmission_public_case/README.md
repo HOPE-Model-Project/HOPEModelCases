@@ -35,6 +35,16 @@ The committed case was solved with HiGHS 1.13.1 across all 168 hours:
 Runtime output is intentionally ignored by git. Exact structural checks are in
 `references/build_validation.json`.
 
+## Paired nodal GTEP workflow
+
+`MD_GTEP_transmission_public_case` is a bus-resolved planning twin of this PCM
+case. Both settings files use `holistic_spatial_basis: bus`. Existing generators
+carry stable `Asset_ID` values derived from `GeneratorID`, and physical branches
+carry stable `Corridor_ID` values derived from the branch-provenance `Branch_ID`.
+These optional columns do not change a standalone PCM solve; they make
+retirements, candidate realization, and branch upgrades deterministic in the
+direct GTEP-to-PCM workflow.
+
 ## Case contents
 
 - `Data_MD_PCM_transmission_public/`: complete runtime inputs; no raw OSM or

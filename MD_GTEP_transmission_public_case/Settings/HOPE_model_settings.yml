@@ -1,0 +1,19 @@
+DataCase: Data_MD_GTEP_transmission_public/ # Bus-resolved GTEP inputs derived from the paired PCM case
+model_mode: GTEP                           # Generation/transmission expansion planning
+holistic_spatial_basis: bus                # Validate holistic compatibility at transmission-bus resolution
+resource_aggregation: 0                    # Preserve stable generator Asset_ID values
+endogenous_rep_day: 0                      # Use the complete 168-hour chronology
+external_rep_day: 1                        # Seven source days, weighted to a 365-day planning year
+flexible_demand: 0                         # No demand-response candidates in this benchmark
+inv_dcs_bin: 0                             # Continuous build fractions for a tractable linkage benchmark
+carbon_policy: 0                           # Policy disabled; physical/investment linkage is the test target
+clean_energy_policy: 0                     # Policy disabled; can be enabled in derived scenarios
+planning_reserve_mode: 1                   # System-level 15% planning reserve requirement
+operation_reserve_mode: 0                  # Operating reserves are handled downstream by PCM/DART
+transmission_loss: 0                       # Match the paired lossless PCM benchmark
+storage_ld_duration_hours: 12              # Long-duration threshold; candidates here are four-hour batteries
+write_shadow_prices: 0                     # Keep baseline output compact
+summary_table: 1                           # Write standard validation summaries
+save_postprocess_snapshot: 0               # No additional snapshot for this planning baseline
+solver: highs                              # Portable default; change to gurobi when Gurobi.jl/license are available
+debug: 0                                   # Standard solve

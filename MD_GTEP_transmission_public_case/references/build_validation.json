@@ -1,0 +1,18 @@
+{
+  "buses": 656,
+  "branches": 838,
+  "existing_generators": 271,
+  "generation_candidates": 12,
+  "storage_candidates": 4,
+  "line_candidates": 4,
+  "hours": 168,
+  "candidate_buses": {
+    "APS_MD": "OSM_S73877825_500",
+    "BGE": "OSM_S1262049321_115",
+    "DPL_MD": "OSM_S849494456_500",
+    "PEPCO": "OSM_S66794233_500"
+  },
+  "stable_asset_ids": true,
+  "stable_corridor_ids": true,
+  "source_pcm_case": "MD_PCM_transmission_public_case"
+}

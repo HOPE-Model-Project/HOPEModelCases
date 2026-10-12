@@ -1,0 +1,38 @@
+schema_version: 1
+case_name: MD_GTEP_transmission_public_case
+model_mode: GTEP
+data_subdir: Data_MD_GTEP_transmission_public/
+paired_pcm_case: ../MD_PCM_transmission_public_case
+spatial_basis: bus
+chronology:
+  hours: 168
+  external_representative_periods: 7
+  total_day_weight: 365
+geography:
+  internal_region: Maryland
+  planning_zones: [APS_MD, BGE, DPL_MD, PEPCO]
+  external_boundary_zone: EXT
+network:
+  buses_as_gtep_zones: 656
+  transport_corridors: 838
+  source: paired public-data Maryland PCM case
+identity:
+  generators: Asset_ID equals source GeneratorID
+  transmission: Corridor_ID equals source Branch_ID
+candidates:
+  generation: NGCC, SolarPV, and WindOn at one explicit bus per Maryland planning zone
+  storage: four-hour battery at one explicit bus per Maryland planning zone
+  transmission: four explicit branch upgrades identified by Corridor_ID
+assumptions:
+  - GTEP retains its transport formulation; each physical transmission bus is represented as a GTEP zone.
+  - Candidate locations are explicit and auditable, avoiding an undefined disaggregation step before PCM.
+  - System-level planning reserve is enabled; policy and operating-reserve constraints are disabled in this linkage benchmark.
+validation:
+  solver: HiGHS 1.13.1
+  standalone_status: OPTIMAL
+  standalone_load_shedding_mwh: 0.0
+  holistic_pcm_status: OPTIMAL
+  holistic_pcm_load_shedding_mwh: 0.0
+  realized_generation_rows: 8
+  realized_storage_rows: 4
+  realized_transmission_rows: 0

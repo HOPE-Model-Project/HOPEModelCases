@@ -23,6 +23,10 @@ provenance:
   load_chronology: PJM_MD100_PCM_case Maryland subzones
   renewable_chronology: PJM_ICARUS21 2025 base case
   utility_territories: Maryland public ArcGIS UtilityPolygons service
+identity:
+  generators: Asset_ID equals GeneratorID
+  transmission: Corridor_ID equals references/branch_provenance.csv Branch_ID
+paired_planning_case: ../MD_GTEP_transmission_public_case
 assumptions:
   - Tiny disconnected OSM fragments are excluded during curation.
   - Mainland and Eastern Shore components are joined by a documented external-PJM corridor proxy.
