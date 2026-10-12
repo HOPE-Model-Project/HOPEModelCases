@@ -38,7 +38,8 @@ Runtime output is intentionally ignored by git. Exact structural checks are in
 ## Paired nodal GTEP workflow
 
 `MD_GTEP_transmission_public_case` is a bus-resolved planning twin of this PCM
-case. Both settings files use `holistic_spatial_basis: bus`. Existing generators
+case. Its settings use `holistic_spatial_basis: auto`, inheriting `bus` from the
+nodal GTEP twin or `zone` from the aggregated GTEP companion. Existing generators
 carry stable `Asset_ID` values derived from `GeneratorID`, and physical branches
 carry stable `Corridor_ID` values derived from the branch-provenance `Branch_ID`.
 These optional columns do not change a standalone PCM solve; they make

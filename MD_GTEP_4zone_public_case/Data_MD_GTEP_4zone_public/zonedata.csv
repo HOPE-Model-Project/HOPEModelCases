@@ -1,0 +1,6 @@
+Zone_id,Demand (MW),State,Area,Flag_MD
+APS_MD,2326.75,MD,1,1
+BGE,6520.0,MD,2,1
+DPL_MD,818.5,MD,3,1
+PEPCO,10097.9,MD,4,1
+EXT,0.0,EXT,5,0

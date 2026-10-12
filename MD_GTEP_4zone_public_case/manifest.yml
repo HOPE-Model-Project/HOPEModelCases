@@ -1,0 +1,23 @@
+schema_version: 1
+case_name: MD_GTEP_4zone_public_case
+model_mode: GTEP
+data_subdir: Data_MD_GTEP_4zone_public/
+paired_pcm_case: ../MD_PCM_transmission_public_case
+spatial_basis: zone
+chronology:
+  hours: 168
+  external_representative_periods: 7
+  total_day_weight: 365
+resolution:
+  gtep_planning_zones: 5
+  pcm_physical_buses: 656
+  realization: candidate Bus_id and branch Corridor_ID plus PCM endpoint columns
+validation:
+  solver: HiGHS 1.13.1
+  standalone_status: OPTIMAL
+  standalone_load_shedding_mwh: 0.0
+  holistic_pcm_status: OPTIMAL
+  holistic_pcm_load_shedding_mwh: 0.0
+  realized_generation_rows: 8
+  realized_storage_rows: 4
+  realized_transmission_rows: 0

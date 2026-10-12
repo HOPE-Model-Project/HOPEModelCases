@@ -26,7 +26,9 @@ provenance:
 identity:
   generators: Asset_ID equals GeneratorID
   transmission: Corridor_ID equals references/branch_provenance.csv Branch_ID
-paired_planning_case: ../MD_GTEP_transmission_public_case
+paired_planning_cases:
+  - ../MD_GTEP_transmission_public_case
+  - ../MD_GTEP_4zone_public_case
 assumptions:
   - Tiny disconnected OSM fragments are excluded during curation.
   - Mainland and Eastern Shore components are joined by a documented external-PJM corridor proxy.

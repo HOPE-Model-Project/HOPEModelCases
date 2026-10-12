@@ -1,0 +1,19 @@
+DataCase: Data_MD_GTEP_4zone_public/  # Four-zone planning view of the public Maryland PCM system
+model_mode: GTEP
+holistic_spatial_basis: zone         # Validate at the planning-zone layer
+resource_aggregation: 0              # Preserve stable Asset_ID rows
+endogenous_rep_day: 0
+external_rep_day: 1                  # Seven source days weighted to a 365-day planning year
+flexible_demand: 0
+inv_dcs_bin: 0                       # Continuous build fractions for workflow validation
+carbon_policy: 0
+clean_energy_policy: 0
+planning_reserve_mode: 1
+operation_reserve_mode: 0
+transmission_loss: 0
+storage_ld_duration_hours: 12
+write_shadow_prices: 0
+summary_table: 1
+save_postprocess_snapshot: 0
+solver: highs
+debug: 0

@@ -47,7 +47,8 @@ under the PCM holistic output directory. Neither source input folder is mutated.
 
 ## Spatial and identity design
 
-- `holistic_spatial_basis: bus` requests bus-level pair validation.
+- `holistic_spatial_basis: bus` requests bus-level pair validation; the paired
+  PCM case uses `auto` and inherits this basis.
 - Existing generator `Asset_ID` values equal the paired PCM `GeneratorID` values.
 - Existing and candidate corridors carry `Corridor_ID` values equal to the PCM
   branch-provenance `Branch_ID` values.
