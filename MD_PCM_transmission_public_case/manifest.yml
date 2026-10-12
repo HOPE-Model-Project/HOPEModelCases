@@ -1,0 +1,36 @@
+schema_version: 1
+case_name: MD_PCM_transmission_public_case
+model_mode: PCM
+data_subdir: Data_MD_PCM_transmission_public/
+chronology:
+  start: July 15 hour 1
+  end: July 21 hour 24
+  hours: 168
+geography:
+  internal_region: Maryland
+  planning_zones: [APS_MD, BGE, DPL_MD, PEPCO]
+  external_boundary_zone: EXT
+network:
+  source: OpenStreetMap contributors via Overpass API
+  source_license: ODbL-1.0
+  minimum_voltage_kv: 69
+  formulation: nodal DCOPF angle
+  parameters: inferred and explicitly flagged
+  osm_corridor_rating_multiplier: 5
+  inferred_transformer_rating_multiplier: 25
+provenance:
+  generator_fleet: PJM_DC_health_study_project PJM_ICARUS21 2025 base case
+  load_chronology: PJM_MD100_PCM_case Maryland subzones
+  renewable_chronology: PJM_ICARUS21 2025 base case
+  utility_territories: Maryland public ArcGIS UtilityPolygons service
+assumptions:
+  - Tiny disconnected OSM fragments are excluded during curation.
+  - Mainland and Eastern Shore components are joined by a documented external-PJM corridor proxy.
+  - Nodal NI has a zero schedule target and capacity-weighted endogenous import caps.
+  - Line reactance, base ratings, and transformers are inferred from voltage, geometry, and explicit rules.
+  - Rating multipliers compensate for incomplete parallel-circuit and transformer detail in OSM and are validation-case assumptions.
+validation:
+  solver: HiGHS 1.13.1
+  status: OPTIMAL
+  hours: 168
+  load_shedding_mwh: 0.0

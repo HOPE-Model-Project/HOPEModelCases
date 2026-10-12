@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+raw_sources/*.json
+raw_sources/*.geojson
+raw_sources/*.zip
+raw_sources/*.pbf

@@ -1,0 +1,231 @@
+{
+  "generated_utc": "2026-10-12T03:36:09.878277+00:00",
+  "osm_source": "OpenStreetMap contributors via Overpass API",
+  "osm_license": "ODbL 1.0",
+  "bbox": [
+    37.55,
+    -79.9,
+    40.15,
+    -74.65
+  ],
+  "transmission_voltages_v": [
+    "69000",
+    "115000",
+    "138000",
+    "230000",
+    "345000",
+    "500000",
+    "765000"
+  ],
+  "tiles": [
+    {
+      "tile": 1,
+      "bbox": [
+        37.55,
+        -79.9,
+        38.55,
+        -78.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 120
+    },
+    {
+      "tile": 2,
+      "bbox": [
+        37.55,
+        -78.9,
+        38.55,
+        -77.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 277
+    },
+    {
+      "tile": 3,
+      "bbox": [
+        37.55,
+        -77.9,
+        38.55,
+        -76.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 510
+    },
+    {
+      "tile": 4,
+      "bbox": [
+        37.55,
+        -76.9,
+        38.55,
+        -75.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 414
+    },
+    {
+      "tile": 5,
+      "bbox": [
+        37.55,
+        -75.9,
+        38.55,
+        -74.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 510
+    },
+    {
+      "tile": 6,
+      "bbox": [
+        37.55,
+        -74.9,
+        38.55,
+        -74.65
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 0
+    },
+    {
+      "tile": 7,
+      "bbox": [
+        38.55,
+        -79.9,
+        39.55,
+        -78.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 158
+    },
+    {
+      "tile": 8,
+      "bbox": [
+        38.55,
+        -78.9,
+        39.55,
+        -77.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 225
+    },
+    {
+      "tile": 9,
+      "bbox": [
+        38.55,
+        -77.9,
+        39.55,
+        -76.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 1770
+    },
+    {
+      "tile": 10,
+      "bbox": [
+        38.55,
+        -76.9,
+        39.55,
+        -75.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 1787
+    },
+    {
+      "tile": 11,
+      "bbox": [
+        38.55,
+        -75.9,
+        39.55,
+        -74.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 1254
+    },
+    {
+      "tile": 12,
+      "bbox": [
+        38.55,
+        -74.9,
+        39.55,
+        -74.65
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 241
+    },
+    {
+      "tile": 13,
+      "bbox": [
+        39.55,
+        -79.9,
+        40.15,
+        -78.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 171
+    },
+    {
+      "tile": 14,
+      "bbox": [
+        39.55,
+        -78.9,
+        40.15,
+        -77.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 77
+    },
+    {
+      "tile": 15,
+      "bbox": [
+        39.55,
+        -77.9,
+        40.15,
+        -76.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 408
+    },
+    {
+      "tile": 16,
+      "bbox": [
+        39.55,
+        -76.9,
+        40.15,
+        -75.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 1030
+    },
+    {
+      "tile": 17,
+      "bbox": [
+        39.55,
+        -75.9,
+        40.15,
+        -74.9
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 2317
+    },
+    {
+      "tile": 18,
+      "bbox": [
+        39.55,
+        -74.9,
+        40.15,
+        -74.65
+      ],
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "returned_elements": 260
+    }
+  ],
+  "osm_summary": {
+    "element_count": 11315,
+    "by_power_type": {
+      "line": 9690,
+      "substation": 1443,
+      "cable": 182
+    },
+    "with_circuits_tag": 5652
+  },
+  "utility_source": "https://services.arcgis.com/njFNhDsUCentVYJW/ArcGIS/rest/services/UtilityPolygons/FeatureServer/0/query",
+  "utility_feature_count": 12
+}

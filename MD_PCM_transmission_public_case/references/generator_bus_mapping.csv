@@ -1,0 +1,272 @@
+GeneratorID,PlantName,Bus_id,Distance_km,Assignment_rule
+G77,Montgomery County Resource Recovery,OSM_S53342426_230,15.711420778210702,nearest retained substation in source utility zone with curation remap
+G78,Montgomery County Resource Recovery,OSM_S53342426_230,15.711420778210702,nearest retained substation in source utility zone with curation remap
+G79,Montgomery County Resource Recovery,OSM_S53342426_230,15.711420778210702,nearest retained substation in source utility zone with curation remap
+G225,Wheelabrator Baltimore Refuse,OSM_S54329884_115,0.12508481824526552,nearest retained substation in source utility zone with curation remap
+G226,Wheelabrator Baltimore Refuse,OSM_S54329884_115,0.12508481824526552,nearest retained substation in source utility zone with curation remap
+G227,Wheelabrator Baltimore Refuse,OSM_S54329884_115,0.12508481824526552,nearest retained substation in source utility zone with curation remap
+G254,Chalk Point Power,OSM_S62004465_230,1.789670516683001,nearest retained substation in source utility zone with curation remap
+G255,Chalk Point Power,OSM_S62004465_230,1.789670516683001,nearest retained substation in source utility zone with curation remap
+G260,Perryman,OSM_S71075151_115,0.3778318923507215,nearest retained substation in source utility zone with curation remap
+G261,Perryman,OSM_S71075151_115,0.3778318923507215,nearest retained substation in source utility zone with curation remap
+G262,Perryman,OSM_S71075151_115,0.3778318923507215,nearest retained substation in source utility zone with curation remap
+G263,Perryman,OSM_S71075151_115,0.3778318923507215,nearest retained substation in source utility zone with curation remap
+G264,Perryman,OSM_S71075151_115,0.3778318923507215,nearest retained substation in source utility zone with curation remap
+G265,Philadelphia,OSM_S1262049309_115,0.12542137785195978,nearest retained substation in source utility zone with curation remap
+G266,Philadelphia,OSM_S1262049309_115,0.12542137785195978,nearest retained substation in source utility zone with curation remap
+G267,Philadelphia,OSM_S1262049309_115,0.12542137785195978,nearest retained substation in source utility zone with curation remap
+G268,Philadelphia,OSM_S1262049309_115,0.12542137785195978,nearest retained substation in source utility zone with curation remap
+G269,Crisfield,OSM_S1219115807_69,0.04360887665435703,nearest retained substation in source utility zone with curation remap
+G270,Crisfield,OSM_S1219115807_69,0.04360887665435703,nearest retained substation in source utility zone with curation remap
+G271,Crisfield,OSM_S1219115807_69,0.04360887665435703,nearest retained substation in source utility zone with curation remap
+G272,Crisfield,OSM_S1219115807_69,0.04360887665435703,nearest retained substation in source utility zone with curation remap
+G273,Deep Creek,OSM_S73877825_500,42.63015167055375,nearest retained substation in source utility zone with curation remap
+G274,Deep Creek,OSM_S73877825_500,42.63015167055375,nearest retained substation in source utility zone with curation remap
+G275,Chalk Point Power,OSM_S1485090638_69,0.8676349373405673,nearest retained substation in source utility zone with curation remap
+G276,Chalk Point Power,OSM_S1485090638_69,0.8676349373405673,nearest retained substation in source utility zone with curation remap
+G277,Chalk Point Power,OSM_S1485090638_69,0.8676349373405673,nearest retained substation in source utility zone with curation remap
+G278,Chalk Point Power,OSM_S62004465_230,1.789670516683001,nearest retained substation in source utility zone with curation remap
+G279,Chalk Point Power,OSM_S62004465_230,1.789670516683001,nearest retained substation in source utility zone with curation remap
+G280,Dickerson Power,OSM_S53342426_230,16.85365668969304,nearest retained substation in source utility zone with curation remap
+G281,Dickerson Power,OSM_S53342426_230,16.85365668969304,nearest retained substation in source utility zone with curation remap
+G282,Morgantown Generating Plant,OSM_S62344052_230,1.0734734641319081,nearest retained substation in source utility zone with curation remap
+G283,Morgantown Generating Plant,OSM_S62344052_230,1.0734734641319081,nearest retained substation in source utility zone with curation remap
+G287,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G288,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G289,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G290,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G291,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G292,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G293,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G294,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G295,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G296,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G297,Conowingo,OSM_S1262049321_115,18.59973760052307,nearest retained substation in source utility zone with curation remap
+G298,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G299,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G300,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G301,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G302,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G303,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G304,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G305,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G306,Easton,OSM_S68571942_138,1.2320506612326074,nearest retained substation in source utility zone with curation remap
+G673,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G674,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G675,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G676,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G677,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G678,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G679,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G680,Easton 2,OSM_S68571941_69,2.078762650598608,nearest retained substation in source utility zone with curation remap
+G710,Brown Station Road Plant I,OSM_S58360589_230,10.93338053941662,nearest retained substation in source utility zone with curation remap
+G711,Brown Station Road Plant I,OSM_S58360589_230,10.93338053941662,nearest retained substation in source utility zone with curation remap
+G712,Brown Station Road Plant I,OSM_S58360589_230,10.93338053941662,nearest retained substation in source utility zone with curation remap
+G821,Brandywine Power Facility,OSM_S818507414_230,0.0944948913679441,nearest retained substation in source utility zone with curation remap
+G822,Brandywine Power Facility,OSM_S818507414_230,0.0944948913679441,nearest retained substation in source utility zone with curation remap
+G823,Brandywine Power Facility,OSM_S818507414_230,0.0944948913679441,nearest retained substation in source utility zone with curation remap
+G1117,Brown Station Road Plant II,OSM_S58360589_230,8.71931411039252,nearest retained substation in source utility zone with curation remap
+G1118,Brown Station Road Plant II,OSM_S58360589_230,8.71931411039252,nearest retained substation in source utility zone with curation remap
+G1119,Brown Station Road Plant II,OSM_S58360589_230,8.71931411039252,nearest retained substation in source utility zone with curation remap
+G1120,Brown Station Road Plant II,OSM_S58360589_230,8.71931411039252,nearest retained substation in source utility zone with curation remap
+G1147,UMCP CHP Plant,OSM_S53827919_230,2.904037260045146,nearest retained substation in source utility zone with curation remap
+G1148,UMCP CHP Plant,OSM_S53827919_230,2.904037260045146,nearest retained substation in source utility zone with curation remap
+G1149,UMCP CHP Plant,OSM_S53827919_230,2.904037260045146,nearest retained substation in source utility zone with curation remap
+G1232,Eastern Landfill Gas LLC,OSM_S54146513_230,3.0420050271587344,nearest retained substation in source utility zone with curation remap
+G1233,Eastern Landfill Gas LLC,OSM_S54146513_230,3.0420050271587344,nearest retained substation in source utility zone with curation remap
+G1234,Eastern Landfill Gas LLC,OSM_S54146513_230,3.0420050271587344,nearest retained substation in source utility zone with curation remap
+G1235,Eastern Landfill Gas LLC,OSM_S54146513_230,3.0420050271587344,nearest retained substation in source utility zone with curation remap
+G1240,NIH Cogeneration Facility,OSM_S53827917_230,8.918359480032603,nearest retained substation in source utility zone with curation remap
+G1241,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1242,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1243,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1244,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1245,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1246,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1247,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1248,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1249,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1250,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1251,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1252,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1253,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1254,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1255,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1256,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1257,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1258,Wicomico,OSM_S69011530_69,2.3257445158737653,nearest retained substation in source utility zone with curation remap
+G1558,CPV St Charles Energy Center,OSM_S1085724426_230,0.3230641359147938,nearest retained substation in source utility zone with curation remap
+G1559,CPV St Charles Energy Center,OSM_S1085724426_230,0.3230641359147938,nearest retained substation in source utility zone with curation remap
+G1560,CPV St Charles Energy Center,OSM_S1085724426_230,0.3230641359147938,nearest retained substation in source utility zone with curation remap
+G1657,Roth Rock Wind Farm LLC,OSM_S73877825_500,54.565637442932314,nearest retained substation in source utility zone with curation remap
+G1658,"Roth Rock North Wind Farm, LLC",OSM_S73877825_500,50.32700085740353,nearest retained substation in source utility zone with curation remap
+G1666,Criterion,OSM_S73877825_500,33.705326387675974,nearest retained substation in source utility zone with curation remap
+G1743,McCormick & Co. Inc. at Belcamp,OSM_S71075151_115,4.7935604755003345,nearest retained substation in source utility zone with curation remap
+G1766,FedEx Field Solar Facility,OSM_S58360589_230,3.259381893074741,nearest retained substation in source utility zone with curation remap
+G1771,Mount Saint Mary's,OSM_S62483181_138,8.823352514334308,nearest retained substation in source utility zone with curation remap
+G1791,Perdue Salisbury Photovoltaic,OSM_S952812563_69,2.177345995180744,nearest retained substation in source utility zone with curation remap
+G1811,IKEA Perryville 460,OSM_S849494455_500,19.703409931539916,nearest retained substation in source utility zone with curation remap
+G1812,IKEA College Park 411,OSM_S53827919_230,3.208241448988561,nearest retained substation in source utility zone with curation remap
+G1813,IKEA College Park 411,OSM_S53827919_230,3.208241448988561,nearest retained substation in source utility zone with curation remap
+G1846,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1847,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1848,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1849,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1850,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1851,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1852,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1853,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1854,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1855,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1856,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1857,Central Utility Plant at White Oak,OSM_S53827919_230,4.340060067127039,nearest retained substation in source utility zone with curation remap
+G1865,Kent County-Kennedyville,OSM_S104175173_69,4.661803097274037,nearest retained substation in source utility zone with curation remap
+G1866,Rock Hall,OSM_S704091909_69,17.401562054716457,nearest retained substation in source utility zone with curation remap
+G1867,Kent County - Worton Complex,OSM_S1073501188_69,2.8329685429611975,nearest retained substation in source utility zone with curation remap
+G1872,Millersville LFG,OSM_S62153647_115,1.7207531943177787,nearest retained substation in source utility zone with curation remap
+G1873,Millersville LFG,OSM_S62153647_115,1.7207531943177787,nearest retained substation in source utility zone with curation remap
+G1875,Alpha Ridge LFG,OSM_S40256737_115,6.594783608872725,nearest retained substation in source utility zone with curation remap
+G1890,UMMS at Pocomoke,OSM_S68996425_138,0.25433731152638855,nearest retained substation in source utility zone with curation remap
+G1903,Maryland Solar,OSM_S63048509_138,8.345523525650691,nearest retained substation in source utility zone with curation remap
+G1916,Herbert Farm Solar,OSM_S66974648_69,1.77473403953119,nearest retained substation in source utility zone with curation remap
+G1937,Queen Anne's County,OSM_S764026180_138,1.601544726603799,nearest retained substation in source utility zone with curation remap
+G1996,Fourmile Ridge,OSM_S73877825_500,17.71627220400215,nearest retained substation in source utility zone with curation remap
+G2021,Back River Waste Water Treatment,OSM_S54452980_115,1.0781191491693511,nearest retained substation in source utility zone with curation remap
+G2022,Back River Waste Water Treatment,OSM_S54452980_115,1.0781191491693511,nearest retained substation in source utility zone with curation remap
+G2023,Back River Waste Water Treatment,OSM_S54452980_115,1.0781191491693511,nearest retained substation in source utility zone with curation remap
+G2032,Fair Wind,OSM_S73877825_500,33.80331867261651,nearest retained substation in source utility zone with curation remap
+G2047,Wildcat Point Generation Facility,OSM_S849494456_500,0.13306457960630197,nearest retained substation in source utility zone with curation remap
+G2048,Wildcat Point Generation Facility,OSM_S849494456_500,0.13306457960630197,nearest retained substation in source utility zone with curation remap
+G2049,Wildcat Point Generation Facility,OSM_S849494456_500,0.13306457960630197,nearest retained substation in source utility zone with curation remap
+G2116,Chimes West Friendship (Nixon Farms),OSM_S123222999_115,10.051781454744146,nearest retained substation in source utility zone with curation remap
+G2117,UMES (MD) - Princess Anne,OSM_S747075148_69,2.5536454265241892,nearest retained substation in source utility zone with curation remap
+G2133,Rockfish Solar LLC,OSM_S65045653_69,0.6803111779749246,nearest retained substation in source utility zone with curation remap
+G2134,General Motors Corp at White Marsh MD,OSM_S62097039_115,0.7060441752401319,nearest retained substation in source utility zone with curation remap
+G2135,CNE at Cambridge MD,OSM_S80395488_69,2.333407029251816,nearest retained substation in source utility zone with curation remap
+G2160,Great Bay Solar 1,OSM_S68962536_138,1.1134975591262992,nearest retained substation in source utility zone with curation remap
+G2183,CES VMT Solar,OSM_S256873287_138,2.1069170726012203,nearest retained substation in source utility zone with curation remap
+G2185,CCBC-Catonsville,OSM_S62005505_115,3.4453079183077735,nearest retained substation in source utility zone with curation remap
+G2189,Elkton Solar,OSM_S749320897_69,22.569864482479996,nearest retained substation in source utility zone with curation remap
+G2190,Town of Chestertown- Chestertown WWTP,OSM_S704091909_69,3.271541941577287,nearest retained substation in source utility zone with curation remap
+G2191,Calvert Cliffs Nuclear Power Plant,OSM_S66794233_500,0.274465970464799,nearest retained substation in source utility zone with curation remap
+G2192,Calvert Cliffs Nuclear Power Plant,OSM_S66794233_500,0.274465970464799,nearest retained substation in source utility zone with curation remap
+G2224,Keys Energy Center,OSM_S639816983_500,0.5604787832507058,nearest retained substation in source utility zone with curation remap
+G2225,Keys Energy Center,OSM_S639816983_500,0.5604787832507058,nearest retained substation in source utility zone with curation remap
+G2226,Keys Energy Center,OSM_S639816983_500,0.5604787832507058,nearest retained substation in source utility zone with curation remap
+G2232,Cecil County CCVT HS,OSM_S749320897_69,28.33717375923073,nearest retained substation in source utility zone with curation remap
+G2261,Presbyterian Senior Living Service,OSM_S61982518_115,1.3911540697327163,nearest retained substation in source utility zone with curation remap
+G2262,The Clorox Company,OSM_S1262049321_115,3.2206426458737254,nearest retained substation in source utility zone with curation remap
+G2266,Chesapeake College,OSM_S68728242_138,1.951965981032786,nearest retained substation in source utility zone with curation remap
+G2273,MEBA,OSM_S759312642_69,2.2120868730567205,nearest retained substation in source utility zone with curation remap
+G2282,Wye Mills VNEM CSG,OSM_S68728242_138,1.6063911510140052,nearest retained substation in source utility zone with curation remap
+G2287,Archdiocese of Baltimore J,OSM_S71075151_115,0.4054009918521838,nearest retained substation in source utility zone with curation remap
+G2288,Archdiocese of Baltimore L,OSM_S71075151_115,0.4054009918521838,nearest retained substation in source utility zone with curation remap
+G2289,Baltimore City B,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2290,Baltimore City D,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2291,Baltimore City F,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2292,Baltimore City G,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2293,City of Havre De Grace C,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2294,Sod Run WTP A,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2295,"Annapolis Solar Park, LLC",OSM_S112057227_115,2.2821060825684527,nearest retained substation in source utility zone with curation remap
+G2296,Havre de Grace II - E at Perryman,OSM_S71075151_115,0.6305492038943601,nearest retained substation in source utility zone with curation remap
+G2303,Longview Solar,OSM_S952822474_69,1.2950982259322903,nearest retained substation in source utility zone with curation remap
+G2304,Church Hill,OSM_S764026180_138,7.541997872129829,nearest retained substation in source utility zone with curation remap
+G2333,Montgomery County Correctional Facility,OSM_S53342426_230,11.246017788868974,nearest retained substation in source utility zone with curation remap
+G2344,Garrett County - DPU Treatment Plant,OSM_S73877825_500,40.842331847598764,nearest retained substation in source utility zone with curation remap
+G2346,Emmitsburg Solar Arrays,OSM_S62483181_138,12.110168070565093,nearest retained substation in source utility zone with curation remap
+G2390,Pfeffers,OSM_S54146513_230,1.4532127310639014,nearest retained substation in source utility zone with curation remap
+G2402,APG Combined Heat and Power Plant,OSM_S135342825_115,5.293963060102893,nearest retained substation in source utility zone with curation remap
+G2409,Biggs Ford Solar Center,OSM_S63043577_138,2.320788128327931,nearest retained substation in source utility zone with curation remap
+G2416,IGS Solar I - BWI5,OSM_S62046966_115,3.171531225471619,nearest retained substation in source utility zone with curation remap
+G2428,IGS Solar I - BWI2,OSM_S62046966_115,3.47686755080053,nearest retained substation in source utility zone with curation remap
+G2434,Baker Point,OSM_S62483181_138,6.219634434480446,nearest retained substation in source utility zone with curation remap
+G2435,Fort Detrick Solar PV,OSM_S63588136_230,2.1459374868108108,nearest retained substation in source utility zone with curation remap
+G2440,Montgomery County Solar,OSM_S53342426_230,5.582958615371453,nearest retained substation in source utility zone with curation remap
+G2456,GWCC PV Solar Farm,OSM_S53827919_230,4.37862511851158,nearest retained substation in source utility zone with curation remap
+G2462,Gateway Solar,OSM_S952812570_69,2.497983948146643,nearest retained substation in source utility zone with curation remap
+G2463,Gateway Solar,OSM_S952812570_69,2.497983948146643,nearest retained substation in source utility zone with curation remap
+G2464,LeGore Bridge Solar Center,OSM_S63043577_138,9.734884612192701,nearest retained substation in source utility zone with curation remap
+G2477,NRG Chalk Point CT,OSM_S1485090638_69,0.8676349373405673,nearest retained substation in source utility zone with curation remap
+G2484,Bowie State Solar,OSM_S53827919_230,17.16746009700547,nearest retained substation in source utility zone with curation remap
+G2495,First Baptist Church of Glenarden,OSM_S58360588_69,3.775169211765538,nearest retained substation in source utility zone with curation remap
+G2497,"Bd of Educ of Queen Anne's Cnty, Cnty HS",OSM_S764026180_138,4.071906817397061,nearest retained substation in source utility zone with curation remap
+G2501,NIST Solar,OSM_S53342426_230,6.72896258653448,nearest retained substation in source utility zone with curation remap
+G2504,Macy's MD Joppa Solar Project,OSM_S64715802_230,3.240532958927188,nearest retained substation in source utility zone with curation remap
+G2507,"Synergen Panorama, LLC CSG",OSM_S58586656_230,1.2156361928719033,nearest retained substation in source utility zone with curation remap
+G2511,Sol Phoenix,OSM_S67750362_69,2.7921603080529835,nearest retained substation in source utility zone with curation remap
+G2512,Blue Star,OSM_S391961907_69,3.76337070238713,nearest retained substation in source utility zone with curation remap
+G2515,UMCES Ground Mount,OSM_S955052824_69,2.733988436447668,nearest retained substation in source utility zone with curation remap
+G2516,Anne Arundel County Public Schools,OSM_S62117950_230,5.07501081431939,nearest retained substation in source utility zone with curation remap
+G2528,APG Old Bayside,OSM_S1262049321_115,2.4226779497899416,nearest retained substation in source utility zone with curation remap
+G2529,APG New Chesapeake,OSM_S1262049321_115,2.190549566595915,nearest retained substation in source utility zone with curation remap
+G2558,"Chester Woods Point Solar, LLC CSG",OSM_S154211427_69,3.798630980515807,nearest retained substation in source utility zone with curation remap
+G2581,Amazon Maryland DCA1,OSM_S818545966_115,1.0034867807656243,nearest retained substation in source utility zone with curation remap
+G2587,MNCPPC Germantown Solar,OSM_S53342426_230,2.546520812506227,nearest retained substation in source utility zone with curation remap
+G2588,Solar Hagerstown,OSM_S63048513_138,1.2172418930283138,nearest retained substation in source utility zone with curation remap
+G2618,Kingsville CSG,OSM_S54146513_230,0.3988280312991263,nearest retained substation in source utility zone with curation remap
+G2620,Upper Marlboro 1 CSG,OSM_S64880459_230,8.34566638302793,nearest retained substation in source utility zone with curation remap
+G2626,White CSG,OSM_S818545966_115,2.1712357435894454,nearest retained substation in source utility zone with curation remap
+G2628,Gibbons CSG,OSM_S694541826_69,19.94310011534605,nearest retained substation in source utility zone with curation remap
+G2639,Old Court Rd Solar,OSM_S40256737_115,0.4557574775465627,nearest retained substation in source utility zone with curation remap
+G2643,Francis Scott Key Mall,OSM_S53725300_230,3.476425877782095,nearest retained substation in source utility zone with curation remap
+G2647,White Marsh Mall,OSM_S62097039_115,2.0562014049385122,nearest retained substation in source utility zone with curation remap
+G2650,Bluefin Origination 1,OSM_S64882304_230,2.7878310056264675,nearest retained substation in source utility zone with curation remap
+G2674,Frederick County - Landfill,OSM_S63043608_230,6.502764078352571,nearest retained substation in source utility zone with curation remap
+G2676,Wor-Wic Community College - Offsite,OSM_S68883343_69,1.3470566560989536,nearest retained substation in source utility zone with curation remap
+G2678,Spruce - WCMD - Rubble II,OSM_S63058390_138,4.187440692248361,nearest retained substation in source utility zone with curation remap
+G2679,Spruce - WCMD - Rubble I,OSM_S63058390_138,4.162305386117636,nearest retained substation in source utility zone with curation remap
+G2680,Spruce - WCMD - Creek,OSM_S63058390_138,5.4403988305803885,nearest retained substation in source utility zone with curation remap
+G2681,Spruce - WCMD - Resh I,OSM_S63058390_138,5.427468248158165,nearest retained substation in source utility zone with curation remap
+G2699,Sheriff Road,OSM_S58360589_230,3.764307464178839,nearest retained substation in source utility zone with curation remap
+G2730,Pinesburg Solar LLC,OSM_S63058390_138,7.0073243855777685,nearest retained substation in source utility zone with curation remap
+G2731,Timonium Fairgrounds,OSM_S61592503_115,3.3762151964200338,nearest retained substation in source utility zone with curation remap
+G2733,Smith Island,OSM_S1219115807_69,17.58819481747144,nearest retained substation in source utility zone with curation remap
+G2734,Smith Island,OSM_S1219115807_69,17.58819481747144,nearest retained substation in source utility zone with curation remap
+G2735,Bluegrass Solar,OSM_S1275138717_138,0.3130691978670274,nearest retained substation in source utility zone with curation remap
+G2777,MD - CS - Potomac Edison Co - GA29 TPE,OSM_S73877825_500,41.76400678833019,nearest retained substation in source utility zone with curation remap
+G2781,Maryland Bioenergy Center (Jessup),OSM_S150553462_115,0.5556524078277867,nearest retained substation in source utility zone with curation remap
+G2799,6685 Santa Barbara Ct,OSM_S62005505_115,4.784693074486595,nearest retained substation in source utility zone with curation remap
+G2819,7448 Candlewood Road,OSM_S65672571_115,0.3783729505294323,nearest retained substation in source utility zone with curation remap
+G2823,"Kirby Road Solar, LLC",OSM_S66297457_69,2.6417254569398096,nearest retained substation in source utility zone with curation remap
+G2824,MNCPPC Randall Farm,OSM_S58360589_230,8.40596013859275,nearest retained substation in source utility zone with curation remap
+G2825,Burns Solar One LLC,OSM_S53776208_115,1.8819704112991678,nearest retained substation in source utility zone with curation remap
+G2826,"Hostetter Solar One, LLC",OSM_S63048513_138,1.9986853503668076,nearest retained substation in source utility zone with curation remap
+G2830,P52ES 1755 Henryton Rd Phase 1 LLC CSG,OSM_S40256737_115,8.061662131186493,nearest retained substation in source utility zone with curation remap
+G2831,P52ES 1755 Henryton Rd Phase 2 LLC,OSM_S40256737_115,8.061662131186493,nearest retained substation in source utility zone with curation remap
+G2832,P52ES Raphel Rd Community Solar LLC,OSM_S54146513_230,0.14046646498458507,nearest retained substation in source utility zone with curation remap
+G2833,Mason Solar One LLC,OSM_S849494455_500,20.977858520402776,nearest retained substation in source utility zone with curation remap
+G2834,Pittman Solar One LLC,OSM_S63058390_138,28.637409895550693,nearest retained substation in source utility zone with curation remap
+G2835,"Bulldog Solar One, LLC",OSM_S58360589_230,16.075343039734978,nearest retained substation in source utility zone with curation remap
+G2840,MD - PR97 (CSG),OSM_S58360589_230,15.31722659725355,nearest retained substation in source utility zone with curation remap
+G2841,Todd Solar,OSM_S103428835_69,1.7456535659395385,nearest retained substation in source utility zone with curation remap
+G2854,OER Checkerspot,OSM_S67648860_69,9.084832270601094,nearest retained substation in source utility zone with curation remap
+G2891,City of Bowie,OSM_S58360589_230,16.552883153867405,nearest retained substation in source utility zone with curation remap
+G2907,Bomber CSG,OSM_S66058977_115,10.128326652367575,nearest retained substation in source utility zone with curation remap
+G2908,Chalk Point Power,OSM_S1485090638_69,0.8676349373405673,nearest retained substation in source utility zone with curation remap
+G2923,Hollins Ferry CSG,OSM_S62005505_115,2.2195673629648875,nearest retained substation in source utility zone with curation remap
+G2927,MD - CS - Potomac Edison Co - GA25 TPE (Community Solar),OSM_S73877825_500,37.27416282278878,nearest retained substation in source utility zone with curation remap
+G2928,MD - CS - BGE - PR24 TPE,OSM_S58360589_230,16.29467467066091,nearest retained substation in source utility zone with curation remap
+G2931,OER Monarch CSG,OSM_S64882304_230,9.647056913297872,nearest retained substation in source utility zone with curation remap
+G2932,OER Patuxent CSG,OSM_S66793210_115,7.7697119097030285,nearest retained substation in source utility zone with curation remap
+G2933,Shepherds Mill CSG,OSM_S62343814_115,14.62309532330355,nearest retained substation in source utility zone with curation remap
+G2960,MO32 (CSG),OSM_S53333783_230,10.379950546948596,nearest retained substation in source utility zone with curation remap
+G2961,MO33 CSG,OSM_S53333783_230,7.132913754742279,nearest retained substation in source utility zone with curation remap
+G2962,Snowden River CSG,OSM_S40256446_230,2.24234731647728,nearest retained substation in source utility zone with curation remap
+G2968,Berlin,OSM_S693780468_69,1.2124994285312685,nearest retained substation in source utility zone with curation remap
+G2969,Berlin,OSM_S693780468_69,1.2124994285312685,nearest retained substation in source utility zone with curation remap
+G2970,Berlin,OSM_S693780468_69,1.2124994285312685,nearest retained substation in source utility zone with curation remap
+G2990,Brookville Smart Bus Depot Microgrid,OSM_S53827917_230,6.095098241086418,nearest retained substation in source utility zone with curation remap
+G2991,Brookville Smart Bus Depot Microgrid,OSM_S53827917_230,6.095098241086418,nearest retained substation in source utility zone with curation remap
+G2993,WMATA - Cheverly Metro,OSM_S58360589_230,5.234921248440383,nearest retained substation in source utility zone with curation remap
+G2994,WMATA - Naylor Rd. Metro,OSM_S67750362_69,3.0585173309075837,nearest retained substation in source utility zone with curation remap
+G2995,WMATA - S. Ave. Carport (East),OSM_S67750362_69,3.36879073690173,nearest retained substation in source utility zone with curation remap
+G2997,KDC Solar TC Little Patuxent WWTP LLC,OSM_S123222999_115,9.708654432227984,nearest retained substation in source utility zone with curation remap
+G2998,KDC Solar TC George Howard LLC,OSM_S123222999_115,9.803540812384888,nearest retained substation in source utility zone with curation remap
+G2999,KDC Solar TC Blandair Park LLC,OSM_S123222999_115,9.52979264208394,nearest retained substation in source utility zone with curation remap
+G3026,Friendship I,OSM_S123222999_115,7.744738590149507,nearest retained substation in source utility zone with curation remap
+G3027,Friendship II,OSM_S123222999_115,7.744879027715506,nearest retained substation in source utility zone with curation remap
+G3029,Ripley,OSM_S1548970907_69,0.2082249036430571,nearest retained substation in source utility zone with curation remap
+G3134,Essential Power Rock Springs LLC,OSM_S849494455_500,0.1696417003885401,nearest retained substation in source utility zone with curation remap
+G3135,Essential Power Rock Springs LLC,OSM_S849494455_500,0.1696417003885401,nearest retained substation in source utility zone with curation remap
+G3136,Essential Power Rock Springs LLC,OSM_S849494455_500,0.1696417003885401,nearest retained substation in source utility zone with curation remap
+G3137,Essential Power Rock Springs LLC,OSM_S849494455_500,0.1696417003885401,nearest retained substation in source utility zone with curation remap
