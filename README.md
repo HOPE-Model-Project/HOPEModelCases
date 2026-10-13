@@ -76,6 +76,8 @@ Each case folder contains:
 | `MD_GTEP_clean_fullchron_stressed_case` | GTEP | Maryland |
 | `MD_PCM_Excel_case` | PCM | Maryland |
 | `MD_PCM_Excel_DR_case` | PCM | Maryland (demand response) |
+| `MD_GTEP_restricted_linkage_case` | GTEP | Maryland restricted linkage benchmark |
+| `MD_PCM_restricted_linkage_case` | PCM | Maryland restricted linkage benchmark |
 | `RTS24_PCM_case` | PCM | RTS-24 |
 | `RTS24_PCM_fullfunc_case` | PCM | RTS-24 (full features) |
 | `RTS24_PCM_multizone4_congested_1month_case` | PCM | RTS-24 multizone |

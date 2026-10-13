@@ -1,0 +1,8 @@
+schema_version: 1
+model_mode: "PCM"
+hours: 24
+license_note: "See repository and source Maryland public-case licensing/provenance notes."
+paired_case: "MD_GTEP_restricted_linkage_case"
+benchmark_class: "restricted_linkage_acceptance"
+geographic_basis: "Maryland OSM identifiers"
+data_character: "reduced synthetic stress assumptions on public physical identifiers"

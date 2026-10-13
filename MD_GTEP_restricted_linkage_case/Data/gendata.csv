@@ -1,0 +1,3 @@
+GeneratorID,Asset_ID,PlantName,State,Zone,Bus_id,Planning_Zone,Type,Pmax (MW),Pmin (MW),Cost ($/MWh),EF,CC,AF,FOR,RM_SPIN,RM_REG_UP,RM_REG_DN,RM_NSPIN,RU,RD,Flag_thermal,Flag_RET,Flag_VRE,Flag_mustrun,Flag_UC,Min_down_time,Min_up_time,Start_up_cost ($/MW),Flag_RPS
+MD_LINK_G1,MD_LINK_EXISTING_GAS,Maryland linkage west gas,MD,OSM_S62344052_230,OSM_S62344052_230,MD_WEST,NGCC,140.0,0.0,20.0,0.45,1.0,1.0,0.0,0.5,0.2,0.2,0.3,0.5,0.5,1,0,0,0,1,2,2,10.0,0
+MD_LINK_G2,MD_LINK_RETIRE_COAL,Maryland linkage east retirement unit,MD,OSM_S62344051_230,OSM_S62344051_230,MD_EAST,Coal,20.0,20.0,200.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.25,0.25,1,1,0,0,1,2,2,20.0,0

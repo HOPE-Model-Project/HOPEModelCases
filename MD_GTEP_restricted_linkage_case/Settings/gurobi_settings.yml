@@ -1,0 +1,6 @@
+Feasib_Tol: 1.0e-7
+Optimal_Tol: 1.0e-7
+TimeLimit: 300.0
+MIPGap: 1.0e-6
+Method: -1
+OutputFlag: 1

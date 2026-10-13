@@ -1,0 +1,44 @@
+schema_version: 1
+require_all: true
+required_settings:
+  gtep:
+    inv_dcs_bin: 1
+    flexible_demand: 1
+    clean_energy_policy: 1
+    planning_reserve_mode: 2
+    operation_reserve_mode: 1
+    transmission_loss: 1
+  pcm:
+    unit_commitment: 1
+    flexible_demand: 1
+    clean_energy_policy: 1
+    operation_reserve_mode: 2
+    network_model: 2
+    transmission_loss: 1
+thresholds:
+  retired_generation_mw:
+    minimum: 19.99
+  new_generation_mw:
+    minimum: 159.99
+  new_storage_power_mw:
+    minimum: 29.99
+  new_storage_energy_mwh:
+    minimum: 119.99
+  line_forward_added_mw:
+    minimum: 29.99
+  pcm_new_generation_dispatch_mwh:
+    minimum: 1.0
+  pcm_new_storage_discharge_mwh:
+    minimum: 1.0
+  pcm_upgraded_line_max_abs_flow_mw:
+    minimum: 10.01
+  pcm_dr_deferred_mwh:
+    minimum: 0.01
+  pcm_operating_reserve_mwh:
+    minimum: 0.01
+  pcm_transmission_loss_mwh:
+    minimum: 0.01
+  pcm_load_shedding_mwh:
+    maximum: 0.000001
+  pcm_rps_slack_mwh:
+    maximum: 0.000001

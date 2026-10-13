@@ -1,0 +1,2 @@
+From_zone,To_zone,X,Forward Capacity (MW),Reverse Capacity (MW),Loss (%),Corridor_ID
+OSM_S62344052_230,OSM_S62344051_230,0.05,10.0,10.0,0.02,OSM_L17622043

@@ -1,0 +1,23 @@
+DataCase: Data/
+model_mode: PCM
+resource_aggregation: 0
+representative_day!: 0
+endogenous_rep_day: 0
+external_rep_day: 0
+flexible_demand: 1
+inv_dcs_bin: 0
+carbon_policy: 0
+clean_energy_policy: 1
+planning_reserve_mode: 0
+operation_reserve_mode: 2
+network_model: 2
+transmission_loss: 1
+reference_bus: OSM_S62344052_230
+unit_commitment: 1
+write_shadow_prices: 1
+summary_table: 1
+solver: highs
+debug: 0
+holistic_spatial_basis: bus
+time_periods:
+  1: (1, 1, 1, 1)
