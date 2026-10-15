@@ -1,0 +1,28 @@
+schema_version: 1
+require_all: true
+required_settings:
+  gtep:
+    clean_energy_policy: 2
+    planning_reserve_mode: 1
+    operation_reserve_mode: 1
+    holistic_spatial_basis: zone
+  pcm:
+    clean_energy_policy: 2
+    unit_commitment: 1
+    operation_reserve_mode: 2
+    network_model: 2
+thresholds:
+  new_generation_mw:
+    minimum: 0.001
+  pcm_new_generation_dispatch_mwh:
+    minimum: 0.001
+  gtep_operating_reserve_mwh:
+    minimum: 0.001
+  pcm_operating_reserve_mwh:
+    minimum: 0.001
+  gtep_rps_slack_mwh:
+    maximum: 0.000001
+  pcm_rps_slack_mwh:
+    maximum: 0.000001
+  pcm_load_shedding_mwh:
+    maximum: 0.000001

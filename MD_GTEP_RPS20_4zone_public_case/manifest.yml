@@ -1,0 +1,37 @@
+schema_version: 1
+case_name: MD_GTEP_RPS20_4zone_public_case
+model_mode: GTEP
+data_subdir: Data_MD_GTEP_RPS20_4zone_public/
+source_case: ../MD_GTEP_4zone_public_case
+paired_pcm_case: ../MD_PCM_RPS20_transmission_public_case
+scenario:
+  name: Maryland 20% local RPS holistic benchmark
+  rps_fraction: 0.20
+  rps_scope: Maryland
+  clean_energy_policy_mode: 2
+spatial_basis: zone
+chronology:
+  hours: 168
+  external_representative_periods: 7
+  total_day_weight: 365
+resolution:
+  gtep_planning_zones: 5
+  pcm_physical_buses: 656
+  realization: candidate Bus_id and branch Corridor_ID plus PCM endpoint columns
+provenance:
+  physical_network: OpenStreetMap-derived public Maryland transmission reconstruction
+  electrical_parameters: inferred and documented in the paired PCM case
+validation:
+  solver: Gurobi 13.0.0
+  status: OPTIMAL
+  objective_usd: 3836903765.4378757
+  load_shedding_mwh: 0.0
+  rps_slack_mwh: 0.0
+  operating_reserve_mwh: 1183991.0357768373
+  new_generation_mw: 29020.996428372408
+  new_storage_power_mw: 6188.384828567678
+  new_storage_energy_mwh: 24753.53931427071
+  new_transmission_mw: 0.0
+  retired_generation_mw: 0.0
+  source_inputs_unchanged: true
+  holistic_acceptance_passed: true

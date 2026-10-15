@@ -1,0 +1,4 @@
+output/
+output_*/
+output_holistic/
+*.log

@@ -1,0 +1,50 @@
+schema_version: 1
+case_name: MD_PCM_RPS20_transmission_public_case
+model_mode: PCM
+data_subdir: Data_MD_PCM_RPS20_transmission_public/
+source_case: ../MD_PCM_transmission_public_case
+paired_gtep_case: ../MD_GTEP_RPS20_4zone_public_case
+scenario:
+  name: Maryland 20% local RPS holistic benchmark
+  rps_fraction: 0.20
+  rps_scope: Maryland
+  clean_energy_policy_mode: 2
+chronology:
+  start: July 15 hour 1
+  end: July 21 hour 24
+  hours: 168
+geography:
+  internal_region: Maryland
+  planning_zones: [APS_MD, BGE, DPL_MD, PEPCO]
+  external_boundary_zone: EXT
+network:
+  source: OpenStreetMap contributors via Overpass API
+  source_license: ODbL-1.0
+  buses: 656
+  branches: 838
+  formulation: nodal DCOPF angle
+  parameters: inferred and explicitly flagged
+operations:
+  unit_commitment: true
+  reserve_mode: REG-UP, REG-DOWN, SPIN, NSPIN
+visualization:
+  static_svg: references/md_rps20_physical_realization.svg
+  geojson: references/md_rps20_network.geojson
+  geometry_status: simplified endpoint connections, not official facility routes
+provenance:
+  generator_fleet: PJM DC Health ICARUS21 2025 base input
+  load_chronology: legacy PJM_MD100 inputs, used only as chronology provenance
+  physical_network: public OSM reconstruction with documented assumptions
+validation:
+  solver: Gurobi 13.0.0
+  status: OPTIMAL
+  objective_usd: 21307495.706849027
+  load_shedding_mwh: 0.0
+  rps_slack_mwh: 0.0
+  operating_reserve_mwh: 233349.6904594072
+  commitment_on_hours: 20996.0
+  new_generation_dispatch_mwh: 1505670.1949566794
+  new_storage_discharge_mwh: 108863.35927117644
+  maximum_absolute_line_flow_mw: 6488.04755036835
+  source_inputs_unchanged: true
+  holistic_acceptance_passed: true

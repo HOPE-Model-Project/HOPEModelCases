@@ -1,0 +1,5 @@
+CandidateRow,CandidateID,RealizedAssetID,Zone,Type,CandidatePowerMW,BuiltPowerMW,CandidateEnergyMWh,BuiltEnergyMWh,OperationalTemplateID,ParameterSource
+1,MD_APS_MD_Battery_001,MD_APS_MD_Battery_001__UNIT_001,APS_MD,Battery,2000.0,2000.0,8000.0,8000.0,HOPE_BATTERY_4H_DEFAULT,candidate_then_pcm_fallback
+2,MD_BGE_Battery_001,MD_BGE_Battery_001__UNIT_001,BGE,Battery,2000.0,1609.0573160489337,8000.0,6436.229264195735,HOPE_BATTERY_4H_DEFAULT,candidate_then_pcm_fallback
+3,MD_DPL_MD_Battery_001,MD_DPL_MD_Battery_001__UNIT_001,DPL_MD,Battery,2000.0,579.3275125187433,8000.0,2317.3100500749733,HOPE_BATTERY_4H_DEFAULT,candidate_then_pcm_fallback
+4,MD_PEPCO_Battery_001,MD_PEPCO_Battery_001__UNIT_001,PEPCO,Battery,2000.0,2000.0,8000.0,8000.0,HOPE_BATTERY_4H_DEFAULT,candidate_then_pcm_fallback

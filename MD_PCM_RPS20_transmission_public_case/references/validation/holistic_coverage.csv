@@ -1,0 +1,18 @@
+Stage,Feature,Configured,Populated,Exercised,Restrictive,Transferred,Consumed,Evidence
+GTEP-PCM,retirement_transfer,true,false,false,false,false,false,retired_generation_mw=0.0
+GTEP-PCM,generation_build_transfer,true,true,true,true,true,true,build_mw=29020.996428372408; pcm_dispatch_mwh=1.5056701949566794e6
+GTEP-PCM,storage_build_transfer,true,true,true,true,true,true,build_mw=6188.384828567678; pcm_discharge_mwh=108863.35927117644
+GTEP-PCM,transmission_build_transfer,true,false,false,false,false,false,added_mw=0.0; flow_above_source_mw=0.0
+GTEP-PCM,source_case_immutability,true,true,true,not_applicable,not_applicable,true,gtep_unchanged=true; pcm_unchanged=true
+GTEP,binary_investment,false,true,true,true,not_applicable,not_applicable,
+GTEP,zonal_planning_reserve,false,true,true,not_measured,not_applicable,not_applicable,
+GTEP,operating_reserve,true,true,true,true,not_applicable,not_applicable,reserve_mwh=1.1839910357768373e6
+GTEP,clean_energy_policy,true,true,true,not_measured,not_applicable,not_applicable,rps_slack_mwh=0.0
+GTEP,flexible_demand,false,true,false,false,not_applicable,not_applicable,deferred_mwh=0.0
+GTEP,transmission_loss,false,true,false,false,not_applicable,not_applicable,loss_mwh=0.0
+PCM,nodal_angle_dcopf,true,true,true,not_measured,not_applicable,not_applicable,max_abs_flow_mw=6488.04755036835
+PCM,unit_commitment,true,true,true,not_measured,not_applicable,not_applicable,on_hours=20996.0; starts=0.0
+PCM,operating_reserve,true,true,true,true,not_applicable,not_applicable,reserve_mwh=233349.6904594072
+PCM,clean_energy_policy,true,true,true,not_measured,not_applicable,not_applicable,rps_slack_mwh=0.0
+PCM,flexible_demand,false,true,false,false,not_applicable,not_applicable,deferred_mwh=0.0
+PCM,transmission_loss,false,true,false,false,not_applicable,not_applicable,loss_mwh=0.0

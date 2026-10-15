@@ -85,8 +85,10 @@ Each case folder contains:
 | `IEEE118_PCM_case` | PCM | IEEE 118-bus |
 | `IEEE118_PCM_1month_case` | PCM | IEEE 118-bus (1 month) |
 | `ISONE_PCM_250bus_case` | PCM | ISO-NE 250-bus |
-| `PJM_MD100_GTEP_case` | GTEP | PJM / Maryland 100-bus |
-| `PJM_MD100_PCM_case` | PCM | PJM / Maryland 100-bus |
+| `PJM_MD100_GTEP_case` | GTEP | PJM / Maryland 100% renewable scenario |
+| `PJM_MD100_PCM_case` | PCM | PJM / Maryland 100% renewable scenario |
+| `MD_GTEP_RPS20_4zone_public_case` | GTEP | Maryland four-zone planning, 20% RPS |
+| `MD_PCM_RPS20_transmission_public_case` | PCM | Maryland public transmission network, 20% RPS |
 | `GERMANY_PCM_nodal_case` | PCM | Germany nodal |
 | `GERMANY_PCM_zonal4_case` | PCM | Germany 4-zone |
 | `USA_64zone_GTEP_case` | GTEP | USA 64-zone |

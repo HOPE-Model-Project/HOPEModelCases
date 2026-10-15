@@ -1,0 +1,65 @@
+{
+  "case": "MD_PCM_RPS20_transmission_public_case",
+  "hours": 168,
+  "buses": 656,
+  "branches": 838,
+  "connected_components": 1,
+  "retained_raw_components": [
+    1,
+    9
+  ],
+  "discarded_orphan_buses": 459,
+  "boundary_buses": 33,
+  "generators": 271,
+  "generator_capacity_mw": 9331.8,
+  "peak_load_mw": 19763.15,
+  "zones": {
+    "APS_MD": 46,
+    "BGE": 185,
+    "DPL_MD": 141,
+    "EXT": 44,
+    "PEPCO": 240
+  },
+  "external_corridor_proxy": {
+    "from_bus": "OSM_S71516164_138",
+    "to_bus": "OSM_J230_39p61304_m75p76530",
+    "distance_km": 3.7156147718981427,
+    "capacity_mw": 1200.0
+  },
+  "checks": {
+    "all_branch_endpoints_exist": true,
+    "all_generators_mapped": true,
+    "zone_peak_loads_preserved": {
+      "APS_MD": true,
+      "BGE": true,
+      "DPL_MD": true,
+      "PEPCO": true
+    }
+  },
+  "assumption_flags": [
+    "OSM is a public-data reconstruction, not an official PJM network model",
+    "line reactance and thermal ratings are inferred by voltage and geometry",
+    "tiny disconnected OSM fragments are excluded",
+    "mainland and Eastern Shore are joined by a transparent external-PJM corridor proxy",
+    "NI target is zero; imports are endogenous within capacity-weighted boundary caps",
+    "ratings include documented benchmark calibration multipliers"
+  ],
+  "network_calibration": {
+    "osm_corridor_capacity_multiplier": 5.0,
+    "inferred_transformer_capacity_multiplier": 25.0,
+    "purpose": "compensate for incomplete parallel-circuit and transformer detail in OSM"
+  },
+  "interchange_assumption": {
+    "target": "0 MW; no authoritative schedule assumed",
+    "cap": "hourly system load allocated by retained boundary-interface capacity"
+  },
+  "source_pcm_case": "MD_PCM_transmission_public_case",
+  "paired_gtep_case": "MD_GTEP_RPS20_4zone_public_case",
+  "rps_fraction": 0.2,
+  "reserve_requirements": {
+    "reg_up": 0.01,
+    "reg_down": 0.01,
+    "spin": 0.03,
+    "nspin": 0.03
+  }
+}

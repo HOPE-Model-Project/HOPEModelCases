@@ -1,0 +1,6 @@
+Feasib_Tol: 1.0e-05
+Optimal_Tol: 1.0e-05
+TimeLimit: 1.0e23
+Pre_Solve: choose
+Method: choose
+run_crossover: false

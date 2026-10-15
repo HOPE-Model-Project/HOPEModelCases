@@ -1,0 +1,23 @@
+{
+  "planning_zones": 5,
+  "zonal_corridors": 20,
+  "physical_pcm_buses": 656,
+  "physical_pcm_branches": 838,
+  "existing_generators": 271,
+  "generation_candidates": 12,
+  "storage_candidates": 4,
+  "branch_specific_line_candidates": 4,
+  "hours": 168,
+  "candidate_buses": {
+    "APS_MD": "OSM_S73877825_500",
+    "BGE": "OSM_S1262049321_115",
+    "DPL_MD": "OSM_S849494456_500",
+    "PEPCO": "OSM_S66794233_500"
+  },
+  "source_pcm_case": "MD_PCM_transmission_public_case",
+  "case": "MD_GTEP_RPS20_4zone_public_case",
+  "source_gtep_case": "MD_GTEP_4zone_public_case",
+  "paired_pcm_case": "MD_PCM_RPS20_transmission_public_case",
+  "rps_fraction": 0.2,
+  "rps_mode": "local"
+}

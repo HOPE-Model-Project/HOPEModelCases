@@ -1,0 +1,16 @@
+Stage,Check,Actual,Comparator,Expected,Passed
+gtep,setting.planning_reserve_mode,1,==,1,true
+gtep,setting.operation_reserve_mode,1,==,1,true
+gtep,setting.clean_energy_policy,2,==,2,true
+gtep,setting.holistic_spatial_basis,zone,==,zone,true
+pcm,setting.unit_commitment,1,==,1,true
+pcm,setting.network_model,2,==,2,true
+pcm,setting.operation_reserve_mode,2,==,2,true
+pcm,setting.clean_energy_policy,2,==,2,true
+holistic,gtep_operating_reserve_mwh,1.1839910357768373e6,>=,0.001,true
+holistic,pcm_load_shedding_mwh,0.0,<=,1.0e-6,true
+holistic,new_generation_mw,29020.996428372408,>=,0.001,true
+holistic,pcm_operating_reserve_mwh,233349.6904594072,>=,0.001,true
+holistic,pcm_rps_slack_mwh,0.0,<=,1.0e-6,true
+holistic,gtep_rps_slack_mwh,0.0,<=,1.0e-6,true
+holistic,pcm_new_generation_dispatch_mwh,1.5056701949566794e6,>=,0.001,true
