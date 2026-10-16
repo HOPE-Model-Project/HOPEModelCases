@@ -14,6 +14,9 @@ GTEP spinning reserve, storage investment, and transmission-expansion options.
 Every candidate has a predefined physical `Bus_id`; transmission candidates
 carry stable `Corridor_ID`, `PCM_from_bus`, and `PCM_to_bus` values. These are
 transparent realization assumptions rather than an optimal siting model.
+`Settings/HOPE_physical_realization.yml` formalizes them as a version-1
+contract. HOPE validates candidate buses, zone consistency, branch targets,
+network counts, provenance, and complete source-data hashes before solving.
 
 ## Run
 

@@ -45,3 +45,7 @@ HOPE.run_hope("ModelCases/MD_PCM_RPS20_transmission_public_case/")
 For the linked run, execute the paired GTEP case's `run_holistic_pair.jl`.
 Realized inputs, mapping audits, the handoff manifest, coverage tables, and
 acceptance checks are written under this case's `output_holistic/` directory.
+The GTEP case's versioned physical-realization contract is validated before
+solving. Complete source fingerprints and contract checks are written as
+`realized_inputs/handoff_contract.yml` and
+`realized_inputs/handoff_contract_checks.csv`.

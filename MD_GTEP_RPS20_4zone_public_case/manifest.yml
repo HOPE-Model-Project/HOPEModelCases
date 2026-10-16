@@ -10,6 +10,7 @@ scenario:
   rps_scope: Maryland
   clean_energy_policy_mode: 2
 spatial_basis: zone
+physical_realization_contract: Settings/HOPE_physical_realization.yml
 chronology:
   hours: 168
   external_representative_periods: 7

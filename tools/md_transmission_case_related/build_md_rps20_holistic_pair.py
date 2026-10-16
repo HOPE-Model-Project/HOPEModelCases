@@ -137,6 +137,58 @@ debug: 0
 """,
     )
     write(
+        TARGET_GTEP / "Settings" / "HOPE_physical_realization.yml",
+        """
+schema_version: 1
+artifact_type: HOPE.physical_realization
+workflow: GTEP-PCM
+
+topology:
+  planning_basis: zone
+  planning_node_table: zonedata.csv
+  physical_node_table: busdata.csv
+  physical_branch_table: branchdata.csv
+  expected_counts:
+    planning_nodes: 5
+    physical_nodes: 656
+    physical_branches: 838
+
+resource_siting:
+  generation:
+    method: explicit_bus
+    bus_column: Bus_id
+    planning_zone_column: Planning_Zone
+  storage:
+    method: explicit_bus
+    bus_column: Bus_id
+    planning_zone_column: Planning_Zone
+
+transmission_realization:
+  method_priority:
+    - corridor_id
+    - explicit_endpoints
+
+identity:
+  existing_assets: Asset_ID
+  candidates: Candidate_ID
+  realized_asset_pattern: "<Candidate_ID>__UNIT_<sequence>"
+
+provenance:
+  source_register:
+    case: pcm
+    path: references/source_data_register.csv
+  confidence:
+    bus_coordinates: observed_or_derived_from_osm
+    topology: derived_from_osm
+    voltage: observed_where_tagged_otherwise_inferred
+    electrical_parameters: inferred
+    candidate_siting: assumed_largest_existing_generation_bus_by_planning_zone
+  disclaimer: >-
+    Public-data transmission reconstruction for workflow testing and research;
+    not an official PJM network model.
+""",
+    )
+    write(
         TARGET_GTEP / "run_case.jl",
         """
 using HOPE
@@ -179,6 +231,9 @@ GTEP spinning reserve, storage investment, and transmission-expansion options.
 Every candidate has a predefined physical `Bus_id`; transmission candidates
 carry stable `Corridor_ID`, `PCM_from_bus`, and `PCM_to_bus` values. These are
 transparent realization assumptions rather than an optimal siting model.
+`Settings/HOPE_physical_realization.yml` formalizes them as a version-1
+contract. HOPE validates candidate buses, zone consistency, branch targets,
+network counts, provenance, and complete source-data hashes before solving.
 
 ## Run
 
@@ -231,6 +286,7 @@ scenario:
   rps_scope: Maryland
   clean_energy_policy_mode: 2
 spatial_basis: zone
+physical_realization_contract: Settings/HOPE_physical_realization.yml
 chronology:
   hours: 168
   external_representative_periods: 7
@@ -380,6 +436,10 @@ HOPE.run_hope("ModelCases/MD_PCM_RPS20_transmission_public_case/")
 For the linked run, execute the paired GTEP case's `run_holistic_pair.jl`.
 Realized inputs, mapping audits, the handoff manifest, coverage tables, and
 acceptance checks are written under this case's `output_holistic/` directory.
+The GTEP case's versioned physical-realization contract is validated before
+solving. Complete source fingerprints and contract checks are written as
+`realized_inputs/handoff_contract.yml` and
+`realized_inputs/handoff_contract_checks.csv`.
 """,
     )
 
