@@ -1,0 +1,47 @@
+schema_version: 1
+artifact_type: HOPE.physical_realization
+workflow: GTEP-PCM
+
+topology:
+  planning_basis: zone
+  planning_node_table: zonedata.csv
+  physical_node_table: busdata.csv
+  physical_branch_table: branchdata.csv
+  expected_counts:
+    planning_nodes: 5
+    physical_nodes: 656
+    physical_branches: 838
+
+resource_siting:
+  generation:
+    method: explicit_bus
+    bus_column: Bus_id
+    planning_zone_column: Planning_Zone
+  storage:
+    method: explicit_bus
+    bus_column: Bus_id
+    planning_zone_column: Planning_Zone
+
+transmission_realization:
+  method_priority:
+    - corridor_id
+    - explicit_endpoints
+
+identity:
+  existing_assets: Asset_ID
+  candidates: Candidate_ID
+  realized_asset_pattern: "<Candidate_ID>__UNIT_<sequence>"
+
+provenance:
+  source_register:
+    case: pcm
+    path: references/source_data_register.csv
+  confidence:
+    bus_coordinates: observed_or_derived_from_osm
+    topology: derived_from_osm
+    voltage: observed_where_tagged_otherwise_inferred
+    electrical_parameters: inferred
+    candidate_siting: assumed_largest_existing_generation_bus_by_planning_zone
+  disclaimer: >-
+    Public-data transmission reconstruction for workflow testing and research;
+    not an official PJM network model.

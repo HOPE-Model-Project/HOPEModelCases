@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "gtep_case": "MD_GTEP_RPS20_4zone_full8760_public_case",
+  "pcm_case": "MD_PCM_RPS20_transmission_full8760_public_case",
+  "chronology_source": "MD_GTEP_holistic_full8760_case_v20260406g\\Data_100RPS",
+  "spatial_source_gtep": "MD_GTEP_RPS20_4zone_public_case",
+  "spatial_source_pcm": "MD_PCM_RPS20_transmission_public_case",
+  "hours": 8760,
+  "time_period_values": [
+    1
+  ],
+  "planning_nodes": 5,
+  "maryland_planning_zones": 4,
+  "external_boundary_zones": 1,
+  "physical_buses": 656,
+  "physical_branches": 838,
+  "rps_fraction": 0.2,
+  "gtep_upward_reserve_proxy_fraction": 0.07,
+  "pcm_upward_reserve_requirement_fraction": 0.07,
+  "physical_deliverability_adjustment": {
+    "corridor_id": "OSM_L1528639488",
+    "original_capacity_mw": 500.0,
+    "adjusted_capacity_mw": 600.0
+  },
+  "generator_availability_method": "static AF and FOR parameters",
+  "interchange_target_mw": 0.0,
+  "annual_system_load_proxy_mwh": 96708265.17870308,
+  "annual_nodal_interchange_cap_sum_mwh": 96708265.1786985,
+  "interchange_weight_sum": 1.0,
+  "files": {
+    "gtep_load_sha256": "593c58c45836f5adace4b44d54a5f4a9dc3941f8ab97439a6f05670be0466aaa",
+    "pcm_nodal_load_sha256": "8cd80e02c9b88eea1e311482b19bb100906baafc91e5d608ff4795ce72dc957f",
+    "pcm_ni_cap_sha256": "0568e233e2f1e8647febddcb78edffc0c5ca05f766c26175b0b550a4dfe7d6f0",
+    "pcm_branchdata_sha256": "10019be0042277e03310431bbc0f6055b732112ff89c02ad573a0d4ec1f88211"
+  },
+  "validation_status": {
+    "structural": "passed",
+    "full_year_gtep": "optimal",
+    "full_year_pcm": "memory_limited_during_model_construction",
+    "july_744h_pcm": "optimal_all_acceptance_checks_passed"
+  }
+}

@@ -1,0 +1,657 @@
+Bus_id,OSM_element_id,Bus_kind,Voltage_kV,Name,Utility_polygon,Zone_id,Component
+OSM_J115_38p89772_m76p95052,,junction,115,,Outside Maryland utility polygons,EXT,1
+OSM_J115_39p01104_m76p69819,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p01548_m76p69713,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p01663_m76p56422,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p26986_m76p50068,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p26987_m76p50014,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p26993_m76p50093,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p27001_m76p50069,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p27002_m76p49960,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p27002_m76p49978,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p27002_m76p50014,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p27016_m76p50014,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p30674_m76p76251,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p30683_m76p76328,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p30685_m76p76251,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p37624_m76p65348,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p37651_m76p65420,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39924_m76p32511,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39928_m76p32495,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39939_m76p32529,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39940_m76p32495,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39963_m76p32510,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p39963_m76p32527,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p41043_m76p30388,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p41424_m76p29268,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p41650_m76p39999,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p44115_m76p53314,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p45150_m76p54107,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p51610_m76p91182,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p51767_m76p91300,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p51860_m76p91366,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p51954_m76p91434,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p52270_m76p91742,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p52542_m76p92168,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p52577_m76p92221,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p52671_m76p92349,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p53496_m76p92897,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p53859_m76p93115,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p53921_m76p93151,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p53951_m76p89738,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p54109_m76p89656,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p55606_m76p91682,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p55667_m76p91805,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J115_39p56444_m76p93539,,junction,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_J138_37p99757_m75p46581,,junction,138,,Outside Maryland utility polygons,EXT,1
+OSM_J138_38p05608_m75p41885,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p05826_m75p41669,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p17092_m75p36885,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p17297_m75p36846,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p19053_m75p37573,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p25061_m75p44303,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p25257_m75p44554,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p83989_m76p02659,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p84030_m76p05961,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p87551_m75p99574,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p88022_m75p99180,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p88411_m75p98853,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_38p88778_m75p98546,,junction,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J138_39p11193_m75p96236,,junction,138,,Delmarva Power,DPL_MD,1
+OSM_J138_39p11340_m75p96247,,junction,138,,Delmarva Power,DPL_MD,1
+OSM_J138_39p48427_m77p81903,,junction,138,,Outside Maryland utility polygons,EXT,1
+OSM_J138_39p66267_m77p61752,,junction,138,,Allegheny Power,APS_MD,1
+OSM_J138_39p67087_m77p66411,,junction,138,,Allegheny Power,APS_MD,1
+OSM_J138_39p72931_m77p60252,,junction,138,,Outside Maryland utility polygons,EXT,1
+OSM_J230_38p35883_m76p44754,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p36490_m76p44633,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p37008_m76p44325,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p37129_m76p44440,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p37367_m76p44572,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p43331_m76p48684,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p43617_m76p48865,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p43907_m76p48957,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p44268_m76p49208,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p45735_m76p50897,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p45803_m76p50975,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p46073_m76p51287,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p46371_m76p51630,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p48347_m76p53905,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p48505_m76p54088,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49010_m76p54672,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49143_m76p54825,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49328_m76p55180,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49367_m76p55337,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49517_m76p55851,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p49560_m76p56122,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p50054_m76p56557,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p50446_m76p56563,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p50753_m76p56665,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p50990_m76p56931,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p51264_m76p57076,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p51410_m76p57097,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p51775_m76p57469,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p52434_m76p58240,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p52544_m76p58360,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p52900_m76p58772,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p53043_m76p58944,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p53493_m76p59465,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p53633_m76p59629,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p54527_m76p60623,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p54664_m76p60750,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p54665_m76p60740,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p54837_m76p60896,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p56480_m76p62383,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p56758_m76p62689,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p58867_m76p64539,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p67286_m76p82033,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p67294_m76p82062,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p68000_m76p81784,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p68013_m76p81811,,junction,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J230_38p70614_m76p84208,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03034_m77p14432,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03146_m77p14511,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03153_m77p14787,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03169_m77p14423,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03183_m77p14768,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03191_m77p14419,,junction,230,,Potomac Electric Power Company,PEPCO,1
+OSM_J230_39p03586_m75p77482,,junction,230,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J230_39p20919_m76p54313,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p20936_m76p54333,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p21303_m76p53723,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p22762_m76p51811,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23186_m76p51256,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23620_m76p51077,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23669_m76p51101,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23671_m76p51073,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23735_m76p51048,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23754_m76p51025,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p23754_m76p51080,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p25573_m75p82958,,junction,230,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J230_39p32689_m77p48339,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p33012_m77p47949,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p33057_m77p47972,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p33136_m77p48530,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p38682_m77p41730,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p44410_m76p39560,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p48884_m77p58201,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p48909_m77p58155,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p48995_m77p58202,,junction,230,,Allegheny Power,APS_MD,1
+OSM_J230_39p57328_m76p40788,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p57800_m76p40761,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p61304_m75p76530,,junction,230,,Outside Maryland utility polygons,EXT,1
+OSM_J230_39p63014_m76p39632,,junction,230,,Delmarva Power,DPL_MD,1
+OSM_J230_39p63738_m76p39505,,junction,230,,Delmarva Power,DPL_MD,1
+OSM_J230_39p68686_m76p60196,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p68782_m76p59502,,junction,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_J230_39p72224_m76p57033,,junction,230,,Outside Maryland utility polygons,EXT,1
+OSM_J230_39p72653_m76p38446,,junction,230,,Outside Maryland utility polygons,EXT,1
+OSM_J500_38p46771_m76p49796,,junction,500,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J500_38p47024_m76p50189,,junction,500,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J500_38p50120_m76p52105,,junction,500,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J500_38p50322_m76p52480,,junction,500,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J500_39p20410_m77p45776,,junction,500,,Allegheny Power,APS_MD,1
+OSM_J500_39p21386_m77p44932,,junction,500,,Allegheny Power,APS_MD,1
+OSM_J500_39p29964_m77p56392,,junction,500,,Outside Maryland utility polygons,EXT,1
+OSM_J500_39p35548_m77p23833,,junction,500,,Allegheny Power,APS_MD,1
+OSM_J500_39p85808_m79p93349,,junction,500,,Outside Maryland utility polygons,EXT,1
+OSM_J69_38p01321_m75p81104,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p03014_m75p78558,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p03915_m75p77979,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p15077_m76p38133,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p15167_m76p38044,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p15279_m76p37696,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p15319_m76p37593,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p24726_m76p42247,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p39507_m75p41572,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39577_m75p41585,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39672_m75p41606,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39724_m75p41617,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39738_m75p41030,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39742_m75p40875,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39748_m75p41366,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p39755_m75p41262,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p40284_m75p06207,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_38p40302_m75p06202,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_38p46096_m75p75382,,junction,69,,Delmarva Power,DPL_MD,1
+OSM_J69_38p46472_m76p79448,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p46551_m76p79485,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p46775_m76p79542,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p47176_m76p79547,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p47371_m76p79522,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p47373_m76p79528,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p47624_m76p79471,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p47746_m76p79445,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p48123_m76p79476,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p49734_m75p85369,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_38p52175_m77p03512,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p52196_m77p03218,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p52205_m77p03126,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p55655_m76p73061,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p55684_m76p73116,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p55769_m76p76612,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p55796_m76p76540,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p55945_m76p75733,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p56029_m76p75284,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p56078_m76p74939,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p56082_m76p74617,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p56090_m76p74950,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p56110_m76p74669,,junction,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_J69_38p57524_m75p97728,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_38p65835_m75p82888,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_38p71952_m76p08200,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p71972_m76p08108,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p72052_m76p07946,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p72355_m76p07598,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p72504_m76p07533,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p72767_m76p07544,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p72908_m76p07488,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p73270_m76p07189,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p76320_m76p14291,,junction,69,,Easton Utilities Comission,DPL_MD,1
+OSM_J69_38p89841_m76p83229,,junction,69,,Baltimore Gas and Electric Company,BGE,1
+OSM_J69_39p00815_m77p05046,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p09543_m77p15308,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p09594_m77p15304,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p09719_m77p15363,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p09749_m77p13656,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p09942_m77p13925,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10060_m77p13615,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10127_m77p13621,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10261_m77p14235,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10374_m77p14312,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10461_m77p13276,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10498_m77p13222,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10580_m77p15807,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10621_m77p14737,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10622_m77p14835,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10625_m77p14881,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10628_m77p15845,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10630_m77p15265,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10632_m77p15321,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10633_m77p15416,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10641_m77p15806,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10679_m77p12103,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p10956_m77p18788,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11106_m77p16079,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11153_m77p16107,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11343_m77p16311,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11384_m77p16364,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11445_m77p16456,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11473_m77p16505,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11486_m77p18530,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11535_m77p16607,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11659_m77p16819,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11681_m77p16787,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11705_m77p18363,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11755_m77p18328,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11803_m77p18296,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11966_m77p18150,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p11995_m77p18097,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12018_m77p18048,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12056_m77p17966,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12097_m77p17912,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12173_m77p17826,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12186_m77p17691,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12222_m77p17745,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p12382_m77p17986,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p13221_m77p18917,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p13250_m77p18831,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p13392_m77p12268,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p14090_m77p11940,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p14273_m77p11957,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p17953_m77p10510,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p17988_m77p10505,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18036_m77p10498,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18059_m77p10495,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18094_m77p10490,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18129_m77p10485,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18441_m77p10443,,junction,69,,Potomac Electric Power Company,PEPCO,1
+OSM_J69_39p18895_m77p10422,,junction,69,,Baltimore Gas and Electric Company,BGE,1
+OSM_J69_39p18922_m77p10422,,junction,69,,Baltimore Gas and Electric Company,BGE,1
+OSM_J69_39p25694_m75p94365,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_39p30652_m75p99681,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_39p39689_m75p86946,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_J69_39p40592_m75p87612,,junction,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S1000357358_69,1000357358.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1002951988_69,1002951988.0,substation,69,Wooded Glen Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1015717039_138,1015717039.0,substation,138,Antrim Substation,Outside Maryland utility polygons,EXT,1
+OSM_S103428835_69,103428835.0,substation,69,Todd Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S104175173_69,104175173.0,substation,69,Kennedyville Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S1043280610_69,1043280610.0,substation,69,,Potomac Electric Power Company,PEPCO,1
+OSM_S1073501188_69,1073501188.0,substation,69,Lynch Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S107438734_115,107438734.0,substation,115,Greene Street Station,Baltimore Gas and Electric Company,BGE,1
+OSM_S1085724426_230,1085724426.0,substation,230,Kelson Ridge Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S112057227_115,112057227.0,substation,115,Bestgate Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S114055273_115,114055273.0,substation,115,Center Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1173581559_115,1173581559.0,substation,115,Wilkens Ave Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1175265374_69,1175265374.0,substation,69,Massey Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S1219115807_69,1219115807.0,substation,69,Crisfield Substation,Delmarva Power,DPL_MD,1
+OSM_S1219115808_69,1219115808.0,substation,69,Kingston Substation,Delmarva Power,DPL_MD,1
+OSM_S123222999_115,123222999.0,substation,115,Coloniel Piepline Dorsey Junction Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S123268497_115,123268497.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1244774994_69,1244774994.0,substation,69,Meredith Substation,Outside Maryland utility polygons,EXT,1
+OSM_S1252085179_69,1252085179.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1262049307_115,1262049307.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1262049309_115,1262049309.0,substation,115,Philadelphia Road Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1262049318_115,1262049318.0,substation,115,Perryman Generation Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1262049321_115,1262049321.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1262427799_500,1262427799.0,substation,500,Cheltenham Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1275138717_138,1275138717.0,substation,138,,Delmarva Power,DPL_MD,1
+OSM_S1295455177_230,1295455177.0,substation,230,,Allegheny Power,APS_MD,1
+OSM_S1302748790_115,1302748790.0,substation,115,Annapolis Mall Terminal (North),Baltimore Gas and Electric Company,BGE,1
+OSM_S135342825_115,135342825.0,substation,115,Joppatowne Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1395315736_69,1395315736.0,substation,69,,Delmarva Power,DPL_MD,1
+OSM_S1408939549_69,1408939549.0,substation,69,,Delmarva Power,DPL_MD,1
+OSM_S1409348595_138,1409348595.0,substation,138,,Delmarva Power,DPL_MD,1
+OSM_S1414375452_115,1414375452.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1414375453_115,1414375453.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1414375454_115,1414375454.0,substation,115,Rock Ave Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1414375457_115,1414375457.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S1416152934_115,1416152934.0,substation,115,Tipton Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S1416152934_230,1416152934.0,substation,230,Tipton Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S1417075794_115,1417075794.0,substation,115,Orchard Street Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1423332481_115,1423332481.0,substation,115,Annapolis Mall Terminal (South),Baltimore Gas and Electric Company,BGE,1
+OSM_S1423339142_115,1423339142.0,substation,115,Cedar Park Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1485090638_69,1485090638.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1485090639_69,1485090639.0,substation,69,Dorchester Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1492819795_69,1492819795.0,substation,69,Bensville Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1495909154_69,1495909154.0,substation,69,Mount Victoria Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S150553462_115,150553462.0,substation,115,Dorsey Run Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S1521152114_230,1521152114.0,substation,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1521152115_230,1521152115.0,substation,230,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S1533323096_69,1533323096.0,substation,69,Chaptico Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S154211427_69,154211427.0,substation,69,Stevensville Substation,Delmarva Power,DPL_MD,1
+OSM_S1548970907_69,1548970907.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S168817231_115,168817231.0,substation,115,Hunterstown Substation,Outside Maryland utility polygons,EXT,1
+OSM_S168817231_230,168817231.0,substation,230,Hunterstown Substation,Outside Maryland utility polygons,EXT,1
+OSM_S168817231_500,168817231.0,substation,500,Hunterstown Substation,Outside Maryland utility polygons,EXT,1
+OSM_S168936368_230,168936368.0,substation,230,Cooper Substation,Outside Maryland utility polygons,EXT,1
+OSM_S174386800_138,174386800.0,substation,138,Bishop Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S204358323_138,204358323.0,substation,138,Oak Hall Substation,Outside Maryland utility polygons,EXT,1
+OSM_S204358323_69,204358323.0,substation,69,Oak Hall Substation,Outside Maryland utility polygons,EXT,1
+OSM_S242294603_69,242294603.0,substation,69,Maridel Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S256873287_138,256873287.0,substation,138,Paramount Substation,Allegheny Power,APS_MD,1
+OSM_S295953491_500,295953491.0,substation,500,Bedington Substation,Outside Maryland utility polygons,EXT,1
+OSM_S298141725_138,298141725.0,substation,138,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S298141733_69,298141733.0,substation,69,Ocean Pines Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S315317477_69,315317477.0,substation,69,Grace Street Substation,Delmarva Power,DPL_MD,1
+OSM_S315317478_69,315317478.0,substation,69,Bozeman Substation,Delmarva Power,DPL_MD,1
+OSM_S35395805_115,35395805.0,substation,115,Lakespring Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S35402975_115,35402975.0,substation,115,Gunpowder Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S35403557_115,35403557.0,substation,115,Windy Edge Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S35403919_115,35403919.0,substation,115,Fullerton Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S362309217_69,362309217.0,substation,69,Graysonville Substation,Delmarva Power,DPL_MD,1
+OSM_S367302653_115,367302653.0,substation,115,Paca Street Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S391961907_69,391961907.0,substation,69,Sassafras Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S398807151_115,398807151.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S398807151_230,398807151.0,substation,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_S40256446_230,40256446.0,substation,230,Columbia Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S40256536_115,40256536.0,substation,115,Hollofield Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S40256737_115,40256737.0,substation,115,Granite Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S40256737_230,40256737.0,substation,230,Granite Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S444208467_115,444208467.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S45842846_230,45842846.0,substation,230,Pleasant View Substation,Outside Maryland utility polygons,EXT,1
+OSM_S45855878_230,45855878.0,substation,230,Possum Point Substation,Outside Maryland utility polygons,EXT,1
+OSM_S45855878_500,45855878.0,substation,500,Possum Point Substation,Outside Maryland utility polygons,EXT,1
+OSM_S489167520_230,489167520.0,substation,230,Aquasco Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S489167576_230,489167576.0,substation,230,Soller's Road Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S489167576_69,489167576.0,substation,69,Soller's Road Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S504125676_500,504125676.0,substation,500,Goose Creek Substation,Outside Maryland utility polygons,EXT,1
+OSM_S508046770_138,508046770.0,substation,138,Frankford Substation,Outside Maryland utility polygons,EXT,1
+OSM_S52960563_138,52960563.0,substation,138,Monocacy SVC Substation,Allegheny Power,APS_MD,1
+OSM_S52960563_230,52960563.0,substation,230,Monocacy SVC Substation,Allegheny Power,APS_MD,1
+OSM_S53333781_230,53333781.0,substation,230,Mount Zion Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53333783_230,53333783.0,substation,230,Norbeck Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53333783_69,53333783.0,substation,69,Norbeck Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53342426_230,53342426.0,substation,230,Quince Orchard Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53533932_230,53533932.0,substation,230,Doubs Substation,Allegheny Power,APS_MD,1
+OSM_S53533932_500,53533932.0,substation,500,Doubs Substation,Allegheny Power,APS_MD,1
+OSM_S53536104_230,53536104.0,substation,230,Dickerson H Substation,Allegheny Power,APS_MD,1
+OSM_S53536105_230,53536105.0,substation,230,Dickerson D Substation,Allegheny Power,APS_MD,1
+OSM_S53544634_115,53544634.0,substation,115,High Ridge Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53544634_230,53544634.0,substation,230,High Ridge Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53544637_230,53544637.0,substation,230,Howard Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53544899_115,53544899.0,substation,115,Pleasant Hills Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53545266_115,53545266.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S53545717_115,53545717.0,substation,115,Frederick Road Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53546063_115,53546063.0,substation,115,Pumphrey Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53546063_230,53546063.0,substation,230,Pumphrey Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53725300_230,53725300.0,substation,230,Lime Kiln Substation,Allegheny Power,APS_MD,1
+OSM_S53776208_115,53776208.0,substation,115,Northwest Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53776208_230,53776208.0,substation,230,Northwest Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53776393_230,53776393.0,substation,230,Conastone Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53776393_500,53776393.0,substation,500,Conastone Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53780495_230,53780495.0,substation,230,Brighton Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53780495_500,53780495.0,substation,500,Brighton Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53785216_115,53785216.0,substation,115,Gwynnbrook Tap 2,Baltimore Gas and Electric Company,BGE,1
+OSM_S53785218_115,53785218.0,substation,115,Caves Valley Terminal (West),Baltimore Gas and Electric Company,BGE,1
+OSM_S53786477_115,53786477.0,substation,115,Waugh Chapel Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53786477_230,53786477.0,substation,230,Waugh Chapel Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53786477_500,53786477.0,substation,500,Waugh Chapel Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53786568_115,53786568.0,substation,115,Bowie Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53786568_230,53786568.0,substation,230,Bowie Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53812423_230,53812423.0,substation,230,Burtonsville Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S53827917_230,53827917.0,substation,230,Takoma Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53827917_69,53827917.0,substation,69,Takoma Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53827919_230,53827919.0,substation,230,Metzerott Road Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S53917884_230,53917884.0,substation,230,Damascus Substation,Allegheny Power,APS_MD,1
+OSM_S53926430_230,53926430.0,substation,230,Clarksburg Substation,Allegheny Power,APS_MD,1
+OSM_S54146507_115,54146507.0,substation,115,Graceton Substation,Delmarva Power,DPL_MD,1
+OSM_S54146507_230,54146507.0,substation,230,Graceton Substation,Delmarva Power,DPL_MD,1
+OSM_S54146513_230,54146513.0,substation,230,Raphael Road Switching Station,Baltimore Gas and Electric Company,BGE,1
+OSM_S54209568_115,54209568.0,substation,115,Erdman Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S54329884_115,54329884.0,substation,115,Westport Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S54452980_115,54452980.0,substation,115,Eastpoint Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S54571787_115,54571787.0,substation,115,Lipins Corner Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S547986968_115,547986968.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S554327059_69,554327059.0,substation,69,Preston Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S55673310_115,55673310.0,substation,115,Northeast Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S55673310_230,55673310.0,substation,230,Northeast Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S55881279_230,55881279.0,substation,230,Frederick Substation,Allegheny Power,APS_MD,1
+OSM_S57570857_230,57570857.0,substation,230,Wilde Lake Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S58360588_69,58360588.0,substation,69,Kingswood Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S58360589_230,58360589.0,substation,230,Ritchie Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S58360589_69,58360589.0,substation,69,Ritchie Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S58586656_230,58586656.0,substation,230,Palmers Corner Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S58586656_69,58586656.0,substation,69,Palmers Corner Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S593164771_230,593164771.0,substation,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_S603429672_138,603429672.0,substation,138,Worcester Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S603429672_69,603429672.0,substation,69,Worcester Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S61464652_115,61464652.0,substation,115,Lakeside Terminal (North),Baltimore Gas and Electric Company,BGE,1
+OSM_S61464674_115,61464674.0,substation,115,Lakeside Terminal (South),Baltimore Gas and Electric Company,BGE,1
+OSM_S61464677_115,61464677.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S61592503_115,61592503.0,substation,115,Mays Chapel Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S61687460_115,61687460.0,substation,115,Caves Valley Terminal (East),Baltimore Gas and Electric Company,BGE,1
+OSM_S61690395_115,61690395.0,substation,115,Delight Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S61697986_115,61697986.0,substation,115,Dolfield Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S61698942_115,61698942.0,substation,115,Deer Park Station,Baltimore Gas and Electric Company,BGE,1
+OSM_S61726953_115,61726953.0,substation,115,White Rock Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S61737255_115,61737255.0,substation,115,Cromwell Heights Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S61982497_115,61982497.0,substation,115,Rock Ridge Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S61982507_115,61982507.0,substation,115,Five Forks Switching Station,Delmarva Power,DPL_MD,1
+OSM_S61982518_115,61982518.0,substation,115,Glenarm Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62004465_230,62004465.0,substation,230,Chalk Point Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62004465_500,62004465.0,substation,500,Chalk Point Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62004465_69,62004465.0,substation,69,Chalk Point Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62005505_115,62005505.0,substation,115,Viaduct Avenue Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62044982_115,62044982.0,substation,115,Hazelwood Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62046966_115,62046966.0,substation,115,Highlandtown Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62048806_115,62048806.0,substation,115,Middle River Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62067610_115,62067610.0,substation,115,North Point Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S620751910_69,620751910.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62097039_115,62097039.0,substation,115,Honeygo Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S621051936_115,621051936.0,substation,115,Rutledge Tap,Baltimore Gas and Electric Company,BGE,1
+OSM_S62114593_115,62114593.0,substation,115,Shipley Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62117950_230,62117950.0,substation,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_S62142193_230,62142193.0,substation,230,,Baltimore Gas and Electric Company,BGE,1
+OSM_S62142213_115,62142213.0,substation,115,Wagner Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62142213_230,62142213.0,substation,230,Wagner Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62151568_115,62151568.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S62152908_115,62152908.0,substation,115,Crownsville Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62152912_115,62152912.0,substation,115,Bestgate Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S62152915_115,62152915.0,substation,115,Jennifer Road Terminal,Baltimore Gas and Electric Company,BGE,1
+OSM_S62153647_115,62153647.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S62172362_115,62172362.0,substation,115,Crystal Springs Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62172366_115,62172366.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S62173560_138,62173560.0,substation,138,Jericho Park Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62173560_230,62173560.0,substation,230,Jericho Park Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62191710_230,62191710.0,substation,230,Sandy Spring Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62343814_115,62343814.0,substation,115,Westminster Sub and Tap Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62343817_115,62343817.0,substation,115,Finksburg Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S62344051_230,62344051.0,substation,230,Ryceville Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62344052_230,62344052.0,substation,230,Morgantown Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62344052_69,62344052.0,substation,69,Morgantown Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S62388702_230,62388702.0,substation,230,Mount Airy Substation,Allegheny Power,APS_MD,1
+OSM_S62483181_138,62483181.0,substation,138,Catoctin Substation,Allegheny Power,APS_MD,1
+OSM_S62483226_138,62483226.0,substation,138,Carroll Substation,Allegheny Power,APS_MD,1
+OSM_S62483226_230,62483226.0,substation,230,Carroll Substation,Allegheny Power,APS_MD,1
+OSM_S62483229_138,62483229.0,substation,138,Taneytown Substation,Allegheny Power,APS_MD,1
+OSM_S62984503_138,62984503.0,substation,138,Ringgold Substation,Allegheny Power,APS_MD,1
+OSM_S62984503_230,62984503.0,substation,230,Ringgold Substation,Allegheny Power,APS_MD,1
+OSM_S63043577_138,63043577.0,substation,138,Walkersville Substation,Allegheny Power,APS_MD,1
+OSM_S63043579_230,63043579.0,substation,230,New Market Substation,Allegheny Power,APS_MD,1
+OSM_S63043608_230,63043608.0,substation,230,Eaglehead Substation,Allegheny Power,APS_MD,1
+OSM_S63047243_138,63047243.0,substation,138,Reid Substation,Allegheny Power,APS_MD,1
+OSM_S63048509_138,63048509.0,substation,138,East Hagerstown Substation,Allegheny Power,APS_MD,1
+OSM_S63048513_138,63048513.0,substation,138,Antietam Substation,City of Hagerstown Light Department,APS_MD,1
+OSM_S63058390_138,63058390.0,substation,138,Halfway Substation,Allegheny Power,APS_MD,1
+OSM_S63058407_138,63058407.0,substation,138,Marlowe Substation,Outside Maryland utility polygons,EXT,1
+OSM_S63404050_138,63404050.0,substation,138,Boonsboro Substation,Allegheny Power,APS_MD,1
+OSM_S63404050_230,63404050.0,substation,230,Boonsboro Substation,Allegheny Power,APS_MD,1
+OSM_S63588136_230,63588136.0,substation,230,Old Farm Substation,Allegheny Power,APS_MD,1
+OSM_S63604156_230,63604156.0,substation,230,McCain Substation,Allegheny Power,APS_MD,1
+OSM_S63912129_230,63912129.0,substation,230,Aqueduct Substation,Allegheny Power,APS_MD,1
+OSM_S639816983_500,639816983.0,substation,500,Cheltenham Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S643111820_69,643111820.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S64715802_230,64715802.0,substation,230,Otter Point Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S64718920_230,64718920.0,substation,230,Buena Vista Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S64790273_230,64790273.0,substation,230,Oak Grove Switching Station,Baltimore Gas and Electric Company,BGE,1
+OSM_S64842762_69,64842762.0,substation,69,Livingston Road Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S64880459_230,64880459.0,substation,230,Burches Hill Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S64880459_500,64880459.0,substation,500,Burches Hill Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S64882304_230,64882304.0,substation,230,Talbert Switching Station,Potomac Electric Power Company,PEPCO,1
+OSM_S65045648_230,65045648.0,substation,230,Hawkins Gate Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S65045648_69,65045648.0,substation,69,Hawkins Gate Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S65045653_69,65045653.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S65672571_115,65672571.0,substation,115,Ridgeview Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S65672585_115,65672585.0,substation,115,Lanham Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S65672608_115,65672608.0,substation,115,Tuxedo Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S66058977_115,66058977.0,substation,115,Coloniel Pipeline Reisterstown Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S660800772_230,660800772.0,substation,230,Bagley Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S66297452_69,66297452.0,substation,69,Bannister Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297457_69,66297457.0,substation,69,Steed Road Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S66297466_69,66297466.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297470_69,66297470.0,substation,69,Farmington Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S66297472_69,66297472.0,substation,69,Gallahan Road Substation,Potomac Electric Power Company,PEPCO,1
+OSM_S66297474_69,66297474.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297485_69,66297485.0,substation,69,Burches Hill Switching Station,Potomac Electric Power Company,PEPCO,1
+OSM_S66297523_69,66297523.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297528_69,66297528.0,substation,69,Waldorf Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297530_69,66297530.0,substation,69,Westlake Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297535_69,66297535.0,substation,69,Mason Springs Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297536_69,66297536.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297537_69,66297537.0,substation,69,Bolton Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66297550_69,66297550.0,substation,69,Mattawoman Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66498443_69,66498443.0,substation,69,Chalk Point Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66703332_69,66703332.0,substation,69,Loveville Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66703341_230,66703341.0,substation,230,Hewitt Road Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66703341_69,66703341.0,substation,69,Hewitt Road Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66703342_69,66703342.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66793201_115,66793201.0,substation,115,Riva Road Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S66793202_115,66793202.0,substation,115,Priest Bridge Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S66793210_115,66793210.0,substation,115,Marriott Hill Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S66794233_500,66794233.0,substation,500,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66898396_69,66898396.0,substation,69,Calvert Cliffs Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66944506_69,66944506.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66974644_69,66974644.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S66974648_69,66974648.0,substation,69,Hughesville Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336723_69,67336723.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336726_69,67336726.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336742_69,67336742.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336751_69,67336751.0,substation,69,Saint James Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336753_69,67336753.0,substation,69,Oakville Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336760_69,67336760.0,substation,69,Webster Field Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336762_69,67336762.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336770_69,67336770.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336775_69,67336775.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336776_69,67336776.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336807_69,67336807.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336808_69,67336808.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336823_69,67336823.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336832_69,67336832.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67336841_69,67336841.0,substation,69,Piney Point Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S673688123_115,673688123.0,substation,115,,Baltimore Gas and Electric Company,BGE,1
+OSM_S67444240_69,67444240.0,substation,69,Ryceville Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67444485_69,67444485.0,substation,69,Bryantown Switching Station,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67444573_69,67444573.0,substation,69,Leonardtown Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67444581_69,67444581.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67444672_69,67444672.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648661_69,67648661.0,substation,69,Thompkinsville Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648662_69,67648662.0,substation,69,Mount Harmony Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648779_69,67648779.0,substation,69,Mcconchie Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648784_69,67648784.0,substation,69,Sunderland Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648785_69,67648785.0,substation,69,Grayton Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648805_69,67648805.0,substation,69,Newton Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S67648860_69,67648860.0,substation,69,Dunkirk Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S67750362_69,67750362.0,substation,69,,Potomac Electric Power Company,PEPCO,1
+OSM_S68073269_138,68073269.0,substation,138,Steele Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68073269_230,68073269.0,substation,230,Steele Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68301618_138,68301618.0,substation,138,Townsend Substation,Outside Maryland utility polygons,EXT,1
+OSM_S68301631_138,68301631.0,substation,138,Church Substation,Delmarva Power,DPL_MD,1
+OSM_S68301631_69,68301631.0,substation,69,Church Substation,Delmarva Power,DPL_MD,1
+OSM_S68484658_138,68484658.0,substation,138,Oil City Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68571941_69,68571941.0,substation,69,Substation 3,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68571942_138,68571942.0,substation,138,Easton Substation,Easton Utilities Comission,DPL_MD,1
+OSM_S68571942_69,68571942.0,substation,69,Easton Substation,Easton Utilities Comission,DPL_MD,1
+OSM_S68571957_69,68571957.0,substation,69,Longwood Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68728242_138,68728242.0,substation,138,Wye Mills Substation,Delmarva Power,DPL_MD,1
+OSM_S68728242_69,68728242.0,substation,69,Wye Mills Substation,Delmarva Power,DPL_MD,1
+OSM_S68797954_69,68797954.0,substation,69,Vienna Local Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68798018_138,68798018.0,substation,138,Vienna Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68798018_230,68798018.0,substation,230,Vienna Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68831031_138,68831031.0,substation,138,Loretto Substation,Delmarva Power,DPL_MD,1
+OSM_S68831031_69,68831031.0,substation,69,Loretto Substation,Delmarva Power,DPL_MD,1
+OSM_S68848845_138,68848845.0,substation,138,Nelson Substation,Outside Maryland utility polygons,EXT,1
+OSM_S68848845_69,68848845.0,substation,69,Nelson Substation,Outside Maryland utility polygons,EXT,1
+OSM_S68848848_69,68848848.0,substation,69,Edgewood Substation,Delmarva Power,DPL_MD,1
+OSM_S68883342_69,68883342.0,substation,69,Mardela Substation,Delmarva Power,DPL_MD,1
+OSM_S68883343_69,68883343.0,substation,69,Hebron Substation,Delmarva Power,DPL_MD,1
+OSM_S68890862_69,68890862.0,substation,69,Sharptown Substation,Delmarva Power,DPL_MD,1
+OSM_S68890867_69,68890867.0,substation,69,Laurel Substation,Outside Maryland utility polygons,EXT,1
+OSM_S68962536_138,68962536.0,substation,138,Kings Creek Substation,Delmarva Power,DPL_MD,1
+OSM_S68962536_69,68962536.0,substation,69,Kings Creek Substation,Delmarva Power,DPL_MD,1
+OSM_S68996425_138,68996425.0,substation,138,Costen Substation,Delmarva Power,DPL_MD,1
+OSM_S68996428_138,68996428.0,substation,138,Pocomoke Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S68999642_138,68999642.0,substation,138,Piney Grove Substation,Delmarva Power,DPL_MD,1
+OSM_S68999642_230,68999642.0,substation,230,Piney Grove Substation,Delmarva Power,DPL_MD,1
+OSM_S68999642_69,68999642.0,substation,69,Piney Grove Substation,Delmarva Power,DPL_MD,1
+OSM_S69011530_69,69011530.0,substation,69,North Salisbury Substation,Delmarva Power,DPL_MD,1
+OSM_S69011536_69,69011536.0,substation,69,Mount Hermon Substation,Delmarva Power,DPL_MD,1
+OSM_S693780468_69,693780468.0,substation,69,"William ""Jug"" Savage Substation",Berlin Municipal Electric Plant,DPL_MD,1
+OSM_S693780469_69,693780469.0,substation,69,,Berlin Municipal Electric Plant,DPL_MD,1
+OSM_S693780471_69,693780471.0,substation,69,Culver Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S694541826_69,694541826.0,substation,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S69468764_138,69468764.0,substation,138,Indian River North Substation,Outside Maryland utility polygons,EXT,1
+OSM_S69468764_230,69468764.0,substation,230,Indian River North Substation,Outside Maryland utility polygons,EXT,1
+OSM_S69809995_138,69809995.0,substation,138,Milford Substation,Outside Maryland utility polygons,EXT,1
+OSM_S69809995_230,69809995.0,substation,230,Milford Substation,Outside Maryland utility polygons,EXT,1
+OSM_S704091909_69,704091909.0,substation,69,Chestertown Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S71075151_115,71075151.0,substation,115,Perryman Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S71075151_230,71075151.0,substation,230,Perryman Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S712574584_230,712574584.0,substation,230,Holland Cliffs Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S712574584_69,712574584.0,substation,69,Holland Cliffs Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S71271214_115,71271214.0,substation,115,Ferndale Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S71516164_138,71516164.0,substation,138,Keeney Substation,Outside Maryland utility polygons,EXT,1
+OSM_S71516164_230,71516164.0,substation,230,Keeney Substation,Outside Maryland utility polygons,EXT,1
+OSM_S71516164_500,71516164.0,substation,500,Keeney Substation,Outside Maryland utility polygons,EXT,1
+OSM_S718415416_69,718415416.0,substation,69,Allen Substaiton,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S718424571_69,718424571.0,substation,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S718432793_69,718432793.0,substation,69,East New Market Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S719529220_69,719529220.0,substation,69,Trappe Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S719540949_69,719540949.0,substation,69,Tanyard Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S722618445_138,722618445.0,substation,138,Hillsboro Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S732293326_69,732293326.0,substation,69,New Hope Substation,Delmarva Power,DPL_MD,1
+OSM_S736868054_69,736868054.0,substation,69,Tallbort Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S737197781_69,737197781.0,substation,69,Massey Breaker Station,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S73877825_500,73877825.0,substation,500,Black Oak Substation,Allegheny Power,APS_MD,1
+OSM_S741581313_69,741581313.0,substation,69,East New Market Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S741587611_69,741587611.0,substation,69,Jacktown Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S742758873_69,742758873.0,substation,69,Pemberton Substation,Delmarva Power,DPL_MD,1
+OSM_S746240539_138,746240539.0,substation,138,New Church Subststion,Outside Maryland utility polygons,EXT,1
+OSM_S747075148_69,747075148.0,substation,69,,Delmarva Power,DPL_MD,1
+OSM_S747477502_69,747477502.0,substation,69,Fruitland Substation,Delmarva Power,DPL_MD,1
+OSM_S749320897_69,749320897.0,substation,69,Earlville Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S751707741_69,751707741.0,substation,69,Royal Oak Substation,Delmarva Power,DPL_MD,1
+OSM_S75474936_115,75474936.0,substation,115,East Towson Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S75660908_69,75660908.0,substation,69,Westover Substation,Delmarva Power,DPL_MD,1
+OSM_S759309378_69,759309378.0,substation,69,Substation 4,Easton Utilities Comission,DPL_MD,1
+OSM_S759312642_69,759312642.0,substation,69,Bloomfield Substation,Easton Utilities Comission,DPL_MD,1
+OSM_S762182249_69,762182249.0,substation,69,Cambridge Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S764026180_138,764026180.0,substation,138,Carville Substation,Delmarva Power,DPL_MD,1
+OSM_S773892316_69,773892316.0,substation,69,Clough Substation,Delmarva Power,DPL_MD,1
+OSM_S80363576_138,80363576.0,substation,138,Lehigh Portland Cement,Allegheny Power,APS_MD,1
+OSM_S80395488_69,80395488.0,substation,69,Airey Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S80395490_69,80395490.0,substation,69,Golden Hill Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S814609941_115,814609941.0,substation,115,Camp Small Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S818507414_230,818507414.0,substation,230,Panda Brandywine Substation,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S818545966_115,818545966.0,substation,115,Fitzell Substation,Baltimore Gas and Electric Company,BGE,1
+OSM_S849494455_500,849494455.0,substation,500,,Delmarva Power,DPL_MD,1
+OSM_S849494456_500,849494456.0,substation,500,,Delmarva Power,DPL_MD,1
+OSM_S910656526_230,910656526.0,substation,230,PEPCO Waterfront Substation,Outside Maryland utility polygons,EXT,1
+OSM_S952812563_69,952812563.0,substation,69,Beaglin Park Substation,Delmarva Power,DPL_MD,1
+OSM_S952812567_69,952812567.0,substation,69,Walston Switch Point Station,Delmarva Power,DPL_MD,1
+OSM_S952812570_69,952812570.0,substation,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S952822460_138,952822460.0,substation,138,,Delmarva Power,DPL_MD,1
+OSM_S952822472_69,952822472.0,substation,69,,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S952822474_69,952822474.0,substation,69,Rockawalkin Substation,Delmarva Power,DPL_MD,1
+OSM_S955052824_69,955052824.0,substation,69,West Cambridge Substation,"Choptank Electric Cooperative, Inc.",DPL_MD,1
+OSM_S95953892_500,95953892.0,substation,500,Peach Bottom South Substation,Outside Maryland utility polygons,EXT,1
+OSM_S96185072_115,96185072.0,substation,115,Face Rock Substation,Outside Maryland utility polygons,EXT,1
+OSM_S96185072_69,96185072.0,substation,69,Face Rock Substation,Outside Maryland utility polygons,EXT,1
+OSM_S967997867_230,967997867.0,substation,230,Russett East Station,Baltimore Gas and Electric Company,BGE,1
+OSM_S97683227_230,97683227.0,substation,230,Blue Plains Substation,Outside Maryland utility polygons,EXT,1
+OSM_S97683227_69,97683227.0,substation,69,Blue Plains Substation,Outside Maryland utility polygons,EXT,1
+OSM_S98899567_69,98899567.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S99014881_69,99014881.0,substation,69,,Southern Maryland Electric Cooperative,PEPCO,1
+OSM_S99714143_115,99714143.0,substation,115,Germantown Substation,Outside Maryland utility polygons,EXT,1
+OSM_S99714143_138,99714143.0,substation,138,Germantown Substation,Outside Maryland utility polygons,EXT,1

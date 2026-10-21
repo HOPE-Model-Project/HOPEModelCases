@@ -1,0 +1,13 @@
+# Gurobi solver parameters for optional high-performance validation runs.
+Feasib_Tol: 1.0e-6
+Optimal_Tol: 1.0e-6
+TimeLimit: 110000
+Pre_Solve: 1
+Method: -1
+MIPGap: 1.0e-6
+BarConvTol: 1.0e-8
+NumericFocus: 0
+Crossover: -1
+PreDual: -1
+AggFill: -1
+OutputFlag: 1

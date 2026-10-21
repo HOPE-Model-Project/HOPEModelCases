@@ -1,0 +1,36 @@
+schema_version: 1
+case_name: MD_GTEP_RPS20_4zone_full8760_public_case
+model_mode: GTEP
+data_subdir: Data_MD_GTEP_RPS20_4zone_full8760_public/
+source_case: ../MD_GTEP_RPS20_4zone_public_case
+chronology_source: ../MD_GTEP_holistic_full8760_case_v20260406g/Data_100RPS/
+paired_pcm_case: ../MD_PCM_RPS20_transmission_full8760_public_case
+scenario:
+  name: Maryland 20% local RPS full-year OSM holistic benchmark
+  rps_fraction: 0.20
+  rps_scope: Maryland
+  clean_energy_policy_mode: 2
+spatial_basis: zone
+physical_realization_contract: Settings/HOPE_physical_realization.yml
+chronology:
+  hours: 8760
+  mode: full_chronology
+  time_period_value: 1
+resolution:
+  maryland_planning_zones: 4
+  external_boundary_zones: 1
+  pcm_physical_buses: 656
+  pcm_physical_branches: 838
+availability:
+  method: static generator AF and FOR parameters
+  reason: no identity-compatible annual unit-outage trace is available
+reserve_alignment:
+  pcm_upward_requirement_fraction: 0.07
+  gtep_spin_proxy_fraction: 0.07
+  rationale: GTEP's single upward-reserve product proxies PCM REG-UP plus SPIN plus NSPIN
+validation:
+  structural_status: passed
+  full_year_gtep_status: optimal
+  full_year_pcm_status: memory_limited_during_model_construction
+  bounded_pcm_status: july_744h_optimal_all_acceptance_checks_passed
+  record: ../MD_PCM_RPS20_transmission_full8760_public_case/references/VALIDATION.md

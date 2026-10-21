@@ -1,0 +1,2 @@
+Corridor_ID,from_bus,to_bus,original_forward_mw,original_reverse_mw,adjusted_forward_mw,adjusted_reverse_mw,screening_case,reason,status
+OSM_L1528639488,OSM_S643111820_69,OSM_S66703341_69,500.0,500.0,600.0,600.0,annual GTEP plus July 744-hour PCM,"Four-zone GTEP cannot represent this intra-PEPCO constraint; the original inferred 500 MW rating bound during the sole 29.84 MWh shedding hour",modeled_assumption
