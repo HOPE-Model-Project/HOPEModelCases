@@ -17,8 +17,16 @@ Generator-specific annual outage traces are not available with compatible
 stable identities. The case therefore uses generator-level `AF` and `FOR`
 parameters rather than repeating one July week across the year.
 
+The data folder contains `operational_resource_templates.csv`, the PCM-owned
+registry for new GTEP-built generators and storage. Explicit candidate values
+take precedence; missing operating values come from the referenced template and
+then the legacy PCM fleet-average/default fallback. New thermal generation is
+always unit committed. Existing PCM resource rows are not overwritten.
+
 The exact post-GTEP physical tables used by PCM are written under
 `output_holistic/realized_inputs/`; source `Data/` files remain unchanged.
+The same folder includes `operational_parameters_audit.csv`, which identifies
+candidate, template, and thermal-policy parameter sources.
 This is a research workflow benchmark, not an official PJM planning case.
 
 The four-zone planning model cannot represent every intra-zonal constraint. A

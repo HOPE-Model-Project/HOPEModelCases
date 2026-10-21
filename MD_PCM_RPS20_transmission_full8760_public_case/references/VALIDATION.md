@@ -1,6 +1,6 @@
 # Validation record
 
-Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
+Validated on 2026-10-20 (America/New_York) with Gurobi 13.0.0.
 
 ## What passed
 
@@ -8,6 +8,9 @@ Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
   2,396,599,492.17 USD, zero load shedding, and zero RPS slack.
 - The strict physical-realization audit passed for 271 existing generators,
   12 generation candidates, 4 storage candidates, 838 branches, and 656 buses.
+- The PCM-owned operational-template registry populated all three built NGCC
+  rows with `Flag_UC = 1`, two-hour minimum up/down times, and a 15 USD/MW
+  startup-cost assumption. The field-level provenance audit passed.
 - The detailed network has one connected component containing every planning
   zone and the external boundary.
 - A bounded end-to-end validation retained the annual GTEP solve and ran the
@@ -17,7 +20,8 @@ Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
 
 The July run exercises nodal angle-based DCOPF, unit commitment, REG-UP,
 REG-DOWN, SPIN, NSPIN, storage chronology, the local 20% RPS, transferred new
-generation and storage, source-case immutability, and strict physical mapping.
+generation and storage, operational-template realization, source-case
+immutability, and strict physical mapping.
 It is a functional integration validation, not an annual operating result.
 
 ## Demonstrated workflow
@@ -64,18 +68,18 @@ Those transfer paths remain configured but were not exercised by this result.
 | Metric | Result |
 | --- | ---: |
 | PCM objective | 201,932,586.63 USD |
-| Transferred new-generation dispatch | 5,864,040.3 MWh |
+| Transferred new-generation dispatch | 5,863,755.3 MWh |
 | Transferred storage charge | 356,810.5 MWh |
 | Transferred storage discharge | 302,004.4 MWh |
-| Operating reserve carried | 979,362.9 MWh |
-| Maximum absolute branch flow | 4,849.1 MW |
+| Operating reserve carried | 1,386,920.8 MWh |
+| Maximum absolute branch flow | 4,816.4 MW |
 | Load shedding | 0.0 MWh |
 | RPS slack | 0.0 MWh |
 | Acceptance checks | All passed |
 
 The compact machine-readable record is
 `references/july_linkage_validation_summary.csv`. The original run evidence is
-under `artifacts/agent_runs/md-rps20-full8760-july-validation-v3/` in the HOPE
+under `artifacts/agent_runs/md-rps20-operational-template-july-v2/` in the HOPE
 working tree; generated artifacts are intentionally not part of the published
 input case.
 

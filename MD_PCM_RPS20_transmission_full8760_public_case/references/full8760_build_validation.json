@@ -31,7 +31,8 @@
     "gtep_load_sha256": "593c58c45836f5adace4b44d54a5f4a9dc3941f8ab97439a6f05670be0466aaa",
     "pcm_nodal_load_sha256": "8cd80e02c9b88eea1e311482b19bb100906baafc91e5d608ff4795ce72dc957f",
     "pcm_ni_cap_sha256": "0568e233e2f1e8647febddcb78edffc0c5ca05f766c26175b0b550a4dfe7d6f0",
-    "pcm_branchdata_sha256": "10019be0042277e03310431bbc0f6055b732112ff89c02ad573a0d4ec1f88211"
+    "pcm_branchdata_sha256": "10019be0042277e03310431bbc0f6055b732112ff89c02ad573a0d4ec1f88211",
+    "pcm_operational_templates_sha256": "293263ffbfb81221e977b7b001648219a9729eb57e6f57044ee2db33e42c2c11"
   },
   "validation_status": {
     "structural": "passed",

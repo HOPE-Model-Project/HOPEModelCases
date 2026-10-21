@@ -29,6 +29,8 @@ network:
   deliverability_adjustment: OSM_L1528639488 increased from 500 to 600 MW
 operations:
   unit_commitment: true
+  operational_template_registry: Data_MD_PCM_RPS20_transmission_full8760_public/operational_resource_templates.csv
+  new_thermal_commitment_policy: Flag_UC = 1
   reserve_mode: REG-UP, REG-DOWN, SPIN, NSPIN
   interchange_target: 0 MW
   interchange_capacity: endogenous hourly boundary cap

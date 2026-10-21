@@ -389,11 +389,184 @@ def build_case_skeletons() -> tuple[Path, Path]:
     return target_gtep_data, target_pcm_data
 
 
+def write_operational_template_registry(
+    target_gtep_data: Path, target_pcm_data: Path
+) -> None:
+    """Write PCM-owned operating assumptions referenced by GTEP candidates."""
+    candidate_path = target_gtep_data / "gendata_candidate.csv"
+    candidate_header, candidate_rows = read_csv(candidate_path)
+    required_candidate_columns = {
+        "Operational_Template_ID",
+        "Flag_UC",
+        "Min_down_time",
+        "Min_up_time",
+        "Start_up_cost ($/MW)",
+    }
+    missing = required_candidate_columns.difference(candidate_header)
+    if missing:
+        raise ValueError(
+            f"Generation candidates are missing operational columns: {sorted(missing)}"
+        )
+    # These columns do not affect the GTEP formulation. Blank placeholders make
+    # template ownership explicit while preserving candidate > template precedence
+    # whenever a user supplies a case-specific value.
+    for row in candidate_rows:
+        for column in (
+            "Flag_UC",
+            "Min_down_time",
+            "Min_up_time",
+            "Start_up_cost ($/MW)",
+        ):
+            row[column] = ""
+    write_csv(candidate_path, candidate_header, candidate_rows)
+
+    template_header = [
+        "Operational_Template_ID",
+        "Resource_Kind",
+        "Type",
+        "Flag_thermal",
+        "Flag_VRE",
+        "Flag_mustrun",
+        "Flag_UC",
+        "Min_down_time",
+        "Min_up_time",
+        "Start_up_cost ($/MW)",
+        "FOR",
+        "RM_SPIN",
+        "RU",
+        "RD",
+        "Charging efficiency",
+        "Discharging efficiency",
+        "Charging Rate",
+        "Discharging Rate",
+        "Source",
+        "Notes",
+    ]
+    blank = {column: "" for column in template_header}
+    templates = [
+        {
+            **blank,
+            "Operational_Template_ID": "HOPE_NGCC_DEFAULT",
+            "Resource_Kind": "generation",
+            "Type": "NGCC",
+            "Flag_thermal": "1",
+            "Flag_VRE": "0",
+            "Flag_mustrun": "0",
+            "Flag_UC": "1",
+            "Min_down_time": "2",
+            "Min_up_time": "2",
+            "Start_up_cost ($/MW)": "15.0",
+            "FOR": "0.04",
+            "RM_SPIN": "0.1",
+            "RU": "0.6",
+            "RD": "0.6",
+            "Source": "HOPE Maryland benchmark assumption",
+            "Notes": (
+                "Modern flexible combined-cycle unit; candidate-specific values "
+                "retain precedence"
+            ),
+        },
+        {
+            **blank,
+            "Operational_Template_ID": "HOPE_SolarPV_DEFAULT",
+            "Resource_Kind": "generation",
+            "Type": "SolarPV",
+            "Flag_thermal": "0",
+            "Flag_VRE": "1",
+            "Flag_mustrun": "0",
+            "Flag_UC": "0",
+            "Min_down_time": "0",
+            "Min_up_time": "0",
+            "Start_up_cost ($/MW)": "0.0",
+            "FOR": "0.0",
+            "RM_SPIN": "0.0",
+            "RU": "1.0",
+            "RD": "1.0",
+            "Source": "HOPE Maryland benchmark assumption",
+            "Notes": "Non-committed variable renewable resource",
+        },
+        {
+            **blank,
+            "Operational_Template_ID": "HOPE_WindOn_DEFAULT",
+            "Resource_Kind": "generation",
+            "Type": "WindOn",
+            "Flag_thermal": "0",
+            "Flag_VRE": "1",
+            "Flag_mustrun": "0",
+            "Flag_UC": "0",
+            "Min_down_time": "0",
+            "Min_up_time": "0",
+            "Start_up_cost ($/MW)": "0.0",
+            "FOR": "0.0",
+            "RM_SPIN": "0.0",
+            "RU": "1.0",
+            "RD": "1.0",
+            "Source": "HOPE Maryland benchmark assumption",
+            "Notes": "Non-committed variable renewable resource",
+        },
+        {
+            **blank,
+            "Operational_Template_ID": "HOPE_BATTERY_4H_DEFAULT",
+            "Resource_Kind": "storage",
+            "Type": "Battery",
+            "Charging efficiency": "0.92",
+            "Discharging efficiency": "0.92",
+            "Charging Rate": "1.0",
+            "Discharging Rate": "1.0",
+            "Source": "HOPE Maryland benchmark assumption",
+            "Notes": "Four-hour battery operating template",
+        },
+    ]
+    write_csv(
+        target_pcm_data / "operational_resource_templates.csv",
+        template_header,
+        templates,
+    )
+
+
 def write_settings_and_metadata(
     target_gtep_data: Path,
     target_pcm_data: Path,
     validation_metrics: dict[str, float],
 ) -> None:
+    write_operational_template_registry(target_gtep_data, target_pcm_data)
+    write_text(
+        TARGET_PCM / "Settings" / "HOPE_holistic_acceptance.yml",
+        """
+schema_version: 1
+require_all: true
+required_settings:
+  gtep:
+    clean_energy_policy: 2
+    planning_reserve_mode: 1
+    operation_reserve_mode: 1
+    holistic_spatial_basis: zone
+  pcm:
+    clean_energy_policy: 2
+    unit_commitment: 1
+    operation_reserve_mode: 2
+    network_model: 2
+thresholds:
+  operational_template_assets:
+    minimum: 1
+  new_thermal_generation_all_uc:
+    minimum: 1
+  new_generation_mw:
+    minimum: 0.001
+  pcm_new_generation_dispatch_mwh:
+    minimum: 0.001
+  gtep_operating_reserve_mwh:
+    minimum: 0.001
+  pcm_operating_reserve_mwh:
+    minimum: 0.001
+  gtep_rps_slack_mwh:
+    maximum: 0.000001
+  pcm_rps_slack_mwh:
+    maximum: 0.000001
+  pcm_load_shedding_mwh:
+    maximum: 0.000001
+""",
+    )
     # GTEP currently represents operating reserve with one upward SPIN proxy.
     # Match that proxy to PCM's 1% REG-UP + 3% SPIN + 3% NSPIN requirement so
     # aggregate planning does not underbuild capability needed in operations.
@@ -470,6 +643,19 @@ def write_settings_and_metadata(
                 "Increase inferred rating of OSM_L1528639488 from 500 to 600 MW "
                 "in both directions after the four-zone plan produced 29.84 MWh "
                 "of shedding in one PEPCO hour at the binding branch"
+            ),
+        }
+    )
+    source_rows.append(
+        {
+            "Dataset": "HOPE operational templates",
+            "Role": "New-resource operating assumptions",
+            "Source": "HOPE model-development assumptions",
+            "License_or_terms": "Modeled assumption",
+            "Transformation": (
+                "Define modern NGCC commitment and startup behavior plus solar, "
+                "wind, and four-hour battery defaults; candidate-specific values "
+                "retain precedence"
             ),
         }
     )
@@ -638,6 +824,8 @@ network:
   deliverability_adjustment: OSM_L1528639488 increased from 500 to 600 MW
 operations:
   unit_commitment: true
+  operational_template_registry: {PCM_DATA_NAME}/operational_resource_templates.csv
+  new_thermal_commitment_policy: Flag_UC = 1
   reserve_mode: REG-UP, REG-DOWN, SPIN, NSPIN
   interchange_target: 0 MW
   interchange_capacity: endogenous hourly boundary cap
@@ -676,6 +864,12 @@ GTEP's single upward-reserve product is set to 7% of hourly load. This is the
 sum of PCM's 1% REG-UP, 3% SPIN, and 3% NSPIN requirements, preventing the
 planning stage from understating the upward operating capability required by
 the detailed operational stage.
+
+Each candidate references a PCM-owned `Operational_Template_ID`. The paired PCM
+case defines modern NGCC, solar, wind, and four-hour battery operating
+assumptions in `operational_resource_templates.csv`. Candidate-specific values
+take precedence, but new thermal resources are always realized with
+`Flag_UC = 1`.
 
 `Time Period` is 1 for every row because this is full chronological mode, not
 representative-day mode. No identity-compatible annual generator-outage trace
@@ -730,8 +924,16 @@ Generator-specific annual outage traces are not available with compatible
 stable identities. The case therefore uses generator-level `AF` and `FOR`
 parameters rather than repeating one July week across the year.
 
+The data folder contains `operational_resource_templates.csv`, the PCM-owned
+registry for new GTEP-built generators and storage. Explicit candidate values
+take precedence; missing operating values come from the referenced template and
+then the legacy PCM fleet-average/default fallback. New thermal generation is
+always unit committed. Existing PCM resource rows are not overwritten.
+
 The exact post-GTEP physical tables used by PCM are written under
 `output_holistic/realized_inputs/`; source `Data/` files remain unchanged.
+The same folder includes `operational_parameters_audit.csv`, which identifies
+candidate, template, and thermal-policy parameter sources.
 This is a research workflow benchmark, not an official PJM planning case.
 
 The four-zone planning model cannot represent every intra-zonal constraint. A
@@ -763,7 +965,7 @@ summary derived from the solved annual GTEP and July PCM outputs.
         f"""
 # Validation record
 
-Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
+Validated on 2026-10-20 (America/New_York) with Gurobi 13.0.0.
 
 ## What passed
 
@@ -771,6 +973,9 @@ Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
   2,396,599,492.17 USD, zero load shedding, and zero RPS slack.
 - The strict physical-realization audit passed for 271 existing generators,
   12 generation candidates, 4 storage candidates, 838 branches, and 656 buses.
+- The PCM-owned operational-template registry populated all three built NGCC
+  rows with `Flag_UC = 1`, two-hour minimum up/down times, and a 15 USD/MW
+  startup-cost assumption. The field-level provenance audit passed.
 - The detailed network has one connected component containing every planning
   zone and the external boundary.
 - A bounded end-to-end validation retained the annual GTEP solve and ran the
@@ -780,7 +985,8 @@ Validated on 2026-10-19 (America/New_York) with Gurobi 13.0.0.
 
 The July run exercises nodal angle-based DCOPF, unit commitment, REG-UP,
 REG-DOWN, SPIN, NSPIN, storage chronology, the local 20% RPS, transferred new
-generation and storage, source-case immutability, and strict physical mapping.
+generation and storage, operational-template realization, source-case
+immutability, and strict physical mapping.
 It is a functional integration validation, not an annual operating result.
 
 ## Demonstrated workflow
@@ -827,18 +1033,18 @@ Those transfer paths remain configured but were not exercised by this result.
 | Metric | Result |
 | --- | ---: |
 | PCM objective | 201,932,586.63 USD |
-| Transferred new-generation dispatch | 5,864,040.3 MWh |
+| Transferred new-generation dispatch | 5,863,755.3 MWh |
 | Transferred storage charge | 356,810.5 MWh |
 | Transferred storage discharge | 302,004.4 MWh |
-| Operating reserve carried | 979,362.9 MWh |
-| Maximum absolute branch flow | 4,849.1 MW |
+| Operating reserve carried | 1,386,920.8 MWh |
+| Maximum absolute branch flow | 4,816.4 MW |
 | Load shedding | 0.0 MWh |
 | RPS slack | 0.0 MWh |
 | Acceptance checks | All passed |
 
 The compact machine-readable record is
 `references/july_linkage_validation_summary.csv`. The original run evidence is
-under `artifacts/agent_runs/md-rps20-full8760-july-validation-v3/` in the HOPE
+under `artifacts/agent_runs/md-rps20-operational-template-july-v2/` in the HOPE
 working tree; generated artifacts are intentionally not part of the published
 input case.
 
@@ -890,9 +1096,9 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
         TARGET_PCM / "references" / "july_linkage_validation_summary.csv",
         ["Stage", "Metric", "Value", "Unit", "Evidence"],
         [
-            {"Stage": "Metadata", "Metric": "validation_date", "Value": "2026-10-19", "Unit": "America/New_York", "Evidence": "reference validation run"},
+            {"Stage": "Metadata", "Metric": "validation_date", "Value": "2026-10-20", "Unit": "America/New_York", "Evidence": "reference validation run"},
             {"Stage": "Metadata", "Metric": "solver", "Value": "Gurobi 13.0.0", "Unit": "version", "Evidence": "reference validation run"},
-            {"Stage": "Metadata", "Metric": "reference_run_id", "Value": "md-rps20-full8760-july-validation-v3", "Unit": "identifier", "Evidence": "artifacts/agent_runs"},
+            {"Stage": "Metadata", "Metric": "reference_run_id", "Value": "md-rps20-operational-template-july-v2", "Unit": "identifier", "Evidence": "artifacts/agent_runs"},
             {"Stage": "GTEP", "Metric": "chronology", "Value": 8760, "Unit": "hours", "Evidence": "annual source case"},
             {"Stage": "GTEP", "Metric": "termination_status", "Value": "OPTIMAL", "Unit": "status", "Evidence": "holistic_coverage.yml"},
             {"Stage": "GTEP", "Metric": "objective", "Value": 2396599492.168707, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
@@ -905,14 +1111,16 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
             {"Stage": "Handoff", "Metric": "new_generation_reconciled", "Value": 19898.518913131313, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
             {"Stage": "Handoff", "Metric": "new_storage_power_reconciled", "Value": 4815.8062091904285, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
             {"Stage": "Handoff", "Metric": "source_cases_unchanged", "Value": True, "Unit": "boolean", "Evidence": "handoff_contract_checks.csv"},
+            {"Stage": "Handoff", "Metric": "operational_template_assets", "Value": 7, "Unit": "assets", "Evidence": "operational_parameters_audit.csv"},
+            {"Stage": "Handoff", "Metric": "new_thermal_generation_uc", "Value": 3, "Unit": "resources", "Evidence": "realized_inputs/gendata.csv"},
             {"Stage": "PCM", "Metric": "chronology", "Value": 744, "Unit": "hours", "Evidence": "July validation slice"},
             {"Stage": "PCM", "Metric": "termination_status", "Value": "OPTIMAL", "Unit": "status", "Evidence": "holistic_coverage.yml"},
             {"Stage": "PCM", "Metric": "objective", "Value": 201932586.6348897, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "new_generation_dispatch", "Value": 5864040.300480055, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "new_generation_dispatch", "Value": 5863755.34489549, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
             {"Stage": "PCM", "Metric": "new_storage_charge", "Value": 356810.53578190197, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
             {"Stage": "PCM", "Metric": "new_storage_discharge", "Value": 302004.4374858025, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "operating_reserve", "Value": 979362.8828576726, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "maximum_absolute_branch_flow", "Value": 4849.116963562661, "Unit": "MW", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "operating_reserve", "Value": 1386920.782117107, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "maximum_absolute_branch_flow", "Value": 4816.371082753038, "Unit": "MW", "Evidence": "holistic_coverage.yml"},
             {"Stage": "PCM", "Metric": "load_shedding", "Value": 0.0, "Unit": "MWh", "Evidence": "holistic_acceptance_checks.csv"},
             {"Stage": "PCM", "Metric": "rps_slack", "Value": 0.0, "Unit": "MWh", "Evidence": "holistic_acceptance_checks.csv"},
             {"Stage": "PCM", "Metric": "acceptance_all_passed", "Value": True, "Unit": "boolean", "Evidence": "holistic_acceptance_checks.csv"},
@@ -994,6 +1202,9 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
             "pcm_nodal_load_sha256": sha256(target_pcm_data / "load_timeseries_nodal.csv"),
             "pcm_ni_cap_sha256": sha256(target_pcm_data / "ni_timeseries_nodal_cap.csv"),
             "pcm_branchdata_sha256": sha256(target_pcm_data / "branchdata.csv"),
+            "pcm_operational_templates_sha256": sha256(
+                target_pcm_data / "operational_resource_templates.csv"
+            ),
         },
         "validation_status": {
             "structural": "passed",
@@ -1097,6 +1308,32 @@ def validate_generated_pair(target_gtep_data: Path, target_pcm_data: Path) -> No
     ]
     if md_rps != [0.20]:
         raise ValueError(f"Expected one local Maryland 20% RPS row, found {md_rps}")
+    _, candidate_rows = read_csv(target_gtep_data / "gendata_candidate.csv")
+    template_header, template_rows = read_csv(
+        target_pcm_data / "operational_resource_templates.csv"
+    )
+    required_template_columns = {
+        "Operational_Template_ID",
+        "Resource_Kind",
+        "Type",
+        "Flag_UC",
+    }
+    if not required_template_columns.issubset(template_header):
+        raise ValueError("Operational template registry has an invalid schema")
+    templates = {row["Operational_Template_ID"]: row for row in template_rows}
+    for candidate in candidate_rows:
+        template_id = candidate["Operational_Template_ID"]
+        if template_id not in templates:
+            raise ValueError(f"Missing operational template {template_id}")
+        template = templates[template_id]
+        if template["Type"] != candidate["Type"]:
+            raise ValueError(
+                f"Operational template {template_id} type does not match candidate"
+            )
+        if candidate["Flag_thermal"] == "1" and template["Flag_UC"] != "1":
+            raise ValueError(
+                f"Thermal candidate {candidate['Candidate_ID']} must use Flag_UC=1"
+            )
     _, singlepar_rows = read_csv(target_gtep_data / "single_parameter.csv")
     if len(singlepar_rows) != 1 or float(singlepar_rows[0]["spin_requirement"]) != 0.07:
         raise ValueError("GTEP upward-reserve proxy must equal PCM's 7% total upward requirement")

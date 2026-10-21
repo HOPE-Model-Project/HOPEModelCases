@@ -1,0 +1,5 @@
+Operational_Template_ID,Resource_Kind,Type,Flag_thermal,Flag_VRE,Flag_mustrun,Flag_UC,Min_down_time,Min_up_time,Start_up_cost ($/MW),FOR,RM_SPIN,RU,RD,Charging efficiency,Discharging efficiency,Charging Rate,Discharging Rate,Source,Notes
+HOPE_NGCC_DEFAULT,generation,NGCC,1,0,0,1,2,2,15.0,0.04,0.1,0.6,0.6,,,,,HOPE Maryland benchmark assumption,Modern flexible combined-cycle unit; candidate-specific values retain precedence
+HOPE_SolarPV_DEFAULT,generation,SolarPV,0,1,0,0,0,0,0.0,0.0,0.0,1.0,1.0,,,,,HOPE Maryland benchmark assumption,Non-committed variable renewable resource
+HOPE_WindOn_DEFAULT,generation,WindOn,0,1,0,0,0,0,0.0,0.0,0.0,1.0,1.0,,,,,HOPE Maryland benchmark assumption,Non-committed variable renewable resource
+HOPE_BATTERY_4H_DEFAULT,storage,Battery,,,,,,,,,,,,0.92,0.92,1.0,1.0,HOPE Maryland benchmark assumption,Four-hour battery operating template
