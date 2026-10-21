@@ -12,6 +12,10 @@ required_settings:
     operation_reserve_mode: 2
     network_model: 2
 thresholds:
+  operational_template_assets:
+    minimum: 1
+  new_thermal_generation_all_uc:
+    minimum: 1
   new_generation_mw:
     minimum: 0.001
   pcm_new_generation_dispatch_mwh:

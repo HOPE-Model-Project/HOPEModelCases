@@ -16,6 +16,12 @@ sum of PCM's 1% REG-UP, 3% SPIN, and 3% NSPIN requirements, preventing the
 planning stage from understating the upward operating capability required by
 the detailed operational stage.
 
+Each candidate references a PCM-owned `Operational_Template_ID`. The paired PCM
+case defines modern NGCC, solar, wind, and four-hour battery operating
+assumptions in `operational_resource_templates.csv`. Candidate-specific values
+take precedence, but new thermal resources are always realized with
+`Flag_UC = 1`.
+
 `Time Period` is 1 for every row because this is full chronological mode, not
 representative-day mode. No identity-compatible annual generator-outage trace
 is available, so the generator availability CSV contains only aligned calendar
