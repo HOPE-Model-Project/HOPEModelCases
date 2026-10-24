@@ -13,9 +13,11 @@ interchange has a zero schedule because no authoritative hourly schedule is
 assumed, while hourly nodal interchange caps allow endogenous imports and
 exports within the documented boundary-interface limits.
 
-Generator-specific annual outage traces are not available with compatible
-stable identities. The case therefore uses generator-level `AF` and `FOR`
-parameters rather than repeating one July week across the year.
+Solar and wind resources use zonal hourly profiles in
+`gen_availability_timeseries.csv`. Dispatchable resources use their static
+`AF`, and HOPE applies `FOR` separately. Generator-specific annual outage
+traces are not available with compatible stable identities, so the case does
+not repeat one July outage week across the year.
 
 The data folder contains `operational_resource_templates.csv`, the PCM-owned
 registry for new GTEP-built generators and storage. Explicit candidate values
@@ -39,8 +41,9 @@ a modeled assumption in `references/physical_deliverability_adjustments.csv`.
 
 The source case remains a complete 8760-hour input. Full-year GTEP solved to
 `OPTIMAL`; the strict GTEP-to-PCM handoff and the detailed PCM constraints were
-validated on a 744-hour July slice, which solved to `OPTIMAL` with zero load
-shedding, zero RPS slack, and every configured acceptance check passing.
+validated with 48 preceding June warm-up hours plus a 744-hour July evaluation
+slice. The 792-hour PCM horizon solved to `OPTIMAL` with zero load shedding,
+zero RPS slack, and every configured acceptance check passing.
 
 The monolithic 8760-hour PCM construction exceeded the 32 GB workstation's
 memory (about 27.6 GB private memory at failure). No hours or network elements

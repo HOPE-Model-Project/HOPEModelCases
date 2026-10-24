@@ -64,7 +64,9 @@ def copy_case_without_outputs(source: Path, target: Path) -> None:
     shutil.copytree(source, target, ignore=ignore)
 
 
-def materialize_pcm_month_validation(root: Path, month: int) -> None:
+def materialize_pcm_month_validation(
+    root: Path, month: int, warmup_hours: int = 0
+) -> None:
     """Create an isolated annual-GTEP/monthly-PCM functional validation pair.
 
     The published cases remain 8760-hour inputs.  This helper is only a bounded-
@@ -73,6 +75,8 @@ def materialize_pcm_month_validation(root: Path, month: int) -> None:
     """
     if month not in range(1, 13):
         raise ValueError("validation month must be in 1..12")
+    if warmup_hours < 0:
+        raise ValueError("validation warmup hours must be non-negative")
     if root.exists():
         raise FileExistsError(f"Validation root already exists: {root}")
     gtep_target = root / "gtep_case"
@@ -92,17 +96,48 @@ def materialize_pcm_month_validation(root: Path, month: int) -> None:
         "gen_availability_timeseries.csv",
     )
     row_count: int | None = None
+    evaluation_hours: int | None = None
+    selected_calendar: list[tuple[str, str, str]] | None = None
     for filename in time_files:
         path = pcm_data / filename
         header, rows = read_csv(path)
-        selected = [row for row in rows if int(row["Month"]) == month]
-        if not selected:
+        evaluation_indices = [
+            index for index, row in enumerate(rows) if int(row["Month"]) == month
+        ]
+        if not evaluation_indices:
             raise ValueError(f"No rows for month {month} in {path}")
+        first_evaluation = evaluation_indices[0]
+        last_evaluation = evaluation_indices[-1]
+        if evaluation_indices != list(range(first_evaluation, last_evaluation + 1)):
+            raise ValueError(f"Month {month} is not contiguous in {path}")
+        if warmup_hours > first_evaluation:
+            raise ValueError(
+                f"Requested {warmup_hours} warm-up hours before month {month}, "
+                f"but only {first_evaluation} preceding rows exist in {path}"
+            )
+        selected = rows[first_evaluation - warmup_hours : last_evaluation + 1]
+        calendar = [
+            (row["Month"], row["Day"], row["Hours"]) for row in selected
+        ]
+        if evaluation_hours is None:
+            evaluation_hours = len(evaluation_indices)
+        elif len(evaluation_indices) != evaluation_hours:
+            raise ValueError(f"Monthly evaluation chronology mismatch in {path}")
         if row_count is None:
             row_count = len(selected)
         elif len(selected) != row_count:
             raise ValueError(f"Monthly chronology mismatch in {path}")
+        if selected_calendar is None:
+            selected_calendar = calendar
+        elif calendar != selected_calendar:
+            raise ValueError(f"Monthly calendar mismatch in {path}")
         write_csv(path, header, selected)
+
+    assert row_count is not None
+    assert evaluation_hours is not None
+    assert selected_calendar is not None
+    evaluation_start_hour = warmup_hours + 1
+    evaluation_end_hour = row_count
 
     write_text(
         root / "validation_slice.yml",
@@ -114,10 +149,16 @@ pcm_source: {TARGET_PCM}
 gtep_hours: 8760
 pcm_month: {month}
 pcm_hours: {row_count}
+pcm_warmup_hours: {warmup_hours}
+pcm_evaluation_hours: {evaluation_hours}
+pcm_evaluation_start_hour: {evaluation_start_hour}
+pcm_evaluation_end_hour: {evaluation_end_hour}
 production_benchmark: false
 note: The published source cases remain full-year. This slice validates the annual
   GTEP solve, deterministic physical handoff, and detailed PCM formulation on one
-  calendar month; it is not a substitute for the annual PCM result.
+  calendar month. Preceding warm-up hours initialize chronological operating state
+  but are outside the evaluation period. This is not a substitute for the annual
+  PCM result.
 """,
     )
     write_text(
@@ -143,7 +184,10 @@ println("Holistic coverage passed: ", report["all_passed"])
 """,
     )
     print(f"Created validation pair at {root}")
-    print(f"PCM validation month={month}; rows={row_count}")
+    print(
+        f"PCM validation month={month}; evaluation rows={evaluation_hours}; "
+        f"warm-up rows={warmup_hours}; total rows={row_count}"
+    )
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -245,13 +289,46 @@ def write_annual_regional_files(
         write_csv(target_data / filename, [*TIME_COLUMNS, *value_columns], rows)
 
 
-def write_static_availability_calendar(
-    annual_load: list[dict[str, str]], target_data: Path
+def write_generator_availability_calendar(
+    annual: dict[str, list[dict[str, str]]], target_data: Path
 ) -> None:
-    rows = [{column: row[column] for column in TIME_COLUMNS} for row in annual_load]
+    """Write generator-level hourly AFs using zonal VRE profiles when available.
+
+    GTEP consumes ``gen_availability_timeseries.csv`` directly. Leaving its
+    generator columns empty makes VRE candidates fall back to static ``AF`` and
+    can therefore model solar or wind at a 100% capacity factor. Match PCM's
+    established behavior: solar and wind use their zonal hourly profiles, while
+    dispatchable resources retain their static AF. FOR remains separate and is
+    applied by the model in both stages.
+    """
+    _, existing = read_csv(target_data / "gendata.csv")
+    candidate_path = target_data / "gendata_candidate.csv"
+    candidates = read_csv(candidate_path)[1] if candidate_path.is_file() else []
+    generators = [*existing, *candidates]
+    load_rows = annual["load_timeseries_regional.csv"]
+    wind_rows = annual["wind_timeseries_regional.csv"]
+    solar_rows = annual["solar_timeseries_regional.csv"]
+    if not (len(load_rows) == len(wind_rows) == len(solar_rows)):
+        raise ValueError("Annual load, wind, and solar chronologies are misaligned")
+
+    rows: list[dict[str, str]] = []
+    for hour_index, load_row in enumerate(load_rows):
+        row = {column: load_row[column] for column in TIME_COLUMNS}
+        for generator_index, generator in enumerate(generators, start=1):
+            technology = generator["Type"]
+            zone = generator["Zone"]
+            static_af = float(generator.get("AF", "1.0") or 1.0)
+            if technology == "SolarPV" and zone in solar_rows[hour_index]:
+                availability = float(solar_rows[hour_index][zone])
+            elif technology in {"WindOn", "WindOff"} and zone in wind_rows[hour_index]:
+                availability = float(wind_rows[hour_index][zone])
+            else:
+                availability = static_af
+            row[f"G{generator_index}"] = str(min(1.0, max(0.0, availability)))
+        rows.append(row)
     write_csv(
         target_data / "gen_availability_timeseries.csv",
-        TIME_COLUMNS,
+        [*TIME_COLUMNS, *[f"G{i}" for i in range(1, len(generators) + 1)]],
         rows,
     )
 
@@ -780,13 +857,13 @@ resolution:
   pcm_physical_buses: 656
   pcm_physical_branches: 838
 availability:
-  method: static generator AF and FOR parameters
-  reason: no identity-compatible annual unit-outage trace is available
+  method: zonal hourly solar/wind profiles; static AF for dispatchable resources; FOR applied separately
+  reason: hourly weather chronology is available, but no identity-compatible annual unit-outage trace is available
 validation:
   structural_status: passed
   full_year_gtep_status: optimal
   full_year_pcm_status: memory_limited_during_model_construction
-  bounded_pcm_status: july_744h_optimal_all_acceptance_checks_passed
+  bounded_pcm_status: june_48h_warmup_plus_july_744h_optimal_all_acceptance_checks_passed
   record: ../{TARGET_PCM.name}/references/VALIDATION.md
 """,
     )
@@ -830,8 +907,8 @@ operations:
   interchange_target: 0 MW
   interchange_capacity: endogenous hourly boundary cap
 availability:
-  method: static generator AF and FOR parameters
-  reason: no identity-compatible annual unit-outage trace is available
+  method: zonal hourly solar/wind profiles; static AF for dispatchable resources; FOR applied separately
+  reason: hourly weather chronology is available, but no identity-compatible annual unit-outage trace is available
 reserve_alignment:
   pcm_upward_requirement_fraction: 0.07
   gtep_spin_proxy_fraction: 0.07
@@ -840,7 +917,7 @@ validation:
   structural_status: passed
   full_year_gtep_status: optimal
   full_year_pcm_status: memory_limited_during_model_construction
-  bounded_pcm_status: july_744h_optimal_all_acceptance_checks_passed
+  bounded_pcm_status: june_48h_warmup_plus_july_744h_optimal_all_acceptance_checks_passed
   record: references/VALIDATION.md
   summary_metrics: references/july_linkage_validation_summary.csv
 """,
@@ -872,10 +949,10 @@ take precedence, but new thermal resources are always realized with
 `Flag_UC = 1`.
 
 `Time Period` is 1 for every row because this is full chronological mode, not
-representative-day mode. No identity-compatible annual generator-outage trace
-is available, so the generator availability CSV contains only aligned calendar
-columns and HOPE uses each generator's `AF` and `FOR` parameters. The July
-outage pattern from the 168-hour case is not repeated throughout the year.
+representative-day mode. Solar and wind rows in the generator availability CSV
+use the corresponding zonal hourly profiles. Dispatchable resources use their
+static `AF`; HOPE applies `FOR` separately. No synthetic outage chronology is
+created, and the July outage pattern from the 168-hour case is not repeated.
 
 Run the linked pair with:
 
@@ -892,7 +969,9 @@ and candidate siting remain documented modeling assumptions.
 The full 8760-hour GTEP stage solved to `OPTIMAL` with Gurobi, zero load
 shedding, and zero RPS slack. The physical handoff and detailed PCM formulation
 were then validated on all 744 hours of July; PCM also solved to `OPTIMAL` and
-passed every acceptance check with zero load shedding and zero RPS slack.
+passed every acceptance check with zero load shedding and zero RPS slack. The
+PCM solve included 48 preceding June warm-up hours so the free initial-state
+boundary lies outside the July evaluation period.
 
 The 656-bus, 8760-hour PCM case is intentionally retained at full resolution.
 Its monolithic construction exceeded memory on the 32 GB validation workstation
@@ -920,9 +999,11 @@ interchange has a zero schedule because no authoritative hourly schedule is
 assumed, while hourly nodal interchange caps allow endogenous imports and
 exports within the documented boundary-interface limits.
 
-Generator-specific annual outage traces are not available with compatible
-stable identities. The case therefore uses generator-level `AF` and `FOR`
-parameters rather than repeating one July week across the year.
+Solar and wind resources use zonal hourly profiles in
+`gen_availability_timeseries.csv`. Dispatchable resources use their static
+`AF`, and HOPE applies `FOR` separately. Generator-specific annual outage
+traces are not available with compatible stable identities, so the case does
+not repeat one July outage week across the year.
 
 The data folder contains `operational_resource_templates.csv`, the PCM-owned
 registry for new GTEP-built generators and storage. Explicit candidate values
@@ -946,8 +1027,9 @@ a modeled assumption in `references/physical_deliverability_adjustments.csv`.
 
 The source case remains a complete 8760-hour input. Full-year GTEP solved to
 `OPTIMAL`; the strict GTEP-to-PCM handoff and the detailed PCM constraints were
-validated on a 744-hour July slice, which solved to `OPTIMAL` with zero load
-shedding, zero RPS slack, and every configured acceptance check passing.
+validated with 48 preceding June warm-up hours plus a 744-hour July evaluation
+slice. The 792-hour PCM horizon solved to `OPTIMAL` with zero load shedding,
+zero RPS slack, and every configured acceptance check passing.
 
 The monolithic 8760-hour PCM construction exceeded the 32 GB workstation's
 memory (about 27.6 GB private memory at failure). No hours or network elements
@@ -965,23 +1047,25 @@ summary derived from the solved annual GTEP and July PCM outputs.
         f"""
 # Validation record
 
-Validated on 2026-10-20 (America/New_York) with Gurobi 13.0.0.
+Validated on 2026-10-23 (America/New_York) with Gurobi 13.0.0.
 
 ## What passed
 
 - The 8760-hour, four-zone GTEP stage reached `OPTIMAL` with objective
-  2,396,599,492.17 USD, zero load shedding, and zero RPS slack.
+  4,112,707,606.34 USD, zero load shedding, and zero RPS slack. Existing and
+  candidate VRE used the same hourly zonal profiles later used by PCM.
 - The strict physical-realization audit passed for 271 existing generators,
   12 generation candidates, 4 storage candidates, 838 branches, and 656 buses.
-- The PCM-owned operational-template registry populated all three built NGCC
+- The PCM-owned operational-template registry populated all four built NGCC
   rows with `Flag_UC = 1`, two-hour minimum up/down times, and a 15 USD/MW
   startup-cost assumption. The field-level provenance audit passed.
 - The detailed network has one connected component containing every planning
   zone and the external boundary.
 - A bounded end-to-end validation retained the annual GTEP solve and ran the
-  complete 656-bus PCM formulation for all 744 hours of July. PCM reached
-  `OPTIMAL` with objective 201,932,586.63 USD, zero load shedding, zero RPS
-  slack, and all acceptance checks passing.
+  complete 656-bus PCM formulation with 48 preceding June warm-up hours plus
+  all 744 evaluation hours of July. PCM reached `OPTIMAL` with objective
+  158,130,773.90 USD over the complete 792-hour solve horizon, zero load
+  shedding, zero RPS slack, and all acceptance checks passing.
 
 The July run exercises nodal angle-based DCOPF, unit commitment, REG-UP,
 REG-DOWN, SPIN, NSPIN, storage chronology, the local 20% RPS, transferred new
@@ -997,23 +1081,24 @@ It is a functional integration validation, not an annual operating result.
    predefined PCM bus. HOPE writes realized generator, storage, and branch
    tables under `output_holistic/realized_inputs/` without changing either
    source case.
-3. PCM reads July's 744 chronological hours on 656 buses and 838 branches and
-   operates the transferred system with unit commitment, DC power flow,
-   reserves, storage chronology, and the local RPS.
+3. PCM reads 48 preceding June warm-up hours followed by July's 744 evaluation
+   hours on 656 buses and 838 branches. It operates the transferred system with
+   unit commitment, DC power flow, reserves, storage chronology, and the local
+   RPS. The warm-up moves the free initial-state boundary outside July.
 4. Machine-readable reconciliation and acceptance tables compare the planning
    outputs, realized PCM inputs, and operating results.
 
 ### Annual GTEP decisions transferred to PCM
 
-| Zone | New NGCC (MW) | New solar (MW) | Battery power (MW) | Battery energy (MWh) |
-| --- | ---: | ---: | ---: | ---: |
-| APS_MD | 1,341.6 | 3,557.7 | 1,399.7 | 5,598.9 |
-| BGE | 2,666.9 | 3,085.7 | 1,400.0 | 5,599.9 |
-| DPL_MD | 0.0 | 1,660.5 | 1,347.7 | 5,390.8 |
-| PEPCO | 5,000.0 | 2,586.2 | 668.4 | 2,673.6 |
-| **Total** | **9,008.5** | **10,890.1** | **4,815.8** | **19,263.2** |
+| Zone | New NGCC (MW) | New solar (MW) | New onshore wind (MW) | Battery power (MW) | Battery energy (MWh) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| APS_MD | 1,615.6 | 5,000.0 | 4,000.0 | 1,503.8 | 6,015.3 |
+| BGE | 1,718.0 | 3,275.4 | 895.6 | 1,504.7 | 6,018.7 |
+| DPL_MD | 1,056.5 | 1,804.3 | 553.3 | 1,501.5 | 6,005.9 |
+| PEPCO | 1,592.6 | 1,806.4 | 3,076.8 | 1,501.1 | 6,004.5 |
+| **Total** | **5,982.8** | **11,886.1** | **8,525.7** | **6,011.1** | **24,044.3** |
 
-Seven generation candidates and all four storage candidates were built. No
+All twelve generation candidates and all four storage candidates were built. No
 retirements or candidate transmission additions were selected in this solve.
 Those transfer paths remain configured but were not exercised by this result.
 
@@ -1021,9 +1106,9 @@ Those transfer paths remain configured but were not exercised by this result.
 
 | Check | GTEP decision | Realized PCM input | Result |
 | --- | ---: | ---: | --- |
-| New generation | 19,898.519 MW | 19,898.519 MW | Pass |
-| New storage power | 4,815.806 MW | 4,815.806 MW | Pass |
-| New storage energy | 19,263.225 MWh | 19,263.225 MWh | Pass |
+| New generation | 26,394.534 MW | 26,394.534 MW | Pass |
+| New storage power | 6,011.078 MW | 6,011.078 MW | Pass |
+| New storage energy | 24,044.311 MWh | 24,044.311 MWh | Pass |
 | Existing generator crosswalk | 271 assets | 271 assets | Pass |
 | Candidate bus references | 16 candidates | 16 resolved | Pass |
 | Source-case integrity | GTEP and PCM | unchanged | Pass |
@@ -1032,21 +1117,23 @@ Those transfer paths remain configured but were not exercised by this result.
 
 | Metric | Result |
 | --- | ---: |
-| PCM objective | 201,932,586.63 USD |
-| Transferred new-generation dispatch | 5,863,755.3 MWh |
-| Transferred storage charge | 356,810.5 MWh |
-| Transferred storage discharge | 302,004.4 MWh |
-| Operating reserve carried | 1,386,920.8 MWh |
-| Maximum absolute branch flow | 4,816.4 MW |
+| PCM objective, including 48-hour warm-up | 158,130,773.90 USD |
+| July variable generation cost | 151,027,749.62 USD |
+| July transferred new-generation dispatch | 5,939,408.2 MWh |
+| July storage charge | 504,986.9 MWh |
+| July storage discharge | 430,991.9 MWh |
+| July emissions | 1,515,662.5 tons |
+| Operating reserve carried, complete horizon | 1,158,879.5 MWh |
+| Maximum absolute branch flow, complete horizon | 7,371.2 MW |
 | Load shedding | 0.0 MWh |
 | RPS slack | 0.0 MWh |
 | Acceptance checks | All passed |
 
 The compact machine-readable record is
 `references/july_linkage_validation_summary.csv`. The original run evidence is
-under `artifacts/agent_runs/md-rps20-operational-template-july-v2/` in the HOPE
-working tree; generated artifacts are intentionally not part of the published
-input case.
+under the agent request `md-rps20-july-346ff65a2b52456b9e9f643a7fa032f5`
+in the HOPE working tree; generated artifacts are intentionally not part of the
+published input case.
 
 ## Interpretation boundary
 
@@ -1086,7 +1173,7 @@ Create the bounded July validation workspace without modifying either source
 case, then run it:
 
 ```powershell
-python ModelCases/tools/md_transmission_case_related/build_md_rps20_full8760_holistic_pair.py --validation-month 7 --validation-root artifacts/agent_runs/md-rps20-july-validation
+python ModelCases/tools/md_transmission_case_related/build_md_rps20_full8760_holistic_pair.py --validation-month 7 --validation-warmup-hours 48 --validation-root artifacts/agent_runs/md-rps20-july-validation
 julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
 ```
 """,
@@ -1096,31 +1183,35 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
         TARGET_PCM / "references" / "july_linkage_validation_summary.csv",
         ["Stage", "Metric", "Value", "Unit", "Evidence"],
         [
-            {"Stage": "Metadata", "Metric": "validation_date", "Value": "2026-10-20", "Unit": "America/New_York", "Evidence": "reference validation run"},
+            {"Stage": "Metadata", "Metric": "validation_date", "Value": "2026-10-23", "Unit": "America/New_York", "Evidence": "reference validation run"},
             {"Stage": "Metadata", "Metric": "solver", "Value": "Gurobi 13.0.0", "Unit": "version", "Evidence": "reference validation run"},
-            {"Stage": "Metadata", "Metric": "reference_run_id", "Value": "md-rps20-operational-template-july-v2", "Unit": "identifier", "Evidence": "artifacts/agent_runs"},
+            {"Stage": "Metadata", "Metric": "reference_run_id", "Value": "md-rps20-july-346ff65a2b52456b9e9f643a7fa032f5", "Unit": "identifier", "Evidence": "artifacts/agent_test_work"},
             {"Stage": "GTEP", "Metric": "chronology", "Value": 8760, "Unit": "hours", "Evidence": "annual source case"},
             {"Stage": "GTEP", "Metric": "termination_status", "Value": "OPTIMAL", "Unit": "status", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "GTEP", "Metric": "objective", "Value": 2396599492.168707, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "GTEP", "Metric": "new_generation", "Value": 19898.518913131313, "Unit": "MW", "Evidence": "capacity.csv"},
-            {"Stage": "GTEP", "Metric": "new_storage_power", "Value": 4815.8062091904285, "Unit": "MW", "Evidence": "es_capacity.csv"},
-            {"Stage": "GTEP", "Metric": "new_storage_energy", "Value": 19263.224836761714, "Unit": "MWh", "Evidence": "es_capacity.csv"},
+            {"Stage": "GTEP", "Metric": "objective", "Value": 4112707606.3447447, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "GTEP", "Metric": "new_generation", "Value": 26394.533547076157, "Unit": "MW", "Evidence": "generation_builds_audit.csv"},
+            {"Stage": "GTEP", "Metric": "new_storage_power", "Value": 6011.077705139938, "Unit": "MW", "Evidence": "storage_builds_audit.csv"},
+            {"Stage": "GTEP", "Metric": "new_storage_energy", "Value": 24044.310820559753, "Unit": "MWh", "Evidence": "storage_builds_audit.csv"},
             {"Stage": "Handoff", "Metric": "existing_assets_crosswalked", "Value": 271, "Unit": "assets", "Evidence": "handoff_contract_checks.csv"},
             {"Stage": "Handoff", "Metric": "generation_candidates_resolved", "Value": 12, "Unit": "candidates", "Evidence": "handoff_contract_checks.csv"},
             {"Stage": "Handoff", "Metric": "storage_candidates_resolved", "Value": 4, "Unit": "candidates", "Evidence": "handoff_contract_checks.csv"},
-            {"Stage": "Handoff", "Metric": "new_generation_reconciled", "Value": 19898.518913131313, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
-            {"Stage": "Handoff", "Metric": "new_storage_power_reconciled", "Value": 4815.8062091904285, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
+            {"Stage": "Handoff", "Metric": "new_generation_reconciled", "Value": 26394.533547076157, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
+            {"Stage": "Handoff", "Metric": "new_storage_power_reconciled", "Value": 6011.077705139938, "Unit": "MW", "Evidence": "transfer_reconciliation_checks.csv"},
             {"Stage": "Handoff", "Metric": "source_cases_unchanged", "Value": True, "Unit": "boolean", "Evidence": "handoff_contract_checks.csv"},
-            {"Stage": "Handoff", "Metric": "operational_template_assets", "Value": 7, "Unit": "assets", "Evidence": "operational_parameters_audit.csv"},
-            {"Stage": "Handoff", "Metric": "new_thermal_generation_uc", "Value": 3, "Unit": "resources", "Evidence": "realized_inputs/gendata.csv"},
-            {"Stage": "PCM", "Metric": "chronology", "Value": 744, "Unit": "hours", "Evidence": "July validation slice"},
+            {"Stage": "Handoff", "Metric": "operational_template_assets", "Value": 12, "Unit": "assets", "Evidence": "operational_parameters_audit.csv"},
+            {"Stage": "Handoff", "Metric": "new_thermal_generation_uc", "Value": 4, "Unit": "resources", "Evidence": "realized_inputs/gendata.csv"},
+            {"Stage": "PCM", "Metric": "solve_chronology", "Value": 792, "Unit": "hours", "Evidence": "48 warm-up plus 744 evaluation hours"},
+            {"Stage": "PCM", "Metric": "warmup_chronology", "Value": 48, "Unit": "hours", "Evidence": "preceding June hours"},
+            {"Stage": "PCM", "Metric": "evaluation_chronology", "Value": 744, "Unit": "hours", "Evidence": "July evaluation slice"},
             {"Stage": "PCM", "Metric": "termination_status", "Value": "OPTIMAL", "Unit": "status", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "objective", "Value": 201932586.6348897, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "new_generation_dispatch", "Value": 5863755.34489549, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "new_storage_charge", "Value": 356810.53578190197, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "new_storage_discharge", "Value": 302004.4374858025, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "operating_reserve", "Value": 1386920.782117107, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
-            {"Stage": "PCM", "Metric": "maximum_absolute_branch_flow", "Value": 4816.371082753038, "Unit": "MW", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "solve_horizon_objective", "Value": 158130773.9001629, "Unit": "USD", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "july_variable_generation_cost", "Value": 151027749.61619928, "Unit": "USD", "Evidence": "power_hourly.csv hours 49-792"},
+            {"Stage": "PCM", "Metric": "july_new_generation_dispatch", "Value": 5939408.18438709, "Unit": "MWh", "Evidence": "power_hourly.csv hours 49-792"},
+            {"Stage": "PCM", "Metric": "july_storage_charge", "Value": 504986.9324604466, "Unit": "MWh", "Evidence": "es_power_charge.csv hours 49-792"},
+            {"Stage": "PCM", "Metric": "july_storage_discharge", "Value": 430991.9240246227, "Unit": "MWh", "Evidence": "es_power_discharge.csv hours 49-792"},
+            {"Stage": "PCM", "Metric": "july_emissions", "Value": 1515662.5331447609, "Unit": "tons", "Evidence": "Summary_System_Hourly.csv hours 49-792"},
+            {"Stage": "PCM", "Metric": "operating_reserve_solve_horizon", "Value": 1158879.515404882, "Unit": "MWh", "Evidence": "holistic_coverage.yml"},
+            {"Stage": "PCM", "Metric": "maximum_absolute_branch_flow_solve_horizon", "Value": 7371.180746601971, "Unit": "MW", "Evidence": "holistic_coverage.yml"},
             {"Stage": "PCM", "Metric": "load_shedding", "Value": 0.0, "Unit": "MWh", "Evidence": "holistic_acceptance_checks.csv"},
             {"Stage": "PCM", "Metric": "rps_slack", "Value": 0.0, "Unit": "MWh", "Evidence": "holistic_acceptance_checks.csv"},
             {"Stage": "PCM", "Metric": "acceptance_all_passed", "Value": True, "Unit": "boolean", "Evidence": "holistic_acceptance_checks.csv"},
@@ -1160,7 +1251,10 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
             "paired_gtep_case": TARGET_GTEP.name,
             "chronology_source": str(CHRONOLOGY_DATA.relative_to(MODELCASES)),
             "chronology_mode": "full",
-            "generator_availability_method": "static AF and FOR parameters",
+            "generator_availability_method": (
+                "zonal hourly solar/wind profiles; static AF for dispatchable "
+                "resources; FOR applied separately"
+            ),
             "physical_deliverability_adjustment": {
                 "corridor_id": DELIVERABILITY_CORRIDOR,
                 "original_capacity_mw": DELIVERABILITY_ORIGINAL_MW,
@@ -1194,7 +1288,10 @@ julia --project=. artifacts/agent_runs/md-rps20-july-validation/run_pair.jl
             "original_capacity_mw": DELIVERABILITY_ORIGINAL_MW,
             "adjusted_capacity_mw": DELIVERABILITY_ADJUSTED_MW,
         },
-        "generator_availability_method": "static AF and FOR parameters",
+        "generator_availability_method": (
+            "zonal hourly solar/wind profiles; static AF for dispatchable "
+            "resources; FOR applied separately"
+        ),
         "interchange_target_mw": 0.0,
         **validation_metrics,
         "files": {
@@ -1245,6 +1342,42 @@ def validate_generated_pair(target_gtep_data: Path, target_pcm_data: Path) -> No
             raise ValueError(f"{path} has an invalid first hour")
         if rows[-1]["Month"] != "12" or rows[-1]["Day"] != "31" or rows[-1]["Hours"] != "24":
             raise ValueError(f"{path} has an invalid last hour")
+
+    gtep_af_header, gtep_af_rows = read_csv(
+        target_gtep_data / "gen_availability_timeseries.csv"
+    )
+    _, gtep_existing = read_csv(target_gtep_data / "gendata.csv")
+    _, gtep_candidates = read_csv(target_gtep_data / "gendata_candidate.csv")
+    gtep_generators = [*gtep_existing, *gtep_candidates]
+    expected_af_columns = [f"G{i}" for i in range(1, len(gtep_generators) + 1)]
+    missing_af_columns = [
+        column for column in expected_af_columns if column not in gtep_af_header
+    ]
+    if missing_af_columns:
+        raise ValueError(
+            "GTEP generator availability is missing columns: "
+            + ", ".join(missing_af_columns)
+        )
+    _, wind_rows = read_csv(target_gtep_data / "wind_timeseries_regional.csv")
+    _, solar_rows = read_csv(target_gtep_data / "solar_timeseries_regional.csv")
+    for generator_index, generator in enumerate(gtep_generators, start=1):
+        technology = generator["Type"]
+        zone = generator["Zone"]
+        if technology == "SolarPV":
+            expected_rows = solar_rows
+        elif technology in {"WindOn", "WindOff"}:
+            expected_rows = wind_rows
+        else:
+            continue
+        column = f"G{generator_index}"
+        for hour_index in (0, EXPECTED_HOURS // 2, EXPECTED_HOURS - 1):
+            observed = float(gtep_af_rows[hour_index][column])
+            expected = float(expected_rows[hour_index][zone])
+            if abs(observed - expected) > 1.0e-12:
+                raise ValueError(
+                    f"{column} ({technology}, {zone}) availability does not match "
+                    f"its zonal profile at row {hour_index + 1}"
+                )
 
     _, target_rows = read_csv(target_pcm_data / "ni_timeseries_nodal_target.csv")
     if any(
@@ -1388,6 +1521,16 @@ def main() -> None:
         type=Path,
         help="Destination used with --validation-month.",
     )
+    parser.add_argument(
+        "--validation-warmup-hours",
+        type=int,
+        default=0,
+        help=(
+            "Prepend this many chronological hours before the validation month. "
+            "Warm-up hours initialize UC and storage state but are outside the "
+            "reported evaluation period."
+        ),
+    )
     args = parser.parse_args()
     for required in (SOURCE_GTEP, SOURCE_PCM, CHRONOLOGY_DATA):
         if not required.is_dir():
@@ -1406,22 +1549,22 @@ def main() -> None:
             parser.error("--validation-root is required with --validation-month")
         validate_generated_pair(TARGET_GTEP / GTEP_DATA_NAME, TARGET_PCM / PCM_DATA_NAME)
         materialize_pcm_month_validation(
-            args.validation_root.resolve(), args.validation_month
+            args.validation_root.resolve(),
+            args.validation_month,
+            args.validation_warmup_hours,
         )
         return
     if args.validation_root is not None:
         parser.error("--validation-root requires --validation-month")
+    if args.validation_warmup_hours != 0:
+        parser.error("--validation-warmup-hours requires --validation-month")
 
     target_gtep_data, target_pcm_data = build_case_skeletons()
     annual = build_annual_regional_rows()
     write_annual_regional_files(annual, target_gtep_data)
     write_annual_regional_files(annual, target_pcm_data)
-    write_static_availability_calendar(
-        annual["load_timeseries_regional.csv"], target_gtep_data
-    )
-    write_static_availability_calendar(
-        annual["load_timeseries_regional.csv"], target_pcm_data
-    )
+    write_generator_availability_calendar(annual, target_gtep_data)
+    write_generator_availability_calendar(annual, target_pcm_data)
     validation_metrics = write_annual_nodal_files(
         annual["load_timeseries_regional.csv"],
         SOURCE_PCM / "Data_MD_PCM_RPS20_transmission_public",

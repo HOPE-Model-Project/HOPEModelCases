@@ -23,10 +23,11 @@ take precedence, but new thermal resources are always realized with
 `Flag_UC = 1`.
 
 `Time Period` is 1 for every row because this is full chronological mode, not
-representative-day mode. No identity-compatible annual generator-outage trace
-is available, so the generator availability CSV contains only aligned calendar
-columns and HOPE uses each generator's `AF` and `FOR` parameters. The July
-outage pattern from the 168-hour case is not repeated throughout the year.
+representative-day mode. Solar and wind generator rows use their zonal hourly
+profiles in `gen_availability_timeseries.csv`. Dispatchable resources retain
+their static `AF`, and HOPE applies `FOR` separately. No identity-compatible
+annual unit-outage trace is available, so the July outage pattern from the
+168-hour case is not repeated throughout the year.
 
 Run the linked pair with:
 
@@ -43,7 +44,9 @@ and candidate siting remain documented modeling assumptions.
 The full 8760-hour GTEP stage solved to `OPTIMAL` with Gurobi, zero load
 shedding, and zero RPS slack. The physical handoff and detailed PCM formulation
 were then validated on all 744 hours of July; PCM also solved to `OPTIMAL` and
-passed every acceptance check with zero load shedding and zero RPS slack.
+passed every acceptance check with zero load shedding and zero RPS slack. The
+PCM solve included 48 preceding June warm-up hours so the free initial-state
+boundary lies outside the July evaluation period.
 
 The 656-bus, 8760-hour PCM case is intentionally retained at full resolution.
 Its monolithic construction exceeded memory on the 32 GB validation workstation

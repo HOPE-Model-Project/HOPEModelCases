@@ -1,29 +1,33 @@
 Stage,Metric,Value,Unit,Evidence
-Metadata,validation_date,2026-10-20,America/New_York,reference validation run
+Metadata,validation_date,2026-10-23,America/New_York,reference validation run
 Metadata,solver,Gurobi 13.0.0,version,reference validation run
-Metadata,reference_run_id,md-rps20-operational-template-july-v2,identifier,artifacts/agent_runs
+Metadata,reference_run_id,md-rps20-july-346ff65a2b52456b9e9f643a7fa032f5,identifier,artifacts/agent_test_work
 GTEP,chronology,8760,hours,annual source case
 GTEP,termination_status,OPTIMAL,status,holistic_coverage.yml
-GTEP,objective,2396599492.168707,USD,holistic_coverage.yml
-GTEP,new_generation,19898.518913131313,MW,capacity.csv
-GTEP,new_storage_power,4815.8062091904285,MW,es_capacity.csv
-GTEP,new_storage_energy,19263.224836761714,MWh,es_capacity.csv
+GTEP,objective,4112707606.3447447,USD,holistic_coverage.yml
+GTEP,new_generation,26394.533547076157,MW,generation_builds_audit.csv
+GTEP,new_storage_power,6011.077705139938,MW,storage_builds_audit.csv
+GTEP,new_storage_energy,24044.310820559753,MWh,storage_builds_audit.csv
 Handoff,existing_assets_crosswalked,271,assets,handoff_contract_checks.csv
 Handoff,generation_candidates_resolved,12,candidates,handoff_contract_checks.csv
 Handoff,storage_candidates_resolved,4,candidates,handoff_contract_checks.csv
-Handoff,new_generation_reconciled,19898.518913131313,MW,transfer_reconciliation_checks.csv
-Handoff,new_storage_power_reconciled,4815.8062091904285,MW,transfer_reconciliation_checks.csv
+Handoff,new_generation_reconciled,26394.533547076157,MW,transfer_reconciliation_checks.csv
+Handoff,new_storage_power_reconciled,6011.077705139938,MW,transfer_reconciliation_checks.csv
 Handoff,source_cases_unchanged,True,boolean,handoff_contract_checks.csv
-Handoff,operational_template_assets,7,assets,operational_parameters_audit.csv
-Handoff,new_thermal_generation_uc,3,resources,realized_inputs/gendata.csv
-PCM,chronology,744,hours,July validation slice
+Handoff,operational_template_assets,12,assets,operational_parameters_audit.csv
+Handoff,new_thermal_generation_uc,4,resources,realized_inputs/gendata.csv
+PCM,solve_chronology,792,hours,48 warm-up plus 744 evaluation hours
+PCM,warmup_chronology,48,hours,preceding June hours
+PCM,evaluation_chronology,744,hours,July evaluation slice
 PCM,termination_status,OPTIMAL,status,holistic_coverage.yml
-PCM,objective,201932586.6348897,USD,holistic_coverage.yml
-PCM,new_generation_dispatch,5863755.34489549,MWh,holistic_coverage.yml
-PCM,new_storage_charge,356810.53578190197,MWh,holistic_coverage.yml
-PCM,new_storage_discharge,302004.4374858025,MWh,holistic_coverage.yml
-PCM,operating_reserve,1386920.782117107,MWh,holistic_coverage.yml
-PCM,maximum_absolute_branch_flow,4816.371082753038,MW,holistic_coverage.yml
+PCM,solve_horizon_objective,158130773.9001629,USD,holistic_coverage.yml
+PCM,july_variable_generation_cost,151027749.61619928,USD,power_hourly.csv hours 49-792
+PCM,july_new_generation_dispatch,5939408.18438709,MWh,power_hourly.csv hours 49-792
+PCM,july_storage_charge,504986.9324604466,MWh,es_power_charge.csv hours 49-792
+PCM,july_storage_discharge,430991.9240246227,MWh,es_power_discharge.csv hours 49-792
+PCM,july_emissions,1515662.5331447609,tons,Summary_System_Hourly.csv hours 49-792
+PCM,operating_reserve_solve_horizon,1158879.515404882,MWh,holistic_coverage.yml
+PCM,maximum_absolute_branch_flow_solve_horizon,7371.180746601971,MW,holistic_coverage.yml
 PCM,load_shedding,0.0,MWh,holistic_acceptance_checks.csv
 PCM,rps_slack,0.0,MWh,holistic_acceptance_checks.csv
 PCM,acceptance_all_passed,True,boolean,holistic_acceptance_checks.csv

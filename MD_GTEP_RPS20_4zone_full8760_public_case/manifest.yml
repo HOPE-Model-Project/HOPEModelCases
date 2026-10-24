@@ -22,8 +22,8 @@ resolution:
   pcm_physical_buses: 656
   pcm_physical_branches: 838
 availability:
-  method: static generator AF and FOR parameters
-  reason: no identity-compatible annual unit-outage trace is available
+  method: zonal hourly solar/wind profiles; static AF for dispatchable resources; FOR applied separately
+  reason: hourly weather chronology is available, but no identity-compatible annual unit-outage trace is available
 reserve_alignment:
   pcm_upward_requirement_fraction: 0.07
   gtep_spin_proxy_fraction: 0.07
@@ -32,5 +32,5 @@ validation:
   structural_status: passed
   full_year_gtep_status: optimal
   full_year_pcm_status: memory_limited_during_model_construction
-  bounded_pcm_status: july_744h_optimal_all_acceptance_checks_passed
+  bounded_pcm_status: june_48h_warmup_plus_july_744h_optimal_all_acceptance_checks_passed
   record: ../MD_PCM_RPS20_transmission_full8760_public_case/references/VALIDATION.md
